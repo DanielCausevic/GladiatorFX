@@ -29,7 +29,7 @@ public class RunGladiator extends Application {
         Group root = new Group(imageView);
 
         primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(root, 300, 275));
+        primaryStage.setScene(new Scene(root, 800, 600));
         primaryStage.show();
 
     }
