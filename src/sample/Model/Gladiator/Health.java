@@ -1,4 +1,4 @@
 package sample.Model.Gladiator;
 
-public class HP {
+public class Health {
 }
