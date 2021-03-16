@@ -3,12 +3,10 @@ package sample;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
-import javafx.scene.canvas.Canvas;
-import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
-import sample.GuiController.ArenaController;
+import sample.Controller.GUIController;
 
 import java.io.File;
 
@@ -39,7 +37,7 @@ public class RunGladiator extends Application {
 
     //Kalder vores ArenaController start metode.
     public static void main(String[] args) {
-        Application.launch(ArenaController.class, args);
+        Application.launch(GUIController.class, args);
 
 
     }
