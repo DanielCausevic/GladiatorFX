@@ -19,7 +19,7 @@ public class RunGladiator extends Application {
 
         ImageView imageView = new ImageView(image);
         imageView.setX(50);
-        imageView.setY(25);
+        imageView.setY(100);
 
         imageView.setFitHeight(455);
         imageView.setFitWidth(500);
@@ -29,9 +29,9 @@ public class RunGladiator extends Application {
         Group root = new Group(imageView);
 
         primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(root, 300, 275));
+        primaryStage.setScene(new Scene(root, 700, 600));
         primaryStage.show();
-
+//test
     }
 //test
 

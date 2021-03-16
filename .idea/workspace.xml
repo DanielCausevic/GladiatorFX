@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="15f113e0-97c4-4941-abda-d5ec94817cf7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sample/resources/testGlad.PNG" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GladiatorFX/sample/RunGladiator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GladiatorFX/sample/RunGladiator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/RunGladiator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/RunGladiator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +31,12 @@
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Thomas Simonsen\Desktop\intelliJ\GladiatorOpgave\GladiatorFX\src\sample\resources" />
+      <recent name="C:\Users\Thomas Simonsen\Desktop\intelliJ\GladiatorOpgave\GladiatorFX\src\sample\resources\images" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
@@ -76,7 +85,7 @@
       <workItem from="1615881040885" duration="2026000" />
       <workItem from="1615884298405" duration="376000" />
       <workItem from="1615884714975" duration="940000" />
-      <workItem from="1615885682348" duration="5769000" />
+      <workItem from="1615885682348" duration="7312000" />
     </task>
     <servers />
   </component>
