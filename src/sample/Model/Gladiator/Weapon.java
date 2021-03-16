@@ -1,13 +1,24 @@
 package sample.Model.Gladiator;
-
+/**
+ * @Author Daniel
+ * @Author Nicolai
+ *
+ * This class is used as a blueprint to make weapons
+ */
 public class Weapon extends Equipment{
 
-    String name;
-    boolean isDefensive;
+    private String name;
 
-    public Weapon(String name, boolean isDefensive, int hitPoints, double weight) {
+    public Weapon(String name, int hitPoints, double weight) {
         super(hitPoints, weight);
         this.name = name;
-        this.isDefensive = isDefensive;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }
