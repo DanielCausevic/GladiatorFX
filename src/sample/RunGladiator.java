@@ -1,14 +1,18 @@
 package sample;
 
 import javafx.application.Application;
+import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.canvas.Canvas;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import sample.Controller.GUIController;
 
 import java.io.File;
+
 
 public class RunGladiator extends Application {
 
@@ -32,6 +36,40 @@ public class RunGladiator extends Application {
         primaryStage.setTitle("Arena");
         primaryStage.setScene(new Scene(root, 800, 600));
         primaryStage.show();
+
+        Canvas canvas = new Canvas(500, 500);
+        //Image restart = new Image("restart.png");
+
+        root.getChildren().add(canvas);
+
+
+        primaryStage.getScene().setOnMouseClicked(
+                new EventHandler<MouseEvent>() {
+                    public void handle(MouseEvent e) {
+                        if (pressedOnMovement) {
+                            if (pressedMoveRight) {
+                                moveRight();
+                            } else if (pressedMoveLeft) {
+                                moveLeft();
+                            } else {
+                                characterStay();
+                            }
+                        } else if (pressedOnAttack) {
+                            if (enemyGetShield == true) {
+                                get.shieldHP - hitValue;
+                            } else if (enemyHasNoShield) {
+                                (get.health-(hitvalue/2) && get.ArmorHP-(hitvalue/2));
+                            } else if (enemyHasNoShieldAndNoArmor) {
+                                get.healthHp - hitValue;
+                            }
+                        }
+
+                    }
+                });
+
+//Først movement
+
+
     }
 
 
@@ -42,3 +80,7 @@ public class RunGladiator extends Application {
 
     }
 }
+
+
+
+
