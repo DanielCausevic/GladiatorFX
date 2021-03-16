@@ -1,5 +1,10 @@
 package sample.Arena;
 
+/**
+ * @author Yannick Brot Christensen
+ * The point class is used as a coordinate.
+ */
+
 public class Point {
 
     private int x;

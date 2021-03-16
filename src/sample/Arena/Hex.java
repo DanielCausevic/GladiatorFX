@@ -1,5 +1,10 @@
 package sample.Arena;
 
+/**
+ * @author Yannick Brot Christensen
+ * Hex class used as a tile in the arena class
+ */
+
 public class Hex {
 
     private int size;
