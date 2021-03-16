@@ -1,0 +1,81 @@
+Index: src/sample/Arena/Arena.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package sample.Arena;\r\n/**\r\n * @author Yannick Brot Christensen\r\n * Class creates and contains a hexagonal grid in a 2dArray.\r\n */\r\n\r\n\r\npublic class Arena {\r\n\r\n    private Hex[][] arena;\r\n\r\n    //Creates double width hexagonal grid\r\n    public void initArena(int width){\r\n        for (int i = 0; i < width; i++) {\r\n            for (int j = 0; j < width/2; j++) {\r\n                arena[i][j] = new Hex();\r\n            }\r\n        }\r\n    }\r\n\r\n\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/sample/Arena/Arena.java b/src/sample/Arena/Arena.java
+--- a/src/sample/Arena/Arena.java	(revision 9bc980deff9d769a4073f733540c6f2c97408112)
++++ b/src/sample/Arena/Arena.java	(date 1615890259111)
+@@ -17,7 +17,4 @@
+             }
+         }
+     }
+-
+-
+-
+ }
+Index: .idea/libraries/lib.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/libraries/lib.xml b/.idea/libraries/lib.xml
+new file mode 100644
+--- /dev/null	(date 1615890259116)
++++ b/.idea/libraries/lib.xml	(date 1615890259116)
+@@ -0,0 +1,13 @@
++<component name="libraryTable">
++  <library name="lib">
++    <CLASSES>
++      <root url="file://$PROJECT_DIR$/../../../../../../MSI/javaFX/javafx-sdk-11.0.2/lib" />
++    </CLASSES>
++    <JAVADOC />
++    <SOURCES>
++      <root url="file://$PROJECT_DIR$/../../../../../../MSI/javaFX/javafx-sdk-11.0.2/lib" />
++    </SOURCES>
++    <jarDirectory url="file://$PROJECT_DIR$/../../../../../../MSI/javaFX/javafx-sdk-11.0.2/lib" recursive="false" />
++    <jarDirectory url="file://$PROJECT_DIR$/../../../../../../MSI/javaFX/javafx-sdk-11.0.2/lib" recursive="false" type="SOURCES" />
++  </library>
++</component>
+\ No newline at end of file
+Index: GladiatorFX.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<module type=\"JAVA_MODULE\" version=\"4\">\r\n  <component name=\"NewModuleRootManager\" inherit-compiler-output=\"true\">\r\n    <exclude-output />\r\n    <content url=\"file://$MODULE_DIR$\">\r\n      <sourceFolder url=\"file://$MODULE_DIR$/src\" isTestSource=\"false\" />\r\n    </content>\r\n    <orderEntry type=\"inheritedJdk\" />\r\n    <orderEntry type=\"sourceFolder\" forTests=\"false\" />\r\n    <orderEntry type=\"library\" exported=\"\" scope=\"RUNTIME\" name=\"lib\" level=\"project\" />\r\n  </component>\r\n</module>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/GladiatorFX.iml b/GladiatorFX.iml
+--- a/GladiatorFX.iml	(revision 9bc980deff9d769a4073f733540c6f2c97408112)
++++ b/GladiatorFX.iml	(date 1615890259121)
+@@ -7,6 +7,6 @@
+     </content>
+     <orderEntry type="inheritedJdk" />
+     <orderEntry type="sourceFolder" forTests="false" />
+-    <orderEntry type="library" exported="" scope="RUNTIME" name="lib" level="project" />
++    <orderEntry type="library" name="lib" level="project" />
+   </component>
+ </module>
+\ No newline at end of file
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ProjectKey\">\r\n    <option name=\"state\" value=\"project://e79810c8-c5c8-43b1-b19c-90c1f4095425\" />\r\n  </component>\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_13\" default=\"true\" project-jdk-name=\"13\" project-jdk-type=\"JavaSDK\">\r\n    <output url=\"file://$PROJECT_DIR$/out\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision 9bc980deff9d769a4073f733540c6f2c97408112)
++++ b/.idea/misc.xml	(date 1615890259127)
+@@ -3,7 +3,7 @@
+   <component name="ProjectKey">
+     <option name="state" value="project://e79810c8-c5c8-43b1-b19c-90c1f4095425" />
+   </component>
+-  <component name="ProjectRootManager" version="2" languageLevel="JDK_13" default="true" project-jdk-name="13" project-jdk-type="JavaSDK">
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_15" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
+     <output url="file://$PROJECT_DIR$/out" />
+   </component>
+ </project>
+\ No newline at end of file

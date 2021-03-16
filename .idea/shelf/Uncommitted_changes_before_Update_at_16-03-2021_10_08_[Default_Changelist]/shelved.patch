@@ -1,0 +1,68 @@
+Index: out/production/GladiatorFX/sample/sample.fxml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?import javafx.geometry.Insets?>\r\n<?import javafx.scene.layout.GridPane?>\r\n\r\n<?import javafx.scene.control.Button?>\r\n<?import javafx.scene.control.Label?>\r\n<GridPane fx:controller=\"sample.Controller\"\r\n          xmlns:fx=\"http://javafx.com/fxml\" alignment=\"center\" hgap=\"10\" vgap=\"10\">\r\n</GridPane>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/out/production/GladiatorFX/sample/sample.fxml b/out/production/GladiatorFX/sample/sample.fxml
+--- a/out/production/GladiatorFX/sample/sample.fxml	(revision 4f1b9d4ebaebede590636ac7d83833a7d062f7f3)
++++ b/out/production/GladiatorFX/sample/sample.fxml	(date 1615878957097)
+@@ -3,6 +3,6 @@
+ 
+ <?import javafx.scene.control.Button?>
+ <?import javafx.scene.control.Label?>
+-<GridPane fx:controller="sample.Controller"
++<GridPane fx:controller="sample.GuiController.Controller"
+           xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
+ </GridPane>
+\ No newline at end of file
+Index: .idea/libraries/lib.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><component name=\"libraryTable\">\r\n  <library name=\"lib\">\r\n    <CLASSES>\r\n      <root url=\"file://$PROJECT_DIR$/../../javafx-sdk-11.0.2/lib\" />\r\n    </CLASSES>\r\n    <JAVADOC />\r\n    <SOURCES>\r\n      <root url=\"file://$PROJECT_DIR$/../../javafx-sdk-11.0.2/lib\" />\r\n    </SOURCES>\r\n    <jarDirectory url=\"file://$PROJECT_DIR$/../../javafx-sdk-11.0.2/lib\" recursive=\"false\" />\r\n    <jarDirectory url=\"file://$PROJECT_DIR$/../../javafx-sdk-11.0.2/lib\" recursive=\"false\" type=\"SOURCES\" />\r\n  </library>\r\n</component>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/libraries/lib.xml b/.idea/libraries/lib.xml
+--- a/.idea/libraries/lib.xml	(revision 4f1b9d4ebaebede590636ac7d83833a7d062f7f3)
++++ b/.idea/libraries/lib.xml	(date 1615885652594)
+@@ -1,13 +1,13 @@
+ <component name="libraryTable">
+   <library name="lib">
+     <CLASSES>
+-      <root url="file://$PROJECT_DIR$/../../javafx-sdk-11.0.2/lib" />
++      <root url="file://$PROJECT_DIR$/../../../../../../MSI/javaFX/javafx-sdk-11.0.2/lib" />
+     </CLASSES>
+     <JAVADOC />
+     <SOURCES>
+-      <root url="file://$PROJECT_DIR$/../../javafx-sdk-11.0.2/lib" />
++      <root url="file://$PROJECT_DIR$/../../../../../../MSI/javaFX/javafx-sdk-11.0.2/lib" />
+     </SOURCES>
+-    <jarDirectory url="file://$PROJECT_DIR$/../../javafx-sdk-11.0.2/lib" recursive="false" />
+-    <jarDirectory url="file://$PROJECT_DIR$/../../javafx-sdk-11.0.2/lib" recursive="false" type="SOURCES" />
++    <jarDirectory url="file://$PROJECT_DIR$/../../../../../../MSI/javaFX/javafx-sdk-11.0.2/lib" recursive="false" />
++    <jarDirectory url="file://$PROJECT_DIR$/../../../../../../MSI/javaFX/javafx-sdk-11.0.2/lib" recursive="false" type="SOURCES" />
+   </library>
+ </component>
+\ No newline at end of file
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ProjectKey\">\r\n    <option name=\"state\" value=\"project://e79810c8-c5c8-43b1-b19c-90c1f4095425\" />\r\n  </component>\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_13\" default=\"true\" project-jdk-name=\"13\" project-jdk-type=\"JavaSDK\">\r\n    <output url=\"file://$PROJECT_DIR$/out\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision 4f1b9d4ebaebede590636ac7d83833a7d062f7f3)
++++ b/.idea/misc.xml	(date 1615885043492)
+@@ -3,7 +3,7 @@
+   <component name="ProjectKey">
+     <option name="state" value="project://e79810c8-c5c8-43b1-b19c-90c1f4095425" />
+   </component>
+-  <component name="ProjectRootManager" version="2" languageLevel="JDK_13" default="true" project-jdk-name="13" project-jdk-type="JavaSDK">
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_15" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
+     <output url="file://$PROJECT_DIR$/out" />
+   </component>
+ </project>
+\ No newline at end of file
