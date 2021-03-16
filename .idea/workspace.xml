@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="15f113e0-97c4-4941-abda-d5ec94817cf7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/sample/resources/testGlad.PNG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GladiatorFX/sample/RunGladiator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GladiatorFX/sample/RunGladiator.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/RunGladiator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/RunGladiator.java" afterDir="false" />
-    </list>
+    <list default="true" id="15f113e0-97c4-4941-abda-d5ec94817cf7" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -21,6 +16,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -85,7 +81,7 @@
       <workItem from="1615881040885" duration="2026000" />
       <workItem from="1615884298405" duration="376000" />
       <workItem from="1615884714975" duration="940000" />
-      <workItem from="1615885682348" duration="7312000" />
+      <workItem from="1615885682348" duration="7595000" />
     </task>
     <servers />
   </component>
