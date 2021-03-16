@@ -3,6 +3,7 @@ package sample.Model.Gladiator;
 import java.util.ArrayList;
 import java.util.List;
 
+
 /**
  * @Author Daniel
  * @Author Nicolai

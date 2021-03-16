@@ -14,6 +14,8 @@ public class Weapons {
     private List<Weapon> weaponList = new ArrayList<>();
 
     //init weapons and add to arraylist
+
+
     public void initWeapons(){
         Weapon Dagger = new Weapon("dagger", 0, 0.5);
         Weapon TreforkAndNet = new Weapon("Trefork & net",0, 4.0);
