@@ -31,7 +31,6 @@ public class RunGladiator extends Application {
         primaryStage.setTitle("Hello World");
         primaryStage.setScene(new Scene(root, 800, 600));
         primaryStage.show();
-
     }
 //test
 //nytest
