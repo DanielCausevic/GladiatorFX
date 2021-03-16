@@ -7,8 +7,8 @@ package sample.Model.Gladiator;
  */
 public class Equipment {
 
-    private int hitPoints;
-    private double weight;
+    protected int hitPoints;
+    protected double weight;
 
     public Equipment(int hitPoints, double weight) {
         this.hitPoints = hitPoints;
