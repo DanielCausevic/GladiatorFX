@@ -8,7 +8,7 @@ public class Gladiator {
     short conditioning = 100;
     ArrayList<Weapon> weapons = new ArrayList<>();
 
-    public Gladiator(int HPP) {
+    public Gladiator() {
         this.weapons = new ArrayList<>();
         this.HP = 100;
         this.conditioning = 100;
