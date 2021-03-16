@@ -34,7 +34,7 @@ public class RunGladiator extends Application {
 
     }
 //test
-
+//nytest
     public static void main(String[] args) {
         launch(args);
     }
