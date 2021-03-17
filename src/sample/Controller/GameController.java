@@ -16,11 +16,12 @@ public class GameController {
     }
 
     // Instanciates objects needed to launch the main loop (run());
-    public void init() {
+   /* public void init() {
         //Gladiator gladiator = new Gladiator();
         // GUIController guiController;
         run();
     }
+    */
 
     // Kører programmet
     public void run() {
