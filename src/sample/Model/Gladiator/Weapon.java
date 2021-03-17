@@ -17,6 +17,10 @@ public class Weapon extends Equipment {
         this.name = name;
     }
 
+    public Weapon() {
+
+    }
+
     public String getName() {
         return name;
     }

@@ -32,11 +32,13 @@ public class Attack extends Action{
     public void NetAttack(Gladiator gladiator){
 
     }
-
+/*
     public void attackDummy(Dummy dummy, Gladiator gladiator){
         int damage = (int) Math.ceil(gladiator.getMainHand().calculateHits(gladiator) * (gladiator.getConditioning() / 100));
         int currentHP = dummy.getHP();
         int newHP = currentHP -= damage;
         dummy.setHP(newHP);
     }
+
+ */
 }

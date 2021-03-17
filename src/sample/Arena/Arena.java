@@ -6,6 +6,7 @@ import java.util.HashMap;
 
 /**
  * @author Yannick Brot Christensen
+ * @author Rasmus Skovbo
  * Class creates and contains a hexagonal grid in a 2dArray.
  */
 
@@ -24,34 +25,41 @@ public class Arena {
     //Creates double width hexagonal grid
     public void initArena(){
         double hexSize = 52;
-        // 1st row
         double xCounter = 0;
         double yCounter = 0;
-        for (int i = 0; i < size; i ++) {
-            Hex hex = new Hex(new Point(0, 0));
-            hex.setX(xCounter);
-            hex.setY(yCounter);
-            arena[0][i] = hex;
-            xCounter += hexSize;
-        }
-        // 2nd row
-        xCounter = 0 + hexSize * 0.5;
-        yCounter = 0 + hexSize * 0.75;
-        for (int i = 0; i < size; i ++) {
-            Hex hex = new Hex(new Point(0, 0));
-            hex.setX(xCounter);
-            hex.setY(yCounter);
-            arena[1][i] = hex;
-            xCounter += hexSize;
-        }
 
-        /*
-        for (int i = 0; i < size; i++) {
-            for (int j = 0; j < size/2; j++) {
-                arena[i][j] = new Hex(new Point(i,j));
+        for (int j = 0; j < size; j++) {
+            // Resets pixel draw start for each row
+            if (j % 2 == 0) {
+                xCounter = 0;
+            } else {
+                xCounter = 0 + hexSize * 0.5;
             }
+
+            for (int i = 0; i < size; i++) {
+                Point point = new Point(-1, -1);// X AXIS
+
+                /* Doubled offset coords logic:
+                If y axis is an even number, x axis only has even numbers (e.g. 2,4 -> 4,4 -> 6,4 -> 8,4)
+                 */
+                if (j % 2 == 0) {
+                    point.setX(i*2);
+                } else {
+                    point.setX((i*2)+1);
+                }
+                point.setY(j);
+
+                Hex hex = new Hex(point);
+                hex.setX(xCounter);
+                hex.setY(yCounter);
+
+                arena[i][j] = hex;
+                xCounter += hexSize;
+            }
+
+            // Next row (Y AXIS) is 0.75 of hex-size further down
+            yCounter += hexSize * 0.75;
         }
-         */
     }
 
     //Creates and returns a list with all the adjacent hexes to a position
@@ -73,12 +81,12 @@ public class Arena {
     }
 
     public void render(GraphicsContext gc) {
-        for (int i = 0; i < size; i++) {
-            arena[0][i].render(gc);
+        for (int j = 0; j < size; j++) {                // Y AXIS
+            for (int i = 0; i < size; i++) {
+                arena[i][j].render(gc);
+            }
         }
-        for (int i = 0; i < size; i++) {
-            arena[1][i].render(gc);
-        }
+
     }
 
     public Hex[][] getArena() {
