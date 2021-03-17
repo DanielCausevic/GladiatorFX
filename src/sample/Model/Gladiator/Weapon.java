@@ -49,7 +49,7 @@ public class Weapon extends Equipment {
             if (diceRoll >= 2 && diceRoll <= 5) {
                 return 4;
             } else if (diceRoll >= 6 && diceRoll <= 12) {
-                return 6;
+                return 6 ;
             } else if (diceRoll >= 13 && diceRoll <= 19) {
                 return 8;
             } else if (diceRoll == 20) {
