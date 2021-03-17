@@ -14,7 +14,7 @@ class WeaponTest {
 
     @BeforeEach
     public void init(){
-        JFXPanel jfxPanel = new JFXPanel(); //Fix internal bug
+        JFXPanel jfxPanel = new JFXPanel(); //Fix internal bug, when a test i run.
         weapon = new Weapon("dagger", 0, 0.5);
         Image testGlad = new Image( "sample/resources/testGlad.png");
         gladiator = new Gladiator(testGlad, 50,50, new Point(325, 320));
