@@ -1,6 +1,7 @@
 package sample.Controller;
 
 import javafx.application.Application;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -9,10 +10,7 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-
-import javax.swing.*;
 
 public class InputControllerDummy extends Application {
 
@@ -25,44 +23,115 @@ public class InputControllerDummy extends Application {
         Image directions = new Image("sample/resources/directions.jpg");
         ImageView viewLeftHand = new ImageView(leftHand);
         ImageView viewRightHand = new ImageView(rightHand);
-        ImageView viwDirections = new ImageView(directions);
+        ImageView viewDirections = new ImageView(directions);
 
         //Resizing the image
-        viewLeftHand.setFitHeight(150);
+        viewLeftHand.setFitHeight(140);
         viewLeftHand.setPreserveRatio(true);
-        viewRightHand.setFitHeight(150);
+        viewRightHand.setFitHeight(140);
         viewRightHand.setPreserveRatio(true);
-        viwDirections.setFitHeight(150);
-        viwDirections.setPreserveRatio(true);
+        viewDirections.setFitHeight(140);
+        viewDirections.setPreserveRatio(true);
 
 
         //Creating buttons
-        Button button = new Button();
-        Button button1 = new Button();
-        Button button2 = new Button();
+        Button buttonLeft = new Button();
+        Button buttonRight = new Button();
+        Button buttonDir = new Button();
+        Button buttonAttack = new Button();
+        Button buttonDefend = new Button();
+        Button buttonNothing = new Button();
 
         //Placing buttons
-        button.setTranslateX(30);
-        button.setTranslateY(550);
-        button1.setTranslateX(450);
-        button1.setTranslateY(550);
-        button2.setTranslateX(240);
-        button2.setTranslateY(550);
+        buttonLeft.setTranslateX(30);
+        buttonLeft.setTranslateY(500);
+        buttonRight.setTranslateX(450);
+        buttonRight.setTranslateY(500);
+        buttonDir.setTranslateX(240);
+        buttonDir.setTranslateY(500);
+        buttonAttack.setTranslateX(30);
+        buttonAttack.setTranslateY(500);
+        buttonDefend.setTranslateX(30);
+        buttonDefend.setTranslateY(550);
+        buttonNothing.setTranslateX(30);
+        buttonNothing.setTranslateY(600);
+
+        //Making the buttons Not visible
+        buttonDefend.setVisible(false);
+        buttonAttack.setVisible(false);
+        buttonNothing.setVisible(false);
 
         //Resizing the buttons
-        button.setPrefSize(80, 80);
-        button1.setPrefSize(80, 80);
-        button2.setPrefSize(80, 80);
+        buttonLeft.setPrefSize(80, 80);
+        buttonRight.setPrefSize(80, 80);
+        buttonDir.setPrefSize(80, 80);
+        buttonAttack.setPrefSize(151,50);
+        buttonDefend.setPrefSize(151,50);
+        buttonNothing.setPrefSize(151,47);
 
         //Putting the images in button placeholder
-        button.setGraphic(viewLeftHand);
-        button1.setGraphic(viewRightHand);
-        button2.setGraphic(viwDirections);
+        buttonLeft.setGraphic(viewLeftHand);
+        buttonRight.setGraphic(viewRightHand);
+        buttonDir.setGraphic(viewDirections);
+        buttonAttack.setText("Attack!");
+        buttonDefend.setText("Defend!");
+        buttonNothing.setText("Do Nothing");
 
         primaryStage.setTitle("Arena");
 
-        Group root = new Group(button,button1,button2);
-        Scene theScene = new Scene(root);
+        Image arena = new Image("sample/resources/hexagon.png");
+        Image testGlad = new Image( "sample/resources/testGlad.png");
+
+        ImageView viewArena = new ImageView(arena);
+        viewArena.setFitHeight(450);
+        viewArena.setPreserveRatio(true);
+
+        buttonLeft.setOnAction(new EventHandler<ActionEvent>() {
+            @Override public void handle(ActionEvent e) {
+                if (buttonAttack.isVisible()) {
+                    buttonAttack.setVisible(false);
+                    buttonDefend.setVisible(false);
+                    buttonNothing.setVisible(false);
+                } else {
+                    buttonAttack.setVisible(true);
+                    buttonDefend.setVisible(true);
+                    buttonNothing.setVisible(true);
+                }
+            }
+        });
+
+        buttonAttack.setOnAction(new EventHandler<ActionEvent>() {
+            @Override public void handle(ActionEvent e) {
+                //Attack method
+                buttonAttack.setVisible(false);
+                buttonDefend.setVisible(false);
+                buttonNothing.setVisible(false);
+            }
+        });
+
+        buttonDefend.setOnAction(new EventHandler<ActionEvent>() {
+            @Override public void handle(ActionEvent e) {
+                //Defend method
+                buttonAttack.setVisible(false);
+                buttonDefend.setVisible(false);
+                buttonNothing.setVisible(false);
+            }
+        });
+
+        buttonNothing.setOnAction(new EventHandler<ActionEvent>() {
+            @Override public void handle(ActionEvent e) {
+                //Nothing method
+                buttonAttack.setVisible(false);
+                buttonDefend.setVisible(false);
+                buttonNothing.setVisible(false);
+            }
+        });
+
+
+
+        Group root = new Group(
+                buttonLeft,buttonRight,buttonDir,viewArena,buttonAttack,buttonDefend,buttonNothing);
+        Scene theScene = new Scene(root,650,700);
         primaryStage.setScene(theScene);
 
         Canvas canvas = new Canvas( 650, 500);
@@ -70,10 +139,6 @@ public class InputControllerDummy extends Application {
 
         GraphicsContext gc = canvas.getGraphicsContext2D();
 
-        Image arena = new Image( "sample/resources/hexagon.gif");
-        Image testGlad = new Image( "sample/resources/testGlad.png");
-
-        gc.drawImage(arena, 100, 100);
         gc.drawImage(testGlad, 330,325);
 
         primaryStage.show();
