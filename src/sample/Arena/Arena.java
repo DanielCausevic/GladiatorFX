@@ -36,10 +36,26 @@ public class Arena {
                 xCounter = 0 + hexSize * 0.5;
             }
 
-            for (int i = 0; i < size; i++) {          // X AXIS
-                Hex hex = new Hex(new Point(i, j));
+            for (int i = 0; i < size; i++) {
+                Point point = new Point(-1, -1);// X AXIS
+
+                /* Doubled offset coords logic:
+                If y axis is an even number, x axis only has even numbers (e.g. 2,4 -> 4,4 -> 6,4 -> 8,4)
+
+                 */
+                if (j % 2 == 0) {
+                    point.setX(i*2);
+                } else {
+                    point.setX((i*2)+1);
+                }
+                point.setY(j);
+
+                Hex hex = new Hex(point);
                 hex.setX(xCounter);
                 hex.setY(yCounter);
+
+                System.out.println(hex.getPosition().toString()+" - Pixel Coords ("+hex.getX()+", "+hex.getY()+")");
+
                 arena[i][j] = hex;
                 xCounter += hexSize;
             }
