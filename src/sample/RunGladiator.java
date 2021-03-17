@@ -10,6 +10,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import sample.Controller.GUIController;
+import sample.Controller.GuiTest;
 
 import java.io.File;
 
@@ -46,7 +47,7 @@ public class RunGladiator extends Application {
 //Først movement
     //Kalder vores ArenaController start metode.
     public static void main(String[] args) {
-        Application.launch(GUIController.class, args);
+        Application.launch(GuiTest.class, args);
     }
 }
 
