@@ -33,6 +33,7 @@ public class GUIController extends Application {
         Image testGlad = new Image( "sample/resources/testGlad.png");
 
         // Sets gladiator image and position
+
         Gladiator gladiator = new Gladiator(testGlad, 50, 50, new Point(320, 325));
 
         // Renders arena and gladiator

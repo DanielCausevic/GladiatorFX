@@ -1,14 +1,19 @@
-package sample.Model.Gladiator;
+package sample.Model.Action;
 
 import javafx.embed.swing.JFXPanel;
 import javafx.scene.image.Image;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import sample.Model.Dummy.Dummy;
+import sample.Model.Gladiator.Armor;
+import sample.Model.Gladiator.Gladiator;
+import sample.Model.Gladiator.Weapon;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class GladiatorTest {
+class AttackTest {
     Gladiator gladiator;
+    Dummy dummy;
 
     @BeforeEach
     public void init(){
@@ -21,14 +26,13 @@ class GladiatorTest {
         gladiator.addArmor(heavyBody);
         gladiator.addShield(smallShield);
         gladiator.addWeaponToMain(shortSword1H);
+        dummy = new Dummy(testGlad, 50,50, null);
     }
-
     @Test
-    void calculateWeightClass() {
-        //act
-        double act = gladiator.calculateWeightClass();
-        double exp = 22.0;
-        //assert
-        assertEquals(act,exp);
+    void attackDummy() {
+        Attack attack = new Attack(1, 0);
+        attack.attackDummy(dummy, gladiator);
+
+        assertNotEquals(dummy.getHP(), 1000);
     }
 }

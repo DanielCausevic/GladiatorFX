@@ -47,6 +47,10 @@ public abstract class Sprite {
         position.setY(y);
     }
 
+    public void setPositionPoint(Point point){
+        this.position = point;
+    }
+
     public Point getPosition() {
         return position;
     }

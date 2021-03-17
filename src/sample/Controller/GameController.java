@@ -1,6 +1,11 @@
 package sample.Controller;
 
+import sample.Arena.Arena;
+import sample.Arena.Point;
 import sample.Model.Gladiator.Gladiator;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * @Author Rasmus, Nicolai
@@ -10,18 +15,19 @@ import sample.Model.Gladiator.Gladiator;
 public class GameController {
     private boolean running;
     private Gladiator gladiator;
+    private Arena arena;
 
     // Constructor
     public GameController() {
     }
 
     // Instanciates objects needed to launch the main loop (run());
-   /* public void init() {
+    public void init() {
+        // init arena
         //Gladiator gladiator = new Gladiator();
         // GUIController guiController;
         run();
     }
-    */
 
     // Kører programmet
     public void run() {
@@ -87,6 +93,51 @@ public class GameController {
             // If player surrenders, fightIsOn = false; and loop breaks
         }
 
+    }
+
+    public void move(int direction){
+        HashMap<String, Point> possibleMoves = arena.getAdjacent(gladiator.getPosition());
+        switch(direction) {
+            // northEast
+            case 1:
+                if(possibleMoves.get("northEast") != null)
+                    gladiator.setPositionPoint(possibleMoves.get("northEast"));
+                break;
+
+           // east
+            case 2:
+                if(possibleMoves.get("east") != null)
+                    gladiator.setPositionPoint(possibleMoves.get("east"));
+                break;
+
+            // southEast
+            case 3:
+                if(possibleMoves.get("southEast") != null)
+                    gladiator.setPositionPoint(possibleMoves.get("southEast"));
+                break;
+            // southWest
+            case 4:
+                if(possibleMoves.get("southWest") != null)
+                    gladiator.setPositionPoint(possibleMoves.get("southWest"));
+                break;
+
+            // west
+            case 5:
+                if(possibleMoves.get("west") != null)
+                    gladiator.setPositionPoint(possibleMoves.get("west"));
+                break;
+
+            // northWest
+            case 6:
+                if(possibleMoves.get("northWest") != null)
+                    gladiator.setPositionPoint(possibleMoves.get("northWest"));
+                break;
+
+            default:
+                System.err.println("Not a valid move");
+
+
+        }
     }
 
 

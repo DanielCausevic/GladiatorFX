@@ -1,5 +1,6 @@
 package sample.Model.Gladiator;
 
+import javafx.embed.swing.JFXPanel;
 import javafx.scene.image.Image;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -13,6 +14,7 @@ class WeaponTest {
 
     @BeforeEach
     public void init(){
+        JFXPanel jfxPanel = new JFXPanel(); //Fix internal bug
         weapon = new Weapon("dagger", 0, 0.5);
         Image testGlad = new Image( "sample/resources/testGlad.png");
         gladiator = new Gladiator(testGlad, 50,50, new Point(325, 320));
