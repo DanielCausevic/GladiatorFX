@@ -4,6 +4,7 @@ import javafx.embed.swing.JFXPanel;
 import javafx.scene.image.Image;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import sample.Arena.Point;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -16,7 +17,7 @@ class WeaponTest {
         JFXPanel jfxPanel = new JFXPanel(); //Fix internal bug
         weapon = new Weapon("dagger", 0, 0.5);
         Image testGlad = new Image( "sample/resources/testGlad.png");
-        gladiator = new Gladiator(testGlad, 50,50);
+        gladiator = new Gladiator(testGlad, 50,50, new Point(325, 320));
         Weapon shortSword1H = new Weapon("Short sword - 1H", 40, 8.0);
         Weapon smallShield = new Weapon("Small shield", 60, 6.0);
         Armor heavyBody = new Armor(80, 8.0, "heavy body armor", "Body");

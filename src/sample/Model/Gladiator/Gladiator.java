@@ -1,6 +1,7 @@
 package sample.Model.Gladiator;
 
 import javafx.scene.image.Image;
+import sample.Arena.Point;
 import sample.Model.Sources.Sprite;
 
 /**
@@ -17,8 +18,8 @@ public class Gladiator extends Sprite{
     private Armor legArmor;
     private String weightClass = "";
 
-    public Gladiator(Image image, double width, double height) {
-        super(image, width, height);
+    public Gladiator(Image image, double width, double height, Point position) {
+        super(image, width, height, position);
         this.mainHand = new Weapon("Fist",0,0.0);
         this.offHand = new Weapon("Fist",0,0.0);;
         this.headArmor = new Armor(0,0.0, "Naked", "Head");

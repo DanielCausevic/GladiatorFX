@@ -11,6 +11,7 @@ import javafx.scene.image.Image;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import sample.Arena.Point;
 import sample.Model.Gladiator.Gladiator;
 
 public class GuiTest extends Application {
@@ -39,15 +40,15 @@ public class GuiTest extends Application {
         gc.drawImage(arena, 100, 100);
 
         // Sets gladiator image and position
-        Gladiator gladiator = new Gladiator(testGlad, 50, 50);
-        gladiator.setPosition(330, 325);
+        Gladiator gladiator = new Gladiator(testGlad, 50, 50, new Point(330, 325));
         gladiator.render(gc);
 
         // Gladiator update
-        double movement = 1;
+        int movement = 1;
 
         //// Input handling
         // Mouse input (only works if both mouse keys are down
+        /*
         scene.setOnMouseClicked(
                 new EventHandler<MouseEvent>()
                 {
@@ -61,25 +62,28 @@ public class GuiTest extends Application {
                         }
                     }
                 });
+         */
 
         scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent keyEvent) {
+                Point position = gladiator.getPosition();
+
                 if (keyEvent.getCode().toString().equals("LEFT")) {
-                    double currentX = gladiator.getX();
-                    gladiator.setPosition(currentX - movement, gladiator.getY());
+                    int currentX = position.getX();
+                    gladiator.setPosition(currentX - movement, position.getY());
                 }
                 if (keyEvent.getCode().toString().equals("RIGHT")) {
-                    double currentX = gladiator.getX();
-                    gladiator.setPosition(currentX + movement, gladiator.getY());
+                    int currentX = position.getX();
+                    gladiator.setPosition(currentX + movement, position.getY());
                 }
                 if (keyEvent.getCode().toString().equals("UP")) {
-                    double currentY = gladiator.getY();
-                    gladiator.setPosition(gladiator.getX(), currentY - movement );
+                    int currentY = position.getY();
+                    gladiator.setPosition(position.getX(), currentY - movement );
                 }
                 if (keyEvent.getCode().toString().equals("DOWN")) {
-                    double currentY = gladiator.getY();
-                    gladiator.setPosition(gladiator.getX(), currentY + movement );
+                    int currentY = position.getY();
+                    gladiator.setPosition(position.getX(), currentY + movement );
                 }
             }
         });
@@ -100,6 +104,8 @@ public class GuiTest extends Application {
                 // Renders everything
                 gc.drawImage(arena, 100, 100);
                 gladiator.render(gc);
+
+
 
             }
         }.start();
