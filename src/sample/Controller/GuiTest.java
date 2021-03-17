@@ -38,15 +38,17 @@ public class GuiTest extends Application {
         // loads single hex
         Hex hex = new Hex(new Point(100,100));
         hex.render(gc);
-        Arena arena = new Arena(10);
-        System.out.println(arena.getArena().length);
+        Arena arena = new Arena(5);
 
         // Sets gladiator image and position
         Image testGlad = new Image( "sample/resources/testGlad.png");
         Gladiator gladiator = new Gladiator(testGlad, 50, 50, new Point(0, 0));
+
+        // Positioning test
         Hex[][] possiblePositions = arena.getArena();
-        gladiator.setX(possiblePositions[8][5].getX());
-        gladiator.setY(possiblePositions[8][5].getY());
+        gladiator.setX(possiblePositions[1][1].getX());
+        gladiator.setY(possiblePositions[1][1].getY());
+
         gladiator.render(gc);
 
         // Gladiator update
