@@ -5,16 +5,18 @@ import javafx.scene.image.Image;
 import sample.Arena.Point;
 
 /**
- * @Author: Rasmus Skovbo
+ * @author Rasmus Skovbo
  * This is the mother class to all game entities, e.g. weapons on the ground, gladiators, hexes etc.
  * Cannot be instantied, must be inherited.
  */
 
 public abstract class Sprite {
     private Image image;
-    private double width;
+    private double width; // maybe replace with size
     private double height;
-    private Point position;
+    private Point position; // grid position, not x/y for image placement
+    private double x; // x/y for image positioning
+    private double y;
 
     public Sprite(Image image, double width, double height, Point position) {
         this.image = image;
@@ -45,15 +47,35 @@ public abstract class Sprite {
         position.setY(y);
     }
 
+    public void setPositionPoint(Point point){
+        this.position = point;
+    }
+
     public Point getPosition() {
         return position;
     }
 
+
+
     // Render sprite in a graphics context
     public void render(GraphicsContext gc)
     {
-        gc.drawImage( image, position.getX(), position.getY() );
+        gc.drawImage( image, x, y );
     }
 
+    public double getX() {
+        return x;
+    }
 
+    public void setX(double x) {
+        this.x = x;
+    }
+
+    public double getY() {
+        return y;
+    }
+
+    public void setY(double y) {
+        this.y = y;
+    }
 }

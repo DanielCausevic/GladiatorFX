@@ -2,6 +2,7 @@ package sample.Model.Gladiator;
 
 import javafx.scene.image.Image;
 import sample.Arena.Point;
+import sample.Model.Dummy.Dummy;
 import sample.Model.Sources.Sprite;
 
 /**
@@ -72,9 +73,9 @@ public class Gladiator extends Sprite{
     }
 //TODO: test om nullpointers
     public double calculateWeightClass(){
-        double totoalWeight = mainHand.weight + offHand.weight + headArmor.weight +
+        double totalWeight = mainHand.weight + offHand.weight + headArmor.weight +
                             bodyArmor.weight + legArmor.weight;
-        return totoalWeight;
+        return totalWeight;
     }
 
     public void setWeightClass(){
@@ -93,12 +94,12 @@ public class Gladiator extends Sprite{
         return conditioning;
     }
 
-    public Weapon getMainHand() {
-        return mainHand;
-    }
-
     public Weapon getOffHand() {
-        return offHand;
+        if (!(offHand == null)) {
+            return offHand;
+        } else {
+            return null;
+        }
     }
 
     public Armor getHeadArmor() {
@@ -115,5 +116,13 @@ public class Gladiator extends Sprite{
 
     public String getWeightClass() {
         return weightClass;
+    }
+
+    public void setHP(short HP) {
+        this.HP = HP;
+    }
+
+    public void setConditioning(short conditioning) {
+        this.conditioning = conditioning;
     }
 }

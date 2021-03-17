@@ -9,8 +9,9 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import sample.Arena.Arena;
+import sample.Arena.Hex;
 import sample.Arena.Point;
 import sample.Model.Gladiator.Gladiator;
 
@@ -34,13 +35,20 @@ public class GuiTest extends Application {
         // GraphicsContext = Engine to draw images and text
         GraphicsContext gc = canvas.getGraphicsContext2D();
 
-        Image arena = new Image( "sample/resources/hexagon.gif");
-        Image testGlad = new Image( "sample/resources/testGlad.png");
-
-        gc.drawImage(arena, 100, 100);
+        // loads single hex
+        Hex hex = new Hex(new Point(100,100));
+        hex.render(gc);
+        Arena arena = new Arena(5);
 
         // Sets gladiator image and position
-        Gladiator gladiator = new Gladiator(testGlad, 50, 50, new Point(330, 325));
+        Image testGlad = new Image( "sample/resources/testGlad.png");
+        Gladiator gladiator = new Gladiator(testGlad, 50, 50, new Point(0, 0));
+
+        // Positioning test
+        Hex[][] possiblePositions = arena.getArena();
+        gladiator.setX(possiblePositions[1][1].getX());
+        gladiator.setY(possiblePositions[1][1].getY());
+
         gladiator.render(gc);
 
         // Gladiator update
@@ -102,7 +110,7 @@ public class GuiTest extends Application {
                 gc.clearRect(0, 0, 600, 600);
 
                 // Renders everything
-                gc.drawImage(arena, 100, 100);
+                arena.render(gc);
                 gladiator.render(gc);
 
 

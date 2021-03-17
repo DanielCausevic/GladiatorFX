@@ -14,4 +14,24 @@ public class Equipment {
         this.hitPoints = hitPoints;
         this.weight = weight;
     }
+
+    public Equipment() {
+
+    }
+
+    public int getHitPoints() {
+        return hitPoints;
+    }
+
+    public void setHitPoints(int hitPoints) {
+        this.hitPoints = hitPoints;
+    }
+
+    public double getWeight() {
+        return weight;
+    }
+
+    public void setWeight(double weight) {
+        this.weight = weight;
+    }
 }

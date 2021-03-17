@@ -5,6 +5,7 @@ import sample.Model.Sources.Sprite;
 
 /**
  * @author Yannick Brot Christensen
+ * @author Rasmus Skovbo
  * Hex class used as a tile in the arena class
  */
 
@@ -50,5 +51,12 @@ public class Hex extends Sprite {
 
     public void setHolds(Object holds) {
         this.holds = holds;
+    }
+
+    @Override
+    public String toString() {
+        return "Hex{" +
+                "position = " + getPosition() +
+                '}';
     }
 }
