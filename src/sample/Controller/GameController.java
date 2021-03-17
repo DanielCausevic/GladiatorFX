@@ -18,6 +18,8 @@ public class GameController {
     // Instanciates objects needed to launch the main loop (run());
     public void init() {
         Gladiator gladiator = new Gladiator();
+        // GUIController guiController;
+        run();
     }
 
     // Kører programmet
@@ -30,6 +32,7 @@ public class GameController {
             gladiatorChoiceLoop();    // Gladiator equipment loop
             arenaChoiceLoop();        // Arena choice loop
             fightLoop();              // Main combat loop
+            // endOfFightLoop();
 
             // When fight loop exits, it loops back to lobby and repeats unless prompted otherwise by user
         }

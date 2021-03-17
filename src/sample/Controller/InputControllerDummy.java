@@ -33,6 +33,7 @@ public class InputControllerDummy extends Application {
 
         primaryStage.show();
 
+        /*
         primaryStage.getScene().setOnMouseClicked(
                 new EventHandler<MouseEvent>() {
                     public void handle(MouseEvent e) {
@@ -56,6 +57,8 @@ public class InputControllerDummy extends Application {
                     }
                 });
 
+
+         */
     }
 
 }

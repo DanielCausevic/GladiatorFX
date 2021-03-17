@@ -44,7 +44,6 @@ public class RunGladiator extends Application {
     }
 
 //Først movement
-
     //Kalder vores ArenaController start metode.
     public static void main(String[] args) {
         Application.launch(GUIController.class, args);
