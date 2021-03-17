@@ -1,14 +1,15 @@
 package sample.Arena;
 
+import org.junit.jupiter.api.BeforeEach;
+import sample.Model.Gladiator.Gladiator;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class ArenaTest {
 
-    @org.junit.jupiter.api.Test
-    void initArena() {
-    }
+    @BeforeEach
+    public void init(){
 
-    @org.junit.jupiter.api.Test
-    void getAdjacent() {
+
     }
 }
