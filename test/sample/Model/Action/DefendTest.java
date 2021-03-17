@@ -1,18 +1,15 @@
-package sample.Model.Gladiator;
+package sample.Model.Action;
 
-import javafx.embed.swing.JFXPanel;
-import javafx.scene.image.Image;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import sample.Arena.Point;
-
-import java.awt.*;
+import sample.Model.Gladiator.Gladiator;
+import sample.Model.Gladiator.Weapon;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class DefendTest {
 
-/*
     Defend defend = new Defend();
     Gladiator player;
     Gladiator opponent;
@@ -48,6 +45,4 @@ class DefendTest {
         //vil faile grundet random hitpoints.
         assertEquals(34, player.getMainWeapon().getHitPoints());
     }
-
- */
 }
