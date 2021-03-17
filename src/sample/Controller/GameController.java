@@ -17,7 +17,7 @@ public class GameController {
 
     // Instanciates objects needed to launch the main loop (run());
     public void init() {
-        Gladiator gladiator = new Gladiator();
+        //Gladiator gladiator = new Gladiator();
         // GUIController guiController;
         run();
     }
