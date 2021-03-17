@@ -101,6 +101,8 @@ public class GuiTest extends Application {
                 gc.drawImage(arena, 100, 100);
                 gladiator.render(gc);
 
+
+
             }
         }.start();
 

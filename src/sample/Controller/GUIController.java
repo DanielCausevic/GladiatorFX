@@ -11,7 +11,6 @@ import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 import sample.Model.Gladiator.Gladiator;
 
-
 public class GUIController extends Application {
 
     @Override
