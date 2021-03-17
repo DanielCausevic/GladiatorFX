@@ -31,16 +31,43 @@ public class InputControllerDummy extends Application {
         viewRightHand.setFitHeight(140);
         viewRightHand.setPreserveRatio(true);
         viewDirections.setFitHeight(140);
-        viewDirections.setPreserveRatio(true);
+        viewDirections.setFitWidth(135);
 
+//----------------------------------------------------------------------------------------------------------------------
 
         //Creating buttons
         Button buttonLeft = new Button();
         Button buttonRight = new Button();
         Button buttonDir = new Button();
-        Button buttonAttack = new Button();
-        Button buttonDefend = new Button();
-        Button buttonNothing = new Button();
+
+        //Left Hand
+        Button buttonAttackLeft = new Button();
+        Button buttonDefendLeft = new Button();
+        Button buttonNothingLeft = new Button();
+
+        //Movement
+        Button buttonRotate = new Button();
+        Button buttonMove = new Button();
+        Button buttonNothingMove = new Button();
+
+        //Right Hand
+        Button buttonAttackRight = new Button();
+        Button buttonDefendRight = new Button();
+        Button buttonNothingRight = new Button();
+
+        //Rotate
+        Button buttonRotateUp = new Button();
+        Button buttonRotateDown = new Button();
+
+        //Move
+        Button buttonNE = new Button();
+        Button buttonE = new Button();
+        Button buttonSE = new Button();
+        Button buttonSW = new Button();
+        Button buttonW = new Button();
+        Button buttonNW = new Button();
+
+//----------------------------------------------------------------------------------------------------------------------
 
         //Placing buttons
         buttonLeft.setTranslateX(30);
@@ -49,33 +76,128 @@ public class InputControllerDummy extends Application {
         buttonRight.setTranslateY(500);
         buttonDir.setTranslateX(240);
         buttonDir.setTranslateY(500);
-        buttonAttack.setTranslateX(30);
-        buttonAttack.setTranslateY(500);
-        buttonDefend.setTranslateX(30);
-        buttonDefend.setTranslateY(550);
-        buttonNothing.setTranslateX(30);
-        buttonNothing.setTranslateY(600);
+
+        buttonAttackLeft.setTranslateX(30);
+        buttonAttackLeft.setTranslateY(500);
+        buttonDefendLeft.setTranslateX(30);
+        buttonDefendLeft.setTranslateY(550);
+        buttonNothingLeft.setTranslateX(30);
+        buttonNothingLeft.setTranslateY(600);
+
+        buttonRotate.setTranslateX(240);
+        buttonRotate.setTranslateY(500);
+        buttonMove.setTranslateX(240);
+        buttonMove.setTranslateY(550);
+        buttonNothingMove.setTranslateX(240);
+        buttonNothingMove.setTranslateY(600);
+
+        buttonAttackRight.setTranslateX(450);
+        buttonAttackRight.setTranslateY(500);
+        buttonDefendRight.setTranslateX(450);
+        buttonDefendRight.setTranslateY(550);
+        buttonNothingRight.setTranslateX(450);
+        buttonNothingRight.setTranslateY(600);
+
+        buttonRotateUp.setTranslateX(240);
+        buttonRotateUp.setTranslateY(500);
+        buttonRotateDown.setTranslateX(240);
+        buttonRotateDown.setTranslateY(575);
+
+        buttonNE.setTranslateX(260);
+        buttonNE.setTranslateY(500);
+        buttonE.setTranslateX(260);
+        buttonE.setTranslateY(550);
+        buttonSE.setTranslateX(260);
+        buttonSE.setTranslateY(600);
+        buttonSW.setTranslateX(240);
+        buttonSW.setTranslateY(500);
+        buttonW.setTranslateX(240);
+        buttonW.setTranslateY(550);
+        buttonNW.setTranslateX(240);
+        buttonNW.setTranslateY(600);
+//----------------------------------------------------------------------------------------------------------------------
 
         //Making the buttons Not visible
-        buttonDefend.setVisible(false);
-        buttonAttack.setVisible(false);
-        buttonNothing.setVisible(false);
+        buttonDefendLeft.setVisible(false);
+        buttonAttackLeft.setVisible(false);
+        buttonNothingLeft.setVisible(false);
+
+        buttonRotate.setVisible(false);
+        buttonMove.setVisible(false);
+        buttonNothingMove.setVisible(false);
+
+        buttonDefendRight.setVisible(false);
+        buttonAttackRight.setVisible(false);
+        buttonNothingRight.setVisible(false);
+
+        buttonRotateUp.setVisible(false);
+        buttonRotateDown.setVisible(false);
+
+        buttonNE.setVisible(false);
+        buttonE.setVisible(false);
+        buttonSE.setVisible(false);
+        buttonSW.setVisible(false);
+        buttonW.setVisible(false);
+        buttonNW.setVisible(false);
+
+//----------------------------------------------------------------------------------------------------------------------
 
         //Resizing the buttons
         buttonLeft.setPrefSize(80, 80);
         buttonRight.setPrefSize(80, 80);
         buttonDir.setPrefSize(80, 80);
-        buttonAttack.setPrefSize(151,50);
-        buttonDefend.setPrefSize(151,50);
-        buttonNothing.setPrefSize(151,47);
+
+        buttonAttackLeft.setPrefSize(151,49);
+        buttonDefendLeft.setPrefSize(151,49);
+        buttonNothingLeft.setPrefSize(151,49);
+
+        buttonRotate.setPrefSize(151,49);
+        buttonMove.setPrefSize(151,49);
+        buttonNothingMove.setPrefSize(151,49);
+
+        buttonAttackRight.setPrefSize(151,49);
+        buttonDefendRight.setPrefSize(151,49);
+        buttonNothingRight.setPrefSize(151,49);
+
+        buttonRotateUp.setPrefSize(151,75);
+        buttonRotateDown.setPrefSize(151,75);
+
+        buttonSE.setPrefSize(75,49);
+        buttonE.setPrefSize(75,49);
+        buttonSE.setPrefSize(75,49);
+        buttonSW.setPrefSize(75,49);
+        buttonW.setPrefSize(75,49);
+        buttonNW.setPrefSize(75,49);
+//----------------------------------------------------------------------------------------------------------------------
 
         //Putting the images in button placeholder
         buttonLeft.setGraphic(viewLeftHand);
         buttonRight.setGraphic(viewRightHand);
         buttonDir.setGraphic(viewDirections);
-        buttonAttack.setText("Attack!");
-        buttonDefend.setText("Defend!");
-        buttonNothing.setText("Do Nothing");
+
+        buttonAttackLeft.setText("Attack!");
+        buttonDefendLeft.setText("Defend!");
+        buttonNothingLeft.setText("Do Nothing");
+
+        buttonRotate.setText("Rotate");
+        buttonMove.setText("Move");
+        buttonNothingMove.setText("Do Nothing");
+
+        buttonAttackRight.setText("Attack!");
+        buttonDefendRight.setText("Defend!");
+        buttonNothingRight.setText("Do Nothing");
+
+        buttonRotateUp.setText("Rotate NortWest");
+        buttonRotateDown.setText("Rotate SouthEast");
+
+        buttonNE.setText("North East");
+        buttonE.setText("East");
+        buttonSE.setText("South East");
+        buttonSW.setText("South West");
+        buttonW.setText("West");
+        buttonNW.setText("North West");
+
+//----------------------------------------------------------------------------------------------------------------------
 
         primaryStage.setTitle("Arena");
 
@@ -86,51 +208,164 @@ public class InputControllerDummy extends Application {
         viewArena.setFitHeight(450);
         viewArena.setPreserveRatio(true);
 
+//----------------------------------------------------------------------------------------------------------------------
+
         buttonLeft.setOnAction(new EventHandler<ActionEvent>() {
             @Override public void handle(ActionEvent e) {
-                if (buttonAttack.isVisible()) {
-                    buttonAttack.setVisible(false);
-                    buttonDefend.setVisible(false);
-                    buttonNothing.setVisible(false);
+                if (buttonAttackLeft.isVisible()) {
+                    buttonAttackLeft.setVisible(false);
+                    buttonDefendLeft.setVisible(false);
+                    buttonNothingLeft.setVisible(false);
                 } else {
-                    buttonAttack.setVisible(true);
-                    buttonDefend.setVisible(true);
-                    buttonNothing.setVisible(true);
+                    buttonAttackLeft.setVisible(true);
+                    buttonDefendLeft.setVisible(true);
+                    buttonNothingLeft.setVisible(true);
                 }
             }
         });
 
-        buttonAttack.setOnAction(new EventHandler<ActionEvent>() {
+        buttonAttackLeft.setOnAction(new EventHandler<ActionEvent>() {
             @Override public void handle(ActionEvent e) {
                 //Attack method
-                buttonAttack.setVisible(false);
-                buttonDefend.setVisible(false);
-                buttonNothing.setVisible(false);
+                buttonAttackLeft.setVisible(false);
+                buttonDefendLeft.setVisible(false);
+                buttonNothingLeft.setVisible(false);
             }
         });
 
-        buttonDefend.setOnAction(new EventHandler<ActionEvent>() {
+        buttonDefendLeft.setOnAction(new EventHandler<ActionEvent>() {
             @Override public void handle(ActionEvent e) {
                 //Defend method
-                buttonAttack.setVisible(false);
-                buttonDefend.setVisible(false);
-                buttonNothing.setVisible(false);
+                buttonAttackLeft.setVisible(false);
+                buttonDefendLeft.setVisible(false);
+                buttonNothingLeft.setVisible(false);
             }
         });
 
-        buttonNothing.setOnAction(new EventHandler<ActionEvent>() {
+        buttonNothingLeft.setOnAction(new EventHandler<ActionEvent>() {
             @Override public void handle(ActionEvent e) {
                 //Nothing method
-                buttonAttack.setVisible(false);
-                buttonDefend.setVisible(false);
-                buttonNothing.setVisible(false);
+                buttonAttackLeft.setVisible(false);
+                buttonDefendLeft.setVisible(false);
+                buttonNothingLeft.setVisible(false);
             }
         });
 
+//----------------------------------------------------------------------------------------------------------------------
+
+        buttonDir.setOnAction(new EventHandler<ActionEvent>() {
+            @Override public void handle(ActionEvent e) {
+                if (buttonRotate.isVisible()) {
+                    buttonRotate.setVisible(false);
+                    buttonMove.setVisible(false);
+                    buttonNothingMove.setVisible(false);
+                } else {
+                    buttonRotate.setVisible(true);
+                    buttonMove.setVisible(true);
+                    buttonNothingMove.setVisible(true);
+                }
+            }
+        });
+
+        buttonRotate.setOnAction(new EventHandler<ActionEvent>() {
+            @Override public void handle(ActionEvent e) {
+                //Rotate method
+                buttonRotateUp.setVisible(true);
+                buttonRotateDown.setVisible(true);
+            }
+        });
+
+        buttonMove.setOnAction(new EventHandler<ActionEvent>() {
+            @Override public void handle(ActionEvent e) {
+                //Move method
+                buttonRotate.setVisible(false);
+                buttonMove.setVisible(false);
+                buttonNothingMove.setVisible(false);
+            }
+        });
+
+        buttonNothingMove.setOnAction(new EventHandler<ActionEvent>() {
+            @Override public void handle(ActionEvent e) {
+                //Nothing method
+                buttonRotate.setVisible(false);
+                buttonMove.setVisible(false);
+                buttonNothingMove.setVisible(false);
+            }
+        });
+
+//----------------------------------------------------------------------------------------------------------------------
+
+        buttonRight.setOnAction(new EventHandler<ActionEvent>() {
+            @Override public void handle(ActionEvent e) {
+                if (buttonAttackRight.isVisible()) {
+                    buttonAttackRight.setVisible(false);
+                    buttonDefendRight.setVisible(false);
+                    buttonNothingRight.setVisible(false);
+                } else {
+                    buttonAttackRight.setVisible(true);
+                    buttonDefendRight.setVisible(true);
+                    buttonNothingRight.setVisible(true);
+                }
+            }
+        });
+
+        buttonAttackRight.setOnAction(new EventHandler<ActionEvent>() {
+            @Override public void handle(ActionEvent e) {
+                //Attack method
+                buttonAttackRight.setVisible(false);
+                buttonDefendRight.setVisible(false);
+                buttonNothingRight.setVisible(false);
+            }
+        });
+
+        buttonDefendRight.setOnAction(new EventHandler<ActionEvent>() {
+            @Override public void handle(ActionEvent e) {
+                //Defend method
+                buttonAttackRight.setVisible(false);
+                buttonDefendRight.setVisible(false);
+                buttonNothingRight.setVisible(false);
+            }
+        });
+
+        buttonNothingRight.setOnAction(new EventHandler<ActionEvent>() {
+            @Override public void handle(ActionEvent e) {
+                //Nothing method
+                buttonAttackRight.setVisible(false);
+                buttonDefendRight.setVisible(false);
+                buttonNothingRight.setVisible(false);
+            }
+        });
+
+
+        buttonRotateUp.setOnAction(new EventHandler<ActionEvent>() {
+            @Override public void handle(ActionEvent e) {
+                //RotateUp method
+                buttonRotateUp.setVisible(false);
+                buttonRotateDown.setVisible(false);
+                buttonRotate.setVisible(false);
+                buttonMove.setVisible(false);
+                buttonNothingMove.setVisible(false);
+            }
+        });
+
+        buttonRotateDown.setOnAction(new EventHandler<ActionEvent>() {
+            @Override public void handle(ActionEvent e) {
+                //RotateDown method
+                buttonRotateUp.setVisible(false);
+                buttonRotateDown.setVisible(false);
+                buttonRotate.setVisible(false);
+                buttonMove.setVisible(false);
+                buttonNothingMove.setVisible(false);
+            }
+        });
 
 
         Group root = new Group(
-                buttonLeft,buttonRight,buttonDir,viewArena,buttonAttack,buttonDefend,buttonNothing);
+                viewArena, buttonLeft,buttonRight,buttonDir,
+                buttonAttackLeft,buttonDefendLeft,buttonNothingLeft,
+                buttonRotate,buttonMove,buttonNothingMove,
+                buttonAttackRight,buttonDefendRight,buttonNothingRight,
+                buttonRotateUp,buttonRotateDown);
         Scene theScene = new Scene(root,650,700);
         primaryStage.setScene(theScene);
 
