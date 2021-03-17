@@ -33,13 +33,13 @@ public class GuiTest extends Application {
         // GraphicsContext = Engine to draw images and text
         GraphicsContext gc = canvas.getGraphicsContext2D();
 
-        Image arena = new Image( "sample/resources/hexagon.gif");
+        Image arena = new Image("sample/resources/hexagon.gif");
         Image testGlad = new Image( "sample/resources/testGlad.png");
 
         gc.drawImage(arena, 100, 100);
 
         // Sets gladiator image and position
-        Gladiator gladiator = new Gladiator(testGlad, 50, 50, null);
+        Gladiator gladiator = new Gladiator(testGlad, 50, 50);
         gladiator.setPosition(330, 325);
         gladiator.render(gc);
 

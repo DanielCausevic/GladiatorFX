@@ -29,11 +29,11 @@ public class GUIController extends Application {
 
         GraphicsContext gc = canvas.getGraphicsContext2D();
 
-        Image arena = new Image( "sample/resources/hexagon.gif");
+        Image arena = new Image("sample/resources/hexagon.gif");
         Image testGlad = new Image( "sample/resources/testGlad.png");
 
         // Sets gladiator image and position
-        Gladiator gladiator = new Gladiator(testGlad, 50, 50, null);
+        Gladiator gladiator = new Gladiator(testGlad, 50, 50);
         gladiator.setPosition(320, 325);
 
         // Renders arena and gladiator
