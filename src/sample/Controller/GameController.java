@@ -1,5 +1,6 @@
 package sample.Controller;
 
+import sample.Arena.Arena;
 import sample.Model.Gladiator.Gladiator;
 
 /**
@@ -10,18 +11,19 @@ import sample.Model.Gladiator.Gladiator;
 public class GameController {
     private boolean running;
     private Gladiator gladiator;
+    private Arena arena;
 
     // Constructor
     public GameController() {
     }
 
     // Instanciates objects needed to launch the main loop (run());
-   /* public void init() {
+    public void init() {
+        // init arena
         //Gladiator gladiator = new Gladiator();
         // GUIController guiController;
         run();
     }
-    */
 
     // Kører programmet
     public void run() {
@@ -87,6 +89,15 @@ public class GameController {
             // If player surrenders, fightIsOn = false; and loop breaks
         }
 
+    }
+
+    public void move(int direction){
+
+        switch(direction) {
+            // NE
+            case 1:
+
+        }
     }
 
 

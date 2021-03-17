@@ -24,7 +24,6 @@ public class Arena {
     //Creates and returns a list with all the adjacent hexes to a position
     public ArrayList<Point> getAdjacent(Point gladiatorPosition){
         ArrayList<Point> adjacentPoints = new ArrayList<>();
-
         if(arena[gladiatorPosition.getX()-2][gladiatorPosition.getY()] != null)
             adjacentPoints.add(arena[gladiatorPosition.getX()-2][gladiatorPosition.getY()].getPosition());
         if(arena[gladiatorPosition.getX()+2][gladiatorPosition.getY()] != null)

@@ -1,19 +1,31 @@
 package sample.Arena;
 
+import javafx.scene.image.Image;
+import sample.Model.Sources.Sprite;
+
 /**
  * @author Yannick Brot Christensen
  * Hex class used as a tile in the arena class
  */
 
-public class Hex {
-
+public class Hex extends Sprite {
     private int size;
-    private Point position;
-    private boolean contains;
+    private boolean containingObject;
     private Object holds;
 
     public Hex(Point position) {
-        this.position = position;
+        super(new Image("sample/resources/hex.gif"), 54, 54, position); // Hard coded data on hex image
+        this.size = 54; //px size, end to end
+        this.containingObject = false;
+        this.holds = null; // Holds nothing at beginning
+    }
+
+    public boolean isContainingObject() {
+        return containingObject;
+    }
+
+    public void setContainingObject(boolean containingObject) {
+        this.containingObject = containingObject;
     }
 
     public int getSize() {
@@ -24,20 +36,12 @@ public class Hex {
         this.size = size;
     }
 
-    public Point getPosition() {
-        return position;
-    }
-
-    public void setPosition(Point position) {
-        this.position = position;
-    }
-
     public boolean isContains() {
-        return contains;
+        return containingObject;
     }
 
     public void setContains(boolean contains) {
-        this.contains = contains;
+        this.containingObject = contains;
     }
 
     public Object getHolds() {

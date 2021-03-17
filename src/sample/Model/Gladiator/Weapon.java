@@ -33,39 +33,43 @@ public class Weapon extends Equipment {
         int diceRoll = random.nextInt(20) + 1;
 
         //TODO: check for 0 og 20
-        if(gladiator.getWeightClass().equals("Light")){
+        if (gladiator.getWeightClass().equals("Light")) {
             diceRoll -= 2;
-        }else if(gladiator.getWeightClass().equals("Heavy")){
+        } else if (gladiator.getWeightClass().equals("Heavy")) {
             diceRoll += 3;
         }
 
-        if(diceRoll>20){
+        if (diceRoll > 20) {
             diceRoll = 20;
-        } else if(diceRoll<0){
+        } else if (diceRoll < 0) {
             diceRoll = 0;
         }
 
         if (gladiator.getMainWeapon().getName().equals("Short sword - 1H") || gladiator.getMainWeapon().getName().equals("Dagger")) {
             if (diceRoll >= 2 && diceRoll <= 5) {
                 return 4;
-            } else if(diceRoll >= 6 && diceRoll <= 12){
+            } else if (diceRoll >= 6 && diceRoll <= 12) {
                 return 6;
-            }else if(diceRoll >= 13 && diceRoll <= 19){
+            } else if (diceRoll >= 13 && diceRoll <= 19) {
                 return 8;
-            }else if(diceRoll == 20){
+            } else if (diceRoll == 20) {
                 return 10;
+            } else {
+                return 0;
             }
-        } else if(gladiator.getMainWeapon().getName().equals("Long sword - 2H")){
+        } else if (gladiator.getMainWeapon().getName().equals("Long sword - 2H")) {
             if (diceRoll >= 2 && diceRoll <= 5) {
                 return 4;
-            } else if(diceRoll >= 6 && diceRoll <= 13){
+            } else if (diceRoll >= 6 && diceRoll <= 13) {
                 return 7;
-            }else if(diceRoll >= 14 && diceRoll <= 19){
+            } else if (diceRoll >= 14 && diceRoll <= 19) {
                 return 16;
-            }else if(diceRoll == 20){
+            } else if (diceRoll == 20) {
                 return 30;
+            } else {
+                return 0;
             }
-        } else if(gladiator.getMainWeapon().getName().equals("Long sword - 2H")) {
+        } else if (gladiator.getMainWeapon().getName().equals("Long sword - 2H")) {
             if (diceRoll >= 2 && diceRoll <= 3) {
                 return 4;
             } else if (diceRoll >= 4 && diceRoll <= 10) {
@@ -74,8 +78,10 @@ public class Weapon extends Equipment {
                 return 28;
             } else if (diceRoll == 20) {
                 return 50;
+            } else {
+                return 0;
             }
-        }else if(gladiator.getMainWeapon().getName().equals("Trefork & net")) {
+        } else if (gladiator.getMainWeapon().getName().equals("Trefork & net")) {
             if (diceRoll >= 2 && diceRoll <= 5) {
                 return 4;
             } else if (diceRoll >= 6 && diceRoll <= 12) {
@@ -84,6 +90,8 @@ public class Weapon extends Equipment {
                 return 8;
             } else if (diceRoll == 20) {
                 return 20;
+            } else {
+                return 0;
             }
         }
         return 0; //attack miss

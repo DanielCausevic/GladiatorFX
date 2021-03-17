@@ -2,8 +2,7 @@ package sample.Model.Sources;
 
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
-
-import java.lang.reflect.Array;
+import sample.Arena.Point;
 
 /**
  * @Author: Rasmus Skovbo
@@ -15,13 +14,13 @@ public abstract class Sprite {
     private Image image;
     private double width;
     private double height;
-    private double x;
-    private double y;
+    private Point position;
 
-    public Sprite(Image image, double width, double height) {
+    public Sprite(Image image, double width, double height, Point position) {
         this.image = image;
         this.width = width;
         this.height = height;
+        this.position = position;
     }
 
     // Set image via Image object
@@ -40,32 +39,20 @@ public abstract class Sprite {
     }
 
     // Reposition sprite
-    public void setPosition(double x, double y)
+    public void setPosition(int x, int y)
     {
-        this.x = x;
-        this.y = y;
+        position.setX(x);
+        position.setY(y);
     }
 
-    public double getX() {
-        return x;
-    }
-
-    public void setX(double x) {
-        this.x = x;
-    }
-
-    public double getY() {
-        return y;
-    }
-
-    public void setY(double y) {
-        this.y = y;
+    public Point getPosition() {
+        return position;
     }
 
     // Render sprite in a graphics context
     public void render(GraphicsContext gc)
     {
-        gc.drawImage( image, x, y );
+        gc.drawImage( image, position.getX(), position.getY() );
     }
 
 

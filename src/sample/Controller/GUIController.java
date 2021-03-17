@@ -9,8 +9,8 @@ import javafx.scene.image.Image;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
+import sample.Arena.Point;
 import sample.Model.Gladiator.Gladiator;
-
 
 public class GUIController extends Application {
 
@@ -29,12 +29,12 @@ public class GUIController extends Application {
 
         GraphicsContext gc = canvas.getGraphicsContext2D();
 
-        Image arena = new Image("sample/resources/hexagon.gif");
+        Image arena = new Image( "sample/resources/hexagon.gif");
         Image testGlad = new Image( "sample/resources/testGlad.png");
 
         // Sets gladiator image and position
-        Gladiator gladiator = new Gladiator(testGlad, 50, 50);
-        gladiator.setPosition(320, 325);
+
+        Gladiator gladiator = new Gladiator(testGlad, 50, 50, new Point(320, 325));
 
         // Renders arena and gladiator
         gc.drawImage(arena, 100, 100);
