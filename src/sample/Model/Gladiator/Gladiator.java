@@ -18,6 +18,7 @@ public class Gladiator extends Sprite {
         this.weapons = weapons;
     }
 
+
     // Getters & Setters
     public short getHP() {
         return HP;

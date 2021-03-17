@@ -12,6 +12,7 @@ import javafx.stage.Stage;
 
 public class InputControllerDummy extends Application {
 
+
     @Override
     public void start(Stage primaryStage) throws Exception{
         primaryStage.setTitle( "Arena" );
@@ -32,7 +33,7 @@ public class InputControllerDummy extends Application {
         gc.drawImage(testGlad, 330,325);
 
         primaryStage.show();
-
+/*
         /*
         primaryStage.getScene().setOnMouseClicked(
                 new EventHandler<MouseEvent>() {
@@ -56,9 +57,12 @@ public class InputControllerDummy extends Application {
                         }
                     }
                 });
+ */
 
 
-         */
+
     }
+
+
 
 }
