@@ -94,12 +94,12 @@ public class Gladiator extends Sprite{
         return conditioning;
     }
 
-    public Weapon getMainHand() {
-        return mainHand;
-    }
-
     public Weapon getOffHand() {
-        return offHand;
+        if (!(offHand == null)) {
+            return offHand;
+        } else {
+            return null;
+        }
     }
 
     public Armor getHeadArmor() {
@@ -116,5 +116,13 @@ public class Gladiator extends Sprite{
 
     public String getWeightClass() {
         return weightClass;
+    }
+
+    public void setHP(short HP) {
+        this.HP = HP;
+    }
+
+    public void setConditioning(short conditioning) {
+        this.conditioning = conditioning;
     }
 }

@@ -56,7 +56,7 @@ class WeaponTest {
     @Test
     void calculateHits() {
         //act
-        int act = gladiator.getMainHand().calculateHits(gladiator);
+        int act = gladiator.getMainWeapon().calculateHits(gladiator);
         int exp = 4;
         //assert
         assertEquals(act,exp); //as the damage is random, sometimes the test will fail
