@@ -37,7 +37,6 @@ public class Arena {
             adjacentPoints.put("southEast", arena[gladiatorPosition.getX()+1][gladiatorPosition.getY()-1].getPosition());
         if(arena[gladiatorPosition.getX()+1][gladiatorPosition.getY()+1] != null)
             adjacentPoints.put("northEast", arena[gladiatorPosition.getX()+1][gladiatorPosition.getY()+1].getPosition());
-
         return adjacentPoints;
     }
 
