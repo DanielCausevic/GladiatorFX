@@ -1,13 +1,13 @@
 package sample.Model.Gladiator;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
+import javafx.scene.image.Image;
+import sample.Model.Sources.Sprite;
 
 /**
  * @Auhtor Daniel
  * @Auhtor Nicolai
  */
-public class Gladiator {
+public class Gladiator extends Sprite{
     private short HP = 100;
     private short conditioning = 100;
     private Weapon mainHand; //if null, the gladiator has no attack weapon
@@ -17,7 +17,8 @@ public class Gladiator {
     private Armor legArmor;
     private String weightClass = "";
 
-    public Gladiator() {
+    public Gladiator(Image image, double width, double height) {
+        super(image, width, height);
         this.mainHand = new Weapon("Fist",0,0.0);
         this.offHand = new Weapon("Fist",0,0.0);;
         this.headArmor = new Armor(0,0.0, "Naked", "Head");

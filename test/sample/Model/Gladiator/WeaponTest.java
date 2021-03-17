@@ -1,5 +1,6 @@
 package sample.Model.Gladiator;
 
+import javafx.scene.image.Image;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -12,7 +13,8 @@ class WeaponTest {
     @BeforeEach
     public void init(){
         weapon = new Weapon("dagger", 0, 0.5);
-        gladiator = new Gladiator();
+        Image testGlad = new Image( "sample/resources/testGlad.png");
+        gladiator = new Gladiator(testGlad, 50,50);
         Weapon shortSword1H = new Weapon("Short sword - 1H", 40, 8.0);
         Weapon smallShield = new Weapon("Small shield", 60, 6.0);
         Armor heavyBody = new Armor(80, 8.0, "heavy body armor", "Body");

@@ -12,6 +12,10 @@ public class Hex {
     private boolean contains;
     private Object holds;
 
+    public Hex(Point position) {
+        this.position = position;
+    }
+
     public int getSize() {
         return size;
     }
