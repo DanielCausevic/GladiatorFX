@@ -55,6 +55,8 @@ public abstract class Sprite {
         return position;
     }
 
+
+
     // Render sprite in a graphics context
     public void render(GraphicsContext gc)
     {

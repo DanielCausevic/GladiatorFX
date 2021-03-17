@@ -44,7 +44,9 @@ public class GuiTest extends Application {
         // Sets gladiator image and position
         Image testGlad = new Image( "sample/resources/testGlad.png");
         Gladiator gladiator = new Gladiator(testGlad, 50, 50, new Point(0, 0));
-        gladiator.setPosition(300,300);
+        Hex[][] possiblePositions = arena.getArena();
+        gladiator.setX(possiblePositions[8][5].getX());
+        gladiator.setY(possiblePositions[8][5].getY());
         gladiator.render(gc);
 
         // Gladiator update
