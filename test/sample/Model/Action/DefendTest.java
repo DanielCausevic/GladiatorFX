@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class DefendTest {
 
-    Defend defend = new Defend();
+    Defend defend = new Defend(1,0);
     Gladiator player;
     Gladiator opponent;
     Weapon smallShield;
@@ -55,5 +55,34 @@ class DefendTest {
 
         //vil faile grundet random hitpoints.
         assertEquals(96, player.getHP());
+    }
+
+    @Test
+    void defendTakingDamageToHead() {
+        player.getHeadArmor().setHitPoints(60);
+        defend.defend(testWeapon, player, opponent);
+
+        //vil faile grundet random hitpoints.
+        assertEquals(50, player.getHeadArmor().getHitPoints());
+    }
+
+    @Test
+    void defendTakingDamageToBody() {
+        player.getBodyArmor().setHitPoints(60);
+        player.addWeaponToMain(testWeapon);
+        defend.defend(testWeapon, player, opponent);
+
+        //vil faile grundet random hitpoints.
+        assertEquals(50, player.getBodyArmor().getHitPoints());
+    }
+
+    @Test
+    void defendTakingDamageToLegs() {
+        player.getLegArmor().setHitPoints(40);
+        player.addWeaponToMain(testWeapon);
+        defend.defend(shortSword1H, player, opponent);
+
+        //vil faile grundet random hitpoints.
+        assertEquals(94, player.getHP());
     }
 }

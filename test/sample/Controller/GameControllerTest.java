@@ -16,13 +16,17 @@ class GameControllerTest {
     Arena arena;
     Gladiator gladiator;
 
+    /*
     @BeforeEach
     public void init(){
         Image testGlad = new Image( "sample/resources/testGlad.png");
         gladiator = new Gladiator(testGlad, 50,50, null);
+
         arena = new Arena(10, 0,0);
         arena.initArena(0,0);
     }
+
+     */
 
 
     @Test
