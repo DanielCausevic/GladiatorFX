@@ -34,7 +34,7 @@ public class InputControllerDummy extends Application {
 
 //----------------------------------------------------------------------------------------------------------------------
 
-        //Visualize all the buttons
+       /* //Visualize all the buttons
         Group root = new Group(
                 viewArena, buttonLeft,buttonRight,buttonDir,
                 buttonAttackLeft,buttonDefendLeft,buttonNothingLeft,
@@ -42,6 +42,8 @@ public class InputControllerDummy extends Application {
                 buttonAttackRight,buttonDefendRight,buttonNothingRight,
                 buttonRotateNW, buttonRotateSE, buttonRotateNE, buttonRotateSW,
                 buttonNE, buttonE, buttonSE, buttonSW, buttonW, buttonNW);
+
+
 
         //Creating the GUI with the Root (All the buttons & pictues), & scaling the GUI window.
         Scene theScene = new Scene(root,650,700);
@@ -57,6 +59,12 @@ public class InputControllerDummy extends Application {
 
         primaryStage.show();
 
+        */
+
+
+
     }
+
+
 
 }

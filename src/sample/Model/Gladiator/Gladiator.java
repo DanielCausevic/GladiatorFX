@@ -179,6 +179,7 @@ public class Gladiator extends Sprite{
     public String getWeightClass() {
         return weightClass;
     }
+
 /*
     @Override
     public void render(GraphicsContext gc) {
@@ -196,6 +197,7 @@ public class Gladiator extends Sprite{
 
 
 
+
     public String getOrientation() {
         return orientation;
     }
@@ -207,6 +209,11 @@ public class Gladiator extends Sprite{
     }
 
  */
+
+
+
 }
+
+
 
 

@@ -6,6 +6,7 @@ import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
@@ -13,6 +14,7 @@ import javafx.stage.Stage;
 import sample.Arena.Arena;
 import sample.Arena.Hex;
 import sample.Arena.Point;
+import sample.Model.Action.Buttons;
 import sample.Model.Gladiator.Gladiator;
 
 public class GUIController extends Application {
@@ -23,6 +25,7 @@ public class GUIController extends Application {
         stage.setTitle("Gladiator FX");
 
         // Scene with root group = primary place to hold objects on.
+        Buttons buttons = new Buttons();
         Group root = new Group();
         Scene scene = new Scene(root);
         stage.setScene(scene);
@@ -67,6 +70,7 @@ public class GUIController extends Application {
                 gc.setFont(Font.font("Tahoma", FontWeight.BOLD, 15));
                 gc.fillText("HP: " + String.valueOf(gladiator.getHP()), 10, 20);
                 gc.fillText("Condition: " + String.valueOf(gladiator.getConditioning()), 10, 40);
+
 
 
 

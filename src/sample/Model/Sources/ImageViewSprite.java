@@ -26,7 +26,7 @@ public class ImageViewSprite {
         this.frameWidth = frameWidth;
         this.frameHeight = frameHeight;
     }
-
+/*
     public void directionOfImage(String direction) {
         switch (direction) {
             case "N" -> imageView.setViewport(new Rectangle2D(0, 0, frameWidth, frameHeight));
@@ -35,6 +35,8 @@ public class ImageViewSprite {
             case "E" -> imageView.setViewport(new Rectangle2D(0, frameHeight * 3, frameWidth, frameHeight));
         }
     }
+
+ */
 
 
 
