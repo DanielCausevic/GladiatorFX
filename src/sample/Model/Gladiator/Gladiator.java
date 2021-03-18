@@ -3,7 +3,6 @@ package sample.Model.Gladiator;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import sample.Arena.Point;
-import sample.Model.Dummy.Dummy;
 import sample.Model.Sources.Sprite;
 
 /**
@@ -100,7 +99,7 @@ public class Gladiator extends Sprite{
 
     public double calculateWeightClass(){
         double totalWeight = mainHand.weight + offHand.weight + headArmor.weight +
-                            bodyArmor.weight + legArmor.weight;
+                bodyArmor.weight + legArmor.weight;
         return totalWeight;
     }
 
