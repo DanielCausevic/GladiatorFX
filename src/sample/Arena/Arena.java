@@ -24,7 +24,7 @@ public class Arena {
 
     //Creates double width hexagonal grid
     public void initArena(double startX, double startY){
-        double hexSize = 52;
+        double hexSize = 64;
         double xCounter;
         double yCounter = startY;
 
