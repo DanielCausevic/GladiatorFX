@@ -64,6 +64,9 @@ public class GUIController extends Application {
                 // Renders everything
                 arena.render(gc);
                 gladiator.render(gc);
+                gc.setFont(Font.font("Tahoma", FontWeight.BOLD, 15));
+                gc.fillText("HP: " + String.valueOf(gladiator.getHP()), 10, 20);
+                gc.fillText("Condition: " + String.valueOf(gladiator.getConditioning()), 10, 40);
 
 
 
@@ -75,3 +78,4 @@ public class GUIController extends Application {
 
     }
 }
+
