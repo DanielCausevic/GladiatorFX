@@ -180,7 +180,6 @@ public class Gladiator extends Sprite {
         return weightClass;
     }
 
-/*
     @Override
     public void render(GraphicsContext gc) {
         double xOffset = 2;
@@ -195,20 +194,13 @@ public class Gladiator extends Sprite {
         }
     }
 
-
-
-
     public String getOrientation() {
         return orientation;
     }
 
-
-
     public void setOrientation(String orientation) {
         this.orientation = orientation;
     }
-
- */
 
     public boolean isDead() {
         return dead;
