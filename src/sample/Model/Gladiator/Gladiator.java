@@ -10,14 +10,14 @@ import sample.Model.Sources.Sprite;
  * @Auhtor Nicolai
  */
 public class Gladiator extends Sprite{
-    private short HP = 100;
-    private short conditioning = 100;
-    private Weapon mainHand; //if null, the gladiator has no attack weapon
-    private Weapon offHand; //if null, the gladiator has no attack weapon/or shield
-    private Armor headArmor;
-    private Armor bodyArmor;
-    private Armor legArmor;
-    private String weightClass = "";
+    short HP = 100;
+    short conditioning = 100;
+    Weapon mainHand; //if null, the gladiator has no attack weapon
+    Weapon offHand; //if null, the gladiator has no attack weapon/or shield
+    Armor headArmor;
+    Armor bodyArmor;
+    Armor legArmor;
+    String weightClass = "";
 
     public Gladiator(Image image, double width, double height, Point position) {
         super(image, width, height, position);
@@ -86,12 +86,48 @@ public class Gladiator extends Sprite{
         }
     }
 
+    public void setHP(short HP) {
+        this.HP = HP;
+    }
+
+    public void setConditioning(short conditioning) {
+        this.conditioning = conditioning;
+    }
+
+    public void setMainHand(Weapon mainHand) {
+        this.mainHand = mainHand;
+    }
+
+    public void setOffHand(Weapon offHand) {
+        this.offHand = offHand;
+    }
+
+    public void setHeadArmor(Armor headArmor) {
+        this.headArmor = headArmor;
+    }
+
+    public void setBodyArmor(Armor bodyArmor) {
+        this.bodyArmor = bodyArmor;
+    }
+
+    public void setLegArmor(Armor legArmor) {
+        this.legArmor = legArmor;
+    }
+
+    public void setWeightClass(String weightClass) {
+        this.weightClass = weightClass;
+    }
+
     public short getHP() {
         return HP;
     }
 
     public short getConditioning() {
         return conditioning;
+    }
+
+    public Weapon getMainHand() {
+        return mainHand;
     }
 
     public Weapon getOffHand() {
@@ -116,13 +152,5 @@ public class Gladiator extends Sprite{
 
     public String getWeightClass() {
         return weightClass;
-    }
-
-    public void setHP(short HP) {
-        this.HP = HP;
-    }
-
-    public void setConditioning(short conditioning) {
-        this.conditioning = conditioning;
     }
 }
