@@ -75,7 +75,7 @@ public class GUIController {
                 gc.fillText("Condition: " + String.valueOf(gladiator.getConditioning()), 10, 40);
             }
         }.start();
-
+/*
         // Example of gladiator re-orientation and rendering
         int movement = 2;
         scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
@@ -103,6 +103,8 @@ public class GUIController {
                 }
             }
         });
+
+ */
 
         stage.show();
 
