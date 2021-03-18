@@ -31,20 +31,15 @@ public class GuiTest extends Application {
         stage.setScene(scene);
 
         // Canvas = Primary place in root group to paint on.
-        Canvas canvas = new Canvas(600, 600);
+        Canvas canvas = new Canvas(600, 800);
 
         root.getChildren().add(canvas);
 
         // GraphicsContext = Engine to draw images and text
         GraphicsContext gc = canvas.getGraphicsContext2D();
 
-        // loads single hex
-
-        Hex hex = new Hex(new Point(100,100));
-        hex.render(gc);
-        Arena arena = new Arena(8, 50, 50);
-
-
+        // loads arena
+        Arena arena = new Arena(8, 50, 100);
 
         // Sets gladiator image and position
         Image northOrient = new Image( "sample/resources/glad_n.gif");
@@ -55,13 +50,9 @@ public class GuiTest extends Application {
 
 
         // Positioning test. N.B. if arena size is 5, cannot call positions above 5 - 1 (4)
-        Hex gladHex = arena.getArena()[1][2];
+        Hex gladHex = arena.getArena()[4][2];
         gladiator.setX(gladHex.getX());
         gladiator.setY(gladHex.getY());
-
-
-
-        gladiator.render(gc);
 
         // Gladiator update
         int movement = 2;
@@ -126,6 +117,7 @@ public class GuiTest extends Application {
                 // Renders everything
                 arena.render(gc);
                 gladiator.render(gc);
+
 
 
 
