@@ -996,7 +996,7 @@ public class GameController extends Application {
                 gc.fillText("Condition: " + String.valueOf(gladiator.getConditioning()), 10, 40);
             }
         }.start();
-/*
+
         // Example of gladiator re-orientation and rendering
         int movement = 2;
         scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
@@ -1005,27 +1005,25 @@ public class GameController extends Application {
                 double currentX = gladiator.getX();
                 double currentY = gladiator.getY();
 
-                if (keyEvent.getCode().toString().equals("LEFT")) {
+                if (keyEvent.getCode().toString().equals("A")) {
                     gladiator.setX(currentX - movement);
                     gladiator.setOrientation("W");
                 }
-                if (keyEvent.getCode().toString().equals("RIGHT")) {
+                if (keyEvent.getCode().toString().equals("D")) {
                     gladiator.setX(currentX + movement);
                     gladiator.setOrientation("E");
 
                 }
-                if (keyEvent.getCode().toString().equals("UP")) {
+                if (keyEvent.getCode().toString().equals("W")) {
                     gladiator.setY(currentY - movement );
                     gladiator.setOrientation("N");
                 }
-                if (keyEvent.getCode().toString().equals("DOWN")) {
+                if (keyEvent.getCode().toString().equals("S")) {
                     gladiator.setY(currentY + movement );
                     gladiator.setOrientation("S");
                 }
             }
         });
-
- */
 
         stage.show();
     }
