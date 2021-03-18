@@ -11,6 +11,9 @@ public class Action {
         this.condition = condition;
     }
 
+    public Action() {
+    }
+
     public int getTime() {
         return time;
     }
