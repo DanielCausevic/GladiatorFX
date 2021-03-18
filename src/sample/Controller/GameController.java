@@ -322,7 +322,8 @@ public class GameController extends Application {
         buttonAttackLeft.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-               /*if (gladiator.getWeapon == sword || axe || dagger) {
+                //Attack method
+               //(gladiator.getWeapon == sword || axe || dagger) {
                     buttonStab.setVisible(true);
                     buttonSlash.setVisible(true);
                     buttonThrow.setVisible(false);
@@ -339,9 +340,9 @@ public class GameController extends Application {
                     buttonSlash.setTranslateY(575);
 
 
-               } else if (gladiator.getWeapon == trident) {
+              /* } else if (gladiator.getWeapon == trident) {
 
-                */
+
                 buttonStab.setVisible(true);
                 buttonSlash.setVisible(true);
                 buttonThrow.setVisible(true);
@@ -349,7 +350,6 @@ public class GameController extends Application {
                 buttonAttackRight.setVisible(false);
                 buttonDefendRight.setVisible(false);
                 buttonNothingRight.setVisible(false);
-
 
                 buttonStab.setPrefSize(75, 75);
                 buttonSlash.setPrefSize(75, 75);
@@ -364,9 +364,10 @@ public class GameController extends Application {
                 buttonThrow.setTranslateY(575);
                 buttonPull.setTranslateX(105);
                 buttonPull.setTranslateY(575);
-                // }
+            }
 
-                //Attack method
+               */
+
             }
         });
 
@@ -965,6 +966,13 @@ public class GameController extends Application {
         // Arena graphics and position
         Arena arena = new Arena(8, 50, 100);
 
+        //Dummy gladiator graphics and position
+        Image dummy = new Image("sample/resources/glad_n.gif");
+        Gladiator d_gladiator = new Gladiator(dummy, 30, 48, new Point(0, 0));
+        Hex dummyHex = arena.getArena()[5][5]; // Top left most hex
+        d_gladiator.setX(dummyHex.getX());
+        d_gladiator.setY(dummyHex.getY());
+
         // Gladiator graphics and position
         Image northOrient = new Image("sample/resources/glad_n.gif");
         Image eastOrient = new Image("sample/resources/glad_e.gif");
@@ -972,7 +980,7 @@ public class GameController extends Application {
         Image westOrient = new Image("sample/resources/glad_w.gif");
         Gladiator gladiator = new Gladiator(northOrient, westOrient, southOrient, eastOrient, 30, 48, new Point(0, 0));
 
-        Hex gladHex = arena.getArena()[0][0]; // Top left most hex
+        Hex gladHex = arena.getArena()[2][2]; // Top left most hex
         gladiator.setX(gladHex.getX());
         gladiator.setY(gladHex.getY());
 
@@ -991,12 +999,13 @@ public class GameController extends Application {
                 // Renders everything
                 arena.render(gc);
                 gladiator.render(gc);
+                d_gladiator.render(gc);
                 gc.setFont(Font.font("Tahoma", FontWeight.BOLD, 15));
                 gc.fillText("HP: " + String.valueOf(gladiator.getHP()), 10, 20);
                 gc.fillText("Condition: " + String.valueOf(gladiator.getConditioning()), 10, 40);
             }
         }.start();
-/*
+
         // Example of gladiator re-orientation and rendering
         int movement = 2;
         scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
@@ -1025,7 +1034,7 @@ public class GameController extends Application {
             }
         });
 
- */
+
 
         stage.show();
     }
