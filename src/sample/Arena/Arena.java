@@ -1,6 +1,9 @@
 package sample.Arena;
 
 import javafx.scene.canvas.GraphicsContext;
+import sample.Model.Gladiator.Gladiator;
+
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 
@@ -70,14 +73,50 @@ public class Arena {
         if(arena[gladiatorPosition.getX()+2][gladiatorPosition.getY()] != null)
             adjacentPoints.put("east", arena[gladiatorPosition.getX()+2][gladiatorPosition.getY()].getPosition());
         if(arena[gladiatorPosition.getX()-1][gladiatorPosition.getY()-1] != null)
-            adjacentPoints.put("southWest", arena[gladiatorPosition.getX()-1][gladiatorPosition.getY()-1].getPosition());
+            adjacentPoints.put("northWest", arena[gladiatorPosition.getX()-1][gladiatorPosition.getY()-1].getPosition());
         if(arena[gladiatorPosition.getX()-1][gladiatorPosition.getY()+1] != null)
-            adjacentPoints.put("northWest", arena[gladiatorPosition.getX()-1][gladiatorPosition.getY()+1].getPosition());
+            adjacentPoints.put("southWest", arena[gladiatorPosition.getX()-1][gladiatorPosition.getY()+1].getPosition());
         if(arena[gladiatorPosition.getX()+1][gladiatorPosition.getY()-1] != null)
-            adjacentPoints.put("southEast", arena[gladiatorPosition.getX()+1][gladiatorPosition.getY()-1].getPosition());
+            adjacentPoints.put("northEast", arena[gladiatorPosition.getX()+1][gladiatorPosition.getY()-1].getPosition());
         if(arena[gladiatorPosition.getX()+1][gladiatorPosition.getY()+1] != null)
-            adjacentPoints.put("northEast", arena[gladiatorPosition.getX()+1][gladiatorPosition.getY()+1].getPosition());
+            adjacentPoints.put("southEast", arena[gladiatorPosition.getX()+1][gladiatorPosition.getY()+1].getPosition());
         return adjacentPoints;
+    }
+
+    public ArrayList<Point> getFieldOfView(Point gladiatorPosition, int direction) {
+      ArrayList<Point> fieldOfView = new ArrayList<>();
+        switch(direction) {
+            // northEast
+            case 1:
+                break;
+
+            // east
+            case 2:
+
+                break;
+
+            // southEast
+            case 3:
+
+                break;
+            // southWest
+            case 4:
+
+                break;
+
+            // west
+            case 5:
+
+                break;
+
+            // northWest
+            case 6:
+
+                break;
+
+        }
+
+     return fieldOfView;
     }
 
     public void render(GraphicsContext gc) {
