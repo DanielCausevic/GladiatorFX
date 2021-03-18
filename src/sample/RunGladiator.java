@@ -8,6 +8,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import sample.Arena.Point;
+import sample.Controller.GameController;
 import sample.Controller.GuiTest;
 import sample.Model.Action.Attack;
 import sample.Model.Dummy.Dummy;
@@ -49,7 +50,7 @@ public class RunGladiator extends Application {
 
 //Først movement
     //Kalder vores ArenaController start metode.
-    public static void main(String[] args) { Application.launch(GuiTest.class, args); }
+    public static void main(String[] args) { Application.launch(GameController.class, args); }
 
     public void dummyAttacking(){
         Image testGlad = new Image( "sample/resources/testGlad.png");
