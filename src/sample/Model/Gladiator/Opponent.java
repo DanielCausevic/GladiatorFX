@@ -13,5 +13,6 @@ public class Opponent extends Gladiator{
         this.legArmor = new Armor(0,0.0, "Naked", "Leg");
         this.HP = 100;
         this.conditioning = 100;
+        this.dead = false;
     }
 }

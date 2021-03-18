@@ -13,10 +13,15 @@ public class Attack extends Action{
 
     //stab is direct damage to the opponent
     public void stabAttack(Gladiator gladiator, Opponent opponent){
-        int damage = (int) Math.ceil(gladiator.getMainHand().calculateHits(gladiator) * ((double)gladiator.getConditioning() / 100));
-        int currentHP = opponent.getHP();
-        int newHP = currentHP -= damage;
-        opponent.setHP((short) newHP);
+        if(opponent.isDead() == false) {
+            int damage = (int) Math.ceil(gladiator.getMainHand().calculateHits(gladiator) * ((double) gladiator.getConditioning() / 100));
+            int currentHP = opponent.getHP();
+            int newHP = currentHP -= damage;
+            opponent.setHP((short) newHP);
+        }
+        if(opponent.getHP() <= 0){
+            opponent.setDead(true);
+        }
     }
 
     public void hitAttack(Gladiator gladiator, Opponent opponent){
@@ -43,9 +48,16 @@ public class Attack extends Action{
     }
 
     public void attackDummy(Dummy dummy, Gladiator gladiator){
-        int damage = (int) Math.ceil(gladiator.getMainHand().calculateHits(gladiator) * ((double)gladiator.getConditioning() / 100));
-        int currentHP = dummy.getHP();
-        int newHP = currentHP -= damage;
-        dummy.setHP(newHP);
+        if(dummy.isDead() == false) {
+            int damage = (int) Math.ceil(gladiator.getMainHand().calculateHits(gladiator) * ((double) gladiator.getConditioning() / 100));
+            int currentHP = dummy.getHP();
+            int newHP = currentHP -= damage;
+            dummy.setHP(newHP);
+        }
+        if(dummy.getHP() <= 0){
+            dummy.setDead(true);
+            dummy.setHP(0);
+        }
     }
+
 }

@@ -18,6 +18,7 @@ public class Gladiator extends Sprite{
     Armor bodyArmor;
     Armor legArmor;
     String weightClass = "";
+    boolean dead = false;
 
     public Gladiator(Image image, double width, double height, Point position) {
         super(image, width, height, position);
@@ -152,5 +153,13 @@ public class Gladiator extends Sprite{
 
     public String getWeightClass() {
         return weightClass;
+    }
+
+    public boolean isDead() {
+        return dead;
+    }
+
+    public void setDead(boolean dead) {
+        this.dead = dead;
     }
 }
