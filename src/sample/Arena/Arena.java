@@ -10,30 +10,30 @@ import java.util.HashMap;
  * Class creates and contains a hexagonal grid in a 2dArray.
  */
 
-
+// TESTS
 public class Arena {
 
     private Hex[][] arena;
     private int size;
 
-    public Arena(int size) {
+    public Arena(int size, double startX, double startY) {
         this.size = size;
         this.arena = new Hex[size][size];
-        initArena();
+        initArena(startX, startY);
     }
 
     //Creates double width hexagonal grid
-    public void initArena(){
+    public void initArena(double startX, double startY){
         double hexSize = 52;
-        double xCounter = 0;
-        double yCounter = 0;
+        double xCounter;
+        double yCounter = startY;
 
         for (int j = 0; j < size; j++) {
             // Resets pixel draw start for each row
             if (j % 2 == 0) {
-                xCounter = 0;
+                xCounter = startX;
             } else {
-                xCounter = 0 + hexSize * 0.5;
+                xCounter = startX + hexSize * 0.5;
             }
 
             for (int i = 0; i < size; i++) {
@@ -81,7 +81,7 @@ public class Arena {
     }
 
     public void render(GraphicsContext gc) {
-        for (int j = 0; j < size; j++) {                // Y AXIS
+        for (int j = 0; j < size; j++) {
             for (int i = 0; i < size; i++) {
                 arena[i][j].render(gc);
             }

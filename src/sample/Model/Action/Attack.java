@@ -23,14 +23,23 @@ public class Attack extends Action{
         int damage = (int) Math.ceil(gladiator.getMainHand().calculateHits(gladiator) * ((double)gladiator.getConditioning() / 100));
         //if shield is used, the armor of the shield is reduced
         //halvdelen af skaden er fordelt på gladiatoren og ens armor
+        int currentHP = opponent.getHP();
+        int newHP = currentHP -= damage;
+        opponent.setHP((short) newHP);
     }
 
     public void TreforkNetAttack(Gladiator gladiator, Opponent opponent){
-
+        int damage = (int) Math.ceil(gladiator.getMainHand().calculateHits(gladiator) * ((double)gladiator.getConditioning() / 100));
+        int currentHP = opponent.getHP();
+        int newHP = currentHP -= damage;
+        opponent.setHP((short) newHP);
     }
 
-    public void NetAttack(Gladiator gladiator){
-
+    public void NetAttack(Gladiator gladiator, Opponent opponent){
+        int damage = (int) Math.ceil(gladiator.getMainHand().calculateHits(gladiator) * ((double)gladiator.getConditioning() / 100));
+        int currentHP = opponent.getHP();
+        int newHP = currentHP -= damage;
+        opponent.setHP((short) newHP);
     }
 
     public void attackDummy(Dummy dummy, Gladiator gladiator){
