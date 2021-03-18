@@ -6,7 +6,7 @@ import sample.Model.Gladiator.Gladiator;
 
 import java.util.HashMap;
 
-public class Move {
+public class Move extends Action{
 
     public void move(Gladiator gladiator, Arena arena, int direction){
         HashMap<String, Point> possibleMoves = arena.getAdjacent(gladiator.getPosition());
