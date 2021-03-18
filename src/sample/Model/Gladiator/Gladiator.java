@@ -1,8 +1,8 @@
 package sample.Model.Gladiator;
 
+import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import sample.Arena.Point;
-import sample.Model.Dummy.Dummy;
 import sample.Model.Sources.Sprite;
 
 /**
@@ -19,8 +19,16 @@ public class Gladiator extends Sprite{
     Armor legArmor;
     String weightClass = "";
 
-    public Gladiator(Image image, double width, double height, Point position) {
-        super(image, width, height, position);
+    // Attributes for rotating
+    private String orientation;
+    private Image north, east, west, south, downed;
+
+    public Gladiator(Image north, Image west, Image south, Image east, double width, double height, Point position) {
+        super(south, width, height, position);
+        this.north = north;
+        this.west = west;
+        this.south = south;
+        this.east = east;
         this.mainHand = new Weapon("Fist",0,0.0);
         this.offHand = new Weapon("Fist",0,0.0);;
         this.headArmor = new Armor(0,0.0, "Naked", "Head");
@@ -28,6 +36,11 @@ public class Gladiator extends Sprite{
         this.legArmor = new Armor(0,0.0, "Naked", "Leg");
         this.HP = 100;
         this.conditioning = 100;
+        this.orientation = "S";
+    }
+
+    public Gladiator(Image image, double width, double height, Point position) {
+        super(image, width, height, position);
     }
 
     public void addWeaponToMain(Weapon weapon) {
@@ -54,6 +67,18 @@ public class Gladiator extends Sprite{
         offHand = null;
     }
 
+    public void dropHeadArmor(){
+        headArmor = null;
+    }
+
+    public void dropBodyArmor(){
+        bodyArmor = null;
+    }
+
+    public void droplegArmor(){
+        legArmor = null;
+    }
+
     public Weapon getMainWeapon() {
         if (!(mainHand == null)) {
             return mainHand;
@@ -71,10 +96,10 @@ public class Gladiator extends Sprite{
             legArmor = armor;
         }
     }
-//TODO: test om nullpointers
+
     public double calculateWeightClass(){
         double totalWeight = mainHand.weight + offHand.weight + headArmor.weight +
-                            bodyArmor.weight + legArmor.weight;
+                bodyArmor.weight + legArmor.weight;
         return totalWeight;
     }
 
@@ -152,5 +177,27 @@ public class Gladiator extends Sprite{
 
     public String getWeightClass() {
         return weightClass;
+    }
+
+    @Override
+    public void render(GraphicsContext gc) {
+        double xOffset = 2;
+        double yOffset = 1.2;
+
+        switch (orientation) {
+            case "N", "NW", "NE" -> gc.drawImage(north, getX() - getWidth() / xOffset, getY() - getHeight() / yOffset);
+            case "W" -> gc.drawImage(west, getX() - getWidth() / xOffset, getY() - getHeight() / yOffset);
+            case "E" -> gc.drawImage(east, getX() - getWidth() / xOffset, getY() - getHeight() / yOffset);
+            case "DOWNED" -> gc.drawImage(downed, getX() - getWidth() / xOffset, getY() - getHeight() / yOffset);
+            default -> gc.drawImage(south, getX() - getWidth() / xOffset, getY() - getHeight() / yOffset);
+        }
+    }
+
+    public String getOrientation() {
+        return orientation;
+    }
+
+    public void setOrientation(String orientation) {
+        this.orientation = orientation;
     }
 }
