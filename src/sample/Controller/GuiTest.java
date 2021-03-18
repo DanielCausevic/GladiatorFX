@@ -74,7 +74,7 @@ public class GuiTest extends Application {
                     }
                 });
          */
-
+/*
         scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent keyEvent) {
@@ -100,6 +100,8 @@ public class GuiTest extends Application {
                 }
             }
         });
+
+ */
 
 
 

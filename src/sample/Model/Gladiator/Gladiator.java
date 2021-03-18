@@ -5,8 +5,6 @@ import javafx.scene.image.Image;
 import sample.Arena.Point;
 import sample.Model.Sources.Sprite;
 
-import java.util.HashMap;
-
 /**
  * @Auhtor Daniel
  * @Auhtor Nicolai
@@ -201,49 +199,5 @@ public class Gladiator extends Sprite{
 
     public void setOrientation(String orientation) {
         this.orientation = orientation;
-    }
-    public void move(int direction, HashMap<String, Point> possibleMoves){
-        switch(direction) {
-            // northEast
-            case 1:
-                if(possibleMoves.get("northEast") != null)
-                    this.setPositionPoint(possibleMoves.get("northEast"));
-                break;
-
-            // east
-            case 2:
-                if(possibleMoves.get("east") != null)
-                    this.setPositionPoint(possibleMoves.get("east"));
-                    this.setPosition(possibleMoves.get("east").getX(),possibleMoves.get("east").getY());
-                break;
-
-            // southEast
-            case 3:
-                if(possibleMoves.get("southEast") != null)
-                    this.setPositionPoint(possibleMoves.get("southEast"));
-                break;
-            // southWest
-            case 4:
-                if(possibleMoves.get("southWest") != null)
-                    this.setPositionPoint(possibleMoves.get("southWest"));
-                break;
-
-            // west
-            case 5:
-                if(possibleMoves.get("west") != null)
-                    this.setPositionPoint(possibleMoves.get("west"));
-                break;
-
-            // northWest
-            case 6:
-                if(possibleMoves.get("northWest") != null)
-                    this.setPositionPoint(possibleMoves.get("northWest"));
-                break;
-
-            default:
-                System.err.println("Not a valid move");
-
-
-        }
     }
 }

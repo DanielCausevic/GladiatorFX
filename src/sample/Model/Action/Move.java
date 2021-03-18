@@ -6,6 +6,6 @@ import sample.Model.Gladiator.Gladiator;
 
 import java.util.HashMap;
 
-public class Move {
+public class Move extends Action{
 
 }
