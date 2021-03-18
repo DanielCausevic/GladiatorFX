@@ -2,9 +2,10 @@ package sample.Arena;
 
 /**
  * @author Yannick Brot Christensen
- * The point class is used as a coordinate.
+ * The point class is used as coordinates relevant to the hex-grid
  */
 
+// TESTS
 public class Point {
 
     private int x;

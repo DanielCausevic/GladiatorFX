@@ -18,7 +18,6 @@ public class Gladiator extends Sprite{
     Armor bodyArmor;
     Armor legArmor;
     String weightClass = "";
-    private int direction; // 1-6 - 1=NE 2=E 3=SE 4=SW 5=W 6=NW
 
     public Gladiator(Image image, double width, double height, Point position) {
         super(image, width, height, position);
@@ -153,13 +152,5 @@ public class Gladiator extends Sprite{
 
     public String getWeightClass() {
         return weightClass;
-    }
-
-    public int getDirection() {
-        return direction;
-    }
-
-    public void setDirection(int direction) {
-        this.direction = direction;
     }
 }
