@@ -1,5 +1,6 @@
 package sample.Model.Sources;
 
+import javafx.geometry.Point2D;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import sample.Arena.Point;
@@ -17,6 +18,8 @@ public abstract class Sprite {
     private Point position; // grid position, not x/y for image placement
     private double x; // x/y for image positioning
     private double y;
+
+    private double r; // radius for center draw
 
     public Sprite(Image image, double width, double height, Point position) {
         this.image = image;
@@ -56,11 +59,10 @@ public abstract class Sprite {
     }
 
 
-
     // Render sprite in a graphics context
     public void render(GraphicsContext gc)
     {
-        gc.drawImage( image, x, y );
+        gc.drawImage( image, x - width/2, y - height/2);
     }
 
     public double getX() {
@@ -78,4 +80,5 @@ public abstract class Sprite {
     public void setY(double y) {
         this.y = y;
     }
+
 }

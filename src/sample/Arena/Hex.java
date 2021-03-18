@@ -9,6 +9,7 @@ import sample.Model.Sources.Sprite;
  * Hex class used as a tile in the arena class
  */
 
+// TESTS
 public class Hex extends Sprite {
     private int size;
     private boolean containingObject;
