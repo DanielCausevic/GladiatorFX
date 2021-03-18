@@ -64,7 +64,7 @@ public class GuiTest extends Application {
         gladiator.render(gc);
 
         // Gladiator update
-        int movement = 1;
+        int movement = 2;
 
         //// Input handling
         // Mouse input (only works if both mouse keys are down

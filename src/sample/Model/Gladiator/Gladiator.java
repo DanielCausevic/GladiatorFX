@@ -22,7 +22,7 @@ public class Gladiator extends Sprite{
 
     // Attributes for rotating
     private String orientation;
-    private Image north, east, west, south;
+    private Image north, east, west, south, downed;
 
     public Gladiator(Image north, Image west, Image south, Image east, double width, double height, Point position) {
         super(south, width, height, position);
@@ -170,11 +170,15 @@ public class Gladiator extends Sprite{
 
     @Override
     public void render(GraphicsContext gc) {
+        double xOffset = 2;
+        double yOffset = 1.2;
+
         switch (orientation) {
-            case "N", "NW", "NE" -> gc.drawImage(north, getX() - getWidth() / 2, getY() - getHeight() / 2);
-            case "W" -> gc.drawImage(west, getX() - getWidth() / 2, getY() - getHeight() / 2);
-            case "E" -> gc.drawImage(east, getX() - getWidth() / 2, getY() - getHeight() / 2);
-            default -> gc.drawImage(south, getX() - getWidth() / 2, getY() - getHeight() / 2);
+            case "N", "NW", "NE" -> gc.drawImage(north, getX() - getWidth() / xOffset, getY() - getHeight() / yOffset);
+            case "W" -> gc.drawImage(west, getX() - getWidth() / xOffset, getY() - getHeight() / yOffset);
+            case "E" -> gc.drawImage(east, getX() - getWidth() / xOffset, getY() - getHeight() / yOffset);
+            case "DOWNED" -> gc.drawImage(downed, getX() - getWidth() / xOffset, getY() - getHeight() / yOffset);
+            default -> gc.drawImage(south, getX() - getWidth() / xOffset, getY() - getHeight() / yOffset);
         }
     }
 
