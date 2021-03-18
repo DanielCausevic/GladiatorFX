@@ -85,7 +85,7 @@ public class Gladiator extends Sprite{
             legArmor = armor;
         }
     }
-//TODO: test om nullpointers
+
     public double calculateWeightClass(){
         double totalWeight = mainHand.weight + offHand.weight + headArmor.weight +
                             bodyArmor.weight + legArmor.weight;

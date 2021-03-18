@@ -5,14 +5,13 @@ import javafx.scene.image.Image;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import sample.Model.Dummy.Dummy;
-import sample.Model.Gladiator.Armor;
-import sample.Model.Gladiator.Gladiator;
-import sample.Model.Gladiator.Weapon;
+import sample.Model.Gladiator.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class AttackTest {
     Gladiator gladiator;
+    Gladiator opponent;
     Dummy dummy;
 
     @BeforeEach
@@ -27,6 +26,37 @@ class AttackTest {
         gladiator.addShield(smallShield);
         gladiator.addWeaponToMain(shortSword1H);
         dummy = new Dummy(testGlad, 50,50, null);
+
+        opponent = new Gladiator(testGlad, 50,50, null);
+        opponent.addArmor(heavyBody);
+        opponent.addShield(smallShield);
+        opponent.addWeaponToMain(shortSword1H);
+    }
+
+    @Test
+    void hitAttack() {
+        //act
+        Attack attack = new Attack();
+        attack.hitAttack(gladiator, opponent, BodyParts.BODY);
+
+        int act = opponent.getHP();
+
+        //assert
+        assertNotEquals(100,act);
+
+    }
+
+    @Test
+    void testCondition(){
+        //act
+        Attack attack = new Attack();
+        attack.hitAttack(gladiator, opponent, BodyParts.BODY);
+
+        int act = gladiator.getConditioning();
+        int exp = 95;
+
+        //assert
+        assertEquals(exp,act);
     }
     /*
     @Test
