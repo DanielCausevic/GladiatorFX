@@ -200,9 +200,8 @@ public class Gladiator extends Sprite{
     public void setOrientation(String orientation) {
         this.orientation = orientation;
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> cd93294598c47f75691a3c69bb15f5f36907ff22
 }
-
-
-
-
