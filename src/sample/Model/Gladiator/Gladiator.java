@@ -18,6 +18,7 @@ public class Gladiator extends Sprite {
     Armor bodyArmor;
     Armor legArmor;
     String weightClass = "";
+    boolean dead = false;
 
     // Attributes for rotating
     private String orientation;
@@ -179,6 +180,7 @@ public class Gladiator extends Sprite {
         return weightClass;
     }
 
+/*
     @Override
     public void render(GraphicsContext gc) {
         double xOffset = 2;
@@ -193,11 +195,31 @@ public class Gladiator extends Sprite {
         }
     }
 
+
+
+
     public String getOrientation() {
         return orientation;
     }
 
+
+
     public void setOrientation(String orientation) {
         this.orientation = orientation;
     }
+
+ */
+
+    public boolean isDead() {
+        return dead;
+    }
+
+    public void setDead(boolean dead) {
+        this.dead = dead;
+    }
+
 }
+
+
+
+
