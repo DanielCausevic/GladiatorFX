@@ -68,21 +68,21 @@ public class Arena {
     //Creates and returns a list with all the adjacent hexes to a position
     public HashMap<String, Point> getAdjacent(Point gladiatorPosition){
         HashMap<String, Point> adjacentPoints = new HashMap<>();
-        if(arena[gladiatorPosition.getX()-2][gladiatorPosition.getY()] != null)
-            adjacentPoints.put("west", arena[gladiatorPosition.getX()-2][gladiatorPosition.getY()].getPosition());
-        if(arena[gladiatorPosition.getX()+2][gladiatorPosition.getY()] != null)
-            adjacentPoints.put("east", arena[gladiatorPosition.getX()+2][gladiatorPosition.getY()].getPosition());
-        if(arena[gladiatorPosition.getX()-1][gladiatorPosition.getY()-1] != null)
-            adjacentPoints.put("northWest", arena[gladiatorPosition.getX()-1][gladiatorPosition.getY()-1].getPosition());
-        if(arena[gladiatorPosition.getX()-1][gladiatorPosition.getY()+1] != null)
-            adjacentPoints.put("southWest", arena[gladiatorPosition.getX()-1][gladiatorPosition.getY()+1].getPosition());
-        if(arena[gladiatorPosition.getX()+1][gladiatorPosition.getY()-1] != null)
-            adjacentPoints.put("northEast", arena[gladiatorPosition.getX()+1][gladiatorPosition.getY()-1].getPosition());
-        if(arena[gladiatorPosition.getX()+1][gladiatorPosition.getY()+1] != null)
-            adjacentPoints.put("southEast", arena[gladiatorPosition.getX()+1][gladiatorPosition.getY()+1].getPosition());
+            if (arena[gladiatorPosition.getX() - 2][gladiatorPosition.getY()] != null)
+                adjacentPoints.put("west", arena[gladiatorPosition.getX() - 2][gladiatorPosition.getY()].getPosition());
+            if (arena[gladiatorPosition.getX() + 2][gladiatorPosition.getY()] != null)
+                adjacentPoints.put("east", arena[gladiatorPosition.getX() + 2][gladiatorPosition.getY()].getPosition());
+            if (arena[gladiatorPosition.getX() - 1][gladiatorPosition.getY() - 1] != null)
+                adjacentPoints.put("northWest", arena[gladiatorPosition.getX() - 1][gladiatorPosition.getY() - 1].getPosition());
+            if (arena[gladiatorPosition.getX() - 1][gladiatorPosition.getY() + 1] != null)
+                adjacentPoints.put("southWest", arena[gladiatorPosition.getX() - 1][gladiatorPosition.getY() + 1].getPosition());
+            if (arena[gladiatorPosition.getX() + 1][gladiatorPosition.getY() - 1] != null)
+                adjacentPoints.put("northEast", arena[gladiatorPosition.getX() + 1][gladiatorPosition.getY() - 1].getPosition());
+            if (arena[gladiatorPosition.getX() + 1][gladiatorPosition.getY() + 1] != null)
+                adjacentPoints.put("southEast", arena[gladiatorPosition.getX() + 1][gladiatorPosition.getY() + 1].getPosition());
         return adjacentPoints;
     }
-
+/*
     public ArrayList<Point> getFieldOfView(Point gladiatorPosition, int direction) {
       ArrayList<Point> fieldOfView = new ArrayList<>();
         switch(direction) {
@@ -118,7 +118,7 @@ public class Arena {
 
      return fieldOfView;
     }
-
+*/
     public void render(GraphicsContext gc) {
         for (int j = 0; j < size; j++) {
             for (int i = 0; i < size; i++) {

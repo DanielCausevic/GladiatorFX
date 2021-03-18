@@ -63,9 +63,10 @@ public class GameController extends Application {
         Image westOrient = new Image("sample/resources/glad_w.gif");
         Gladiator gladiator = new Gladiator(northOrient, westOrient, southOrient, eastOrient, 30, 48, new Point(0, 0));
 
-        Hex gladHex = arena.getArena()[0][0]; // Top left most hex
+        Hex gladHex = arena.getArena()[3][3]; // Top left most hex
         gladiator.setX(gladHex.getX());
         gladiator.setY(gladHex.getY());
+        gladiator.setPositionPoint(new Point(3,3));
 
         // Main rendering loop, insert graphics here:
         // Renders constantly - so all data position updates to objects (weapons etc) should only be done once pr round
@@ -102,7 +103,7 @@ public class GameController extends Application {
                 }
                 if (keyEvent.getCode().toString().equals("RIGHT")) {
                     gladiator.setX(currentX + movement);
-                    gladiator.setOrientation("E");
+                    gladiator.move(2, arena.getAdjacent(gladiator.getPosition()));
 
                 }
                 if (keyEvent.getCode().toString().equals("UP")) {
