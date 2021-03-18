@@ -8,12 +8,15 @@ import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import sample.Arena.Arena;
 import sample.Arena.Hex;
 import sample.Arena.Point;
 import sample.Model.Gladiator.Gladiator;
+import sample.Model.Sources.ImageViewSprite;
+
 
 public class GuiTest extends Application {
 
@@ -36,23 +39,32 @@ public class GuiTest extends Application {
         GraphicsContext gc = canvas.getGraphicsContext2D();
 
         // loads single hex
+
         Hex hex = new Hex(new Point(100,100));
         hex.render(gc);
-        Arena arena = new Arena(5);
+        Arena arena = new Arena(8, 50, 50);
+
+
 
         // Sets gladiator image and position
-        Image testGlad = new Image( "sample/resources/testGlad.png");
-        Gladiator gladiator = new Gladiator(testGlad, 50, 50, new Point(0, 0));
+        Image northOrient = new Image( "sample/resources/glad_n.gif");
+        Image eastOrient = new Image( "sample/resources/glad_e.gif");
+        Image southOrient = new Image( "sample/resources/glad_s.gif");
+        Image westOrient = new Image( "sample/resources/glad_w.gif");
+        Gladiator gladiator = new Gladiator(northOrient, westOrient, southOrient, eastOrient, 30, 48, new Point(0, 0));
 
-        // Positioning test
-        Hex[][] possiblePositions = arena.getArena();
-        gladiator.setX(possiblePositions[1][1].getX());
-        gladiator.setY(possiblePositions[1][1].getY());
+
+        // Positioning test. N.B. if arena size is 5, cannot call positions above 5 - 1 (4)
+        Hex gladHex = arena.getArena()[1][2];
+        gladiator.setX(gladHex.getX());
+        gladiator.setY(gladHex.getY());
+
+
 
         gladiator.render(gc);
 
         // Gladiator update
-        int movement = 1;
+        int movement = 2;
 
         //// Input handling
         // Mouse input (only works if both mouse keys are down
@@ -75,23 +87,25 @@ public class GuiTest extends Application {
         scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent keyEvent) {
-                Point position = gladiator.getPosition();
+                double currentX = gladiator.getX();
+                double currentY = gladiator.getY();
 
                 if (keyEvent.getCode().toString().equals("LEFT")) {
-                    int currentX = position.getX();
-                    gladiator.setPosition(currentX - movement, position.getY());
+                    gladiator.setX(currentX - movement);
+                    gladiator.setOrientation("W");
                 }
                 if (keyEvent.getCode().toString().equals("RIGHT")) {
-                    int currentX = position.getX();
-                    gladiator.setPosition(currentX + movement, position.getY());
+                    gladiator.setX(currentX + movement);
+                    gladiator.setOrientation("E");
+
                 }
                 if (keyEvent.getCode().toString().equals("UP")) {
-                    int currentY = position.getY();
-                    gladiator.setPosition(position.getX(), currentY - movement );
+                    gladiator.setY(currentY - movement );
+                    gladiator.setOrientation("N");
                 }
                 if (keyEvent.getCode().toString().equals("DOWN")) {
-                    int currentY = position.getY();
-                    gladiator.setPosition(position.getX(), currentY + movement );
+                    gladiator.setY(currentY + movement );
+                    gladiator.setOrientation("S");
                 }
             }
         });
