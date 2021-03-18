@@ -9,7 +9,7 @@ import sample.Model.Sources.Sprite;
  * @Auhtor Daniel
  * @Auhtor Nicolai
  */
-public class GladiatorSafe extends Sprite{
+public class Gladiator extends Sprite{
     short HP = 100;
     short conditioning = 100;
     Weapon mainHand; //if null, the gladiator has no attack weapon
@@ -23,7 +23,7 @@ public class GladiatorSafe extends Sprite{
     private String orientation;
     private Image north, east, west, south, downed;
 
-    public GladiatorSafe(Image north, Image west, Image south, Image east, double width, double height, Point position) {
+    public Gladiator(Image north, Image west, Image south, Image east, double width, double height, Point position) {
         super(south, width, height, position);
         this.north = north;
         this.west = west;
@@ -39,7 +39,7 @@ public class GladiatorSafe extends Sprite{
         this.orientation = "S";
     }
 
-    public GladiatorSafe(Image image, double width, double height, Point position) {
+    public Gladiator(Image image, double width, double height, Point position) {
         super(image, width, height, position);
     }
 
