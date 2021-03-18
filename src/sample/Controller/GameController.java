@@ -330,17 +330,13 @@ public class GameController extends Application {
                     buttonAttackRight.setVisible(false);
                     buttonDefendRight.setVisible(false);
                     buttonNothingRight.setVisible(false);
-
                     buttonStab.setPrefSize(151, 75);
                     buttonSlash.setPrefSize(151, 75);
                     buttonStab.setTranslateX(30);
                     buttonStab.setTranslateY(500);
                     buttonSlash.setTranslateX(30);
                     buttonSlash.setTranslateY(575);
-
-
                } else if (gladiator.getWeapon == trident) {
-
                 */
                 buttonStab.setVisible(true);
                 buttonSlash.setVisible(true);
@@ -472,9 +468,6 @@ public class GameController extends Application {
                 buttonSlash.setTranslateY(575);
 
                /* } else if (gladiator.getWeapon == trident) {
-
-
-
                     buttonStab.setVisible(true);
                     buttonSlash.setVisible(true);
                     buttonThrow.setVisible(true);
@@ -482,12 +475,10 @@ public class GameController extends Application {
                     buttonAttackLeft.setVisible(false);
                     buttonDefendLeft.setVisible(false);
                     buttonNothingLeft.setVisible(false);
-
                     buttonStab.setPrefSize(75, 75);
                     buttonSlash.setPrefSize(75, 75);
                     buttonThrow.setPrefSize(75, 75);
                     buttonPull.setPrefSize(75, 75);
-
                     buttonStab.setTranslateX(450);
                     buttonStab.setTranslateY(500);
                     buttonSlash.setTranslateX(525);
@@ -497,7 +488,6 @@ public class GameController extends Application {
                     buttonPull.setTranslateX(525);
                     buttonPull.setTranslateY(575);
                }
-
                  */
             }
         });
@@ -874,7 +864,7 @@ public class GameController extends Application {
         buttonSE.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                //insert MoveSE Method
+                //gladiator.move("SE"
                 //Make all buttons not visible
                 buttonNE.setVisible(false);
                 buttonE.setVisible(false);
@@ -972,7 +962,7 @@ public class GameController extends Application {
         Image westOrient = new Image("sample/resources/glad_w.gif");
         Gladiator gladiator = new Gladiator(northOrient, westOrient, southOrient, eastOrient, 30, 48, new Point(0, 0));
 
-        Hex gladHex = arena.getArena()[0][0]; // Top left most hex
+        Hex gladHex = arena.getArena()[0][3]; // Top left most hex
         gladiator.setX(gladHex.getX());
         gladiator.setY(gladHex.getY());
 
@@ -1004,7 +994,6 @@ public class GameController extends Application {
             public void handle(KeyEvent keyEvent) {
                 double currentX = gladiator.getX();
                 double currentY = gladiator.getY();
-
                 if (keyEvent.getCode().toString().equals("LEFT")) {
                     gladiator.setX(currentX - movement);
                     gladiator.setOrientation("W");
@@ -1012,7 +1001,6 @@ public class GameController extends Application {
                 if (keyEvent.getCode().toString().equals("RIGHT")) {
                     gladiator.setX(currentX + movement);
                     gladiator.setOrientation("E");
-
                 }
                 if (keyEvent.getCode().toString().equals("UP")) {
                     gladiator.setY(currentY - movement );
@@ -1024,7 +1012,6 @@ public class GameController extends Application {
                 }
             }
         });
-
  */
 
         stage.show();
