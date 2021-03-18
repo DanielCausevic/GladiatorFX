@@ -1,5 +1,6 @@
 package sample.Model.Gladiator;
 
+import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import sample.Arena.Point;
 import sample.Model.Dummy.Dummy;
@@ -19,8 +20,16 @@ public class Gladiator extends Sprite{
     Armor legArmor;
     String weightClass = "";
 
-    public Gladiator(Image image, double width, double height, Point position) {
-        super(image, width, height, position);
+    // Attributes for rotating
+    private String orientation;
+    private Image north, east, west, south;
+
+    public Gladiator(Image north, Image west, Image south, Image east, double width, double height, Point position) {
+        super(south, width, height, position);
+        this.north = north;
+        this.west = west;
+        this.south = south;
+        this.east = east;
         this.mainHand = new Weapon("Fist",0,0.0);
         this.offHand = new Weapon("Fist",0,0.0);;
         this.headArmor = new Armor(0,0.0, "Naked", "Head");
@@ -28,6 +37,11 @@ public class Gladiator extends Sprite{
         this.legArmor = new Armor(0,0.0, "Naked", "Leg");
         this.HP = 100;
         this.conditioning = 100;
+        this.orientation = "S";
+    }
+
+    public Gladiator(Image image, double width, double height, Point position) {
+        super(image, width, height, position);
     }
 
     public void addWeaponToMain(Weapon weapon) {
@@ -152,5 +166,23 @@ public class Gladiator extends Sprite{
 
     public String getWeightClass() {
         return weightClass;
+    }
+
+    @Override
+    public void render(GraphicsContext gc) {
+        switch (orientation) {
+            case "N", "NW", "NE" -> gc.drawImage(north, getX() - getWidth() / 2, getY() - getHeight() / 2);
+            case "W" -> gc.drawImage(west, getX() - getWidth() / 2, getY() - getHeight() / 2);
+            case "E" -> gc.drawImage(east, getX() - getWidth() / 2, getY() - getHeight() / 2);
+            default -> gc.drawImage(south, getX() - getWidth() / 2, getY() - getHeight() / 2);
+        }
+    }
+
+    public String getOrientation() {
+        return orientation;
+    }
+
+    public void setOrientation(String orientation) {
+        this.orientation = orientation;
     }
 }

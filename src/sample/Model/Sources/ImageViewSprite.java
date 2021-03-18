@@ -4,6 +4,9 @@ import javafx.geometry.Rectangle2D;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
+/**
+ * Obsolete class for now
+ */
 
 public class ImageViewSprite {
     private final ImageView imageView;
@@ -33,6 +36,10 @@ public class ImageViewSprite {
         }
     }
 
+
+    public ImageView getImageView() {
+        return imageView;
+    }
 
     public int getRows() {
         return rows;
