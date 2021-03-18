@@ -68,6 +68,18 @@ public class Gladiator extends Sprite{
         offHand = null;
     }
 
+    public void dropHeadArmor(){
+        headArmor = null;
+    }
+
+    public void dropBodyArmor(){
+        bodyArmor = null;
+    }
+
+    public void droplegArmor(){
+        legArmor = null;
+    }
+
     public Weapon getMainWeapon() {
         if (!(mainHand == null)) {
             return mainHand;
