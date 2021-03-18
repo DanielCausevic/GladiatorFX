@@ -991,8 +991,11 @@ public class GameController extends Application {
                 gladiator.render(gc);
                 d_gladiator.render(gc);
                 gc.setFont(Font.font("Tahoma", FontWeight.BOLD, 15));
-                gc.fillText("HP: " + String.valueOf(gladiator.getHP()), 10, 20);
-                gc.fillText("Condition: " + String.valueOf(gladiator.getConditioning()), 10, 40);
+                gc.fillText("Player 1", 10,20);
+                gc.fillText("HP: " + String.valueOf(gladiator.getHP()), 10, 40);
+                gc.fillText("Condition: " + String.valueOf(gladiator.getConditioning()), 10, 60);
+                gc.fillText("Dummy", 500,20);
+                gc.fillText("HP: " + String.valueOf(d_gladiator.getHP()), 500, 40);
             }
         }.start();
 
