@@ -966,6 +966,13 @@ public class GameController extends Application {
         // Arena graphics and position
         Arena arena = new Arena(8, 50, 100);
 
+        //Dummy gladiator graphics and position
+        Image dummy = new Image("sample/resources/glad_n.gif");
+        Gladiator d_gladiator = new Gladiator(dummy, 30, 48, new Point(0, 0));
+        Hex dummyHex = arena.getArena()[5][5]; // Top left most hex
+        d_gladiator.setX(dummyHex.getX());
+        d_gladiator.setY(dummyHex.getY());
+
         // Gladiator graphics and position
         Image northOrient = new Image("sample/resources/glad_n.gif");
         Image eastOrient = new Image("sample/resources/glad_e.gif");
@@ -973,10 +980,9 @@ public class GameController extends Application {
         Image westOrient = new Image("sample/resources/glad_w.gif");
         Gladiator gladiator = new Gladiator(northOrient, westOrient, southOrient, eastOrient, 30, 48, new Point(0, 0));
 
-        Hex gladHex = arena.getArena()[3][3]; // Top left most hex
+        Hex gladHex = arena.getArena()[2][2]; // Top left most hex
         gladiator.setX(gladHex.getX());
         gladiator.setY(gladHex.getY());
-        gladiator.setPositionPoint(new Point(3,3));
 
         // Main rendering loop, insert graphics here:
         // Renders constantly - so all data position updates to objects (weapons etc) should only be done once pr round
@@ -993,6 +999,7 @@ public class GameController extends Application {
                 // Renders everything
                 arena.render(gc);
                 gladiator.render(gc);
+                d_gladiator.render(gc);
                 gc.setFont(Font.font("Tahoma", FontWeight.BOLD, 15));
                 gc.fillText("HP: " + String.valueOf(gladiator.getHP()), 10, 20);
                 gc.fillText("Condition: " + String.valueOf(gladiator.getConditioning()), 10, 40);
@@ -1013,7 +1020,7 @@ public class GameController extends Application {
                 }
                 if (keyEvent.getCode().toString().equals("RIGHT")) {
                     gladiator.setX(currentX + movement);
-                    gladiator.move(2, arena.getAdjacent(gladiator.getPosition()));
+                    gladiator.setOrientation("E");
 
                 }
                 if (keyEvent.getCode().toString().equals("UP")) {
