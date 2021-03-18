@@ -17,7 +17,7 @@ public class InputControllerDummy extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
 
-        //Creating image
+        //Creating images
         Image leftHand = new Image("sample/resources/lefthand.jpg");
         Image rightHand = new Image("sample/resources/righthand.jpg");
         Image directions = new Image("sample/resources/directions.jpg");
@@ -25,7 +25,7 @@ public class InputControllerDummy extends Application {
         ImageView viewRightHand = new ImageView(rightHand);
         ImageView viewDirections = new ImageView(directions);
 
-        //Resizing the image
+        //Resizing the images
         viewLeftHand.setFitHeight(140);
         viewLeftHand.setPreserveRatio(true);
         viewRightHand.setFitHeight(140);
@@ -56,8 +56,10 @@ public class InputControllerDummy extends Application {
         Button buttonNothingRight = new Button();
 
         //Rotate
-        Button buttonRotateUp = new Button();
-        Button buttonRotateDown = new Button();
+        Button buttonRotateNW = new Button();
+        Button buttonRotateNE = new Button();
+        Button buttonRotateSE = new Button();
+        Button buttonRotateSW = new Button();
 
         //Move
         Button buttonNE = new Button();
@@ -66,6 +68,17 @@ public class InputControllerDummy extends Application {
         Button buttonSW = new Button();
         Button buttonW = new Button();
         Button buttonNW = new Button();
+
+        //Attack
+        Button buttonStab = new Button();
+        Button buttonSlash = new Button();
+        Button buttonThrow = new Button();
+        Button buttonPull = new Button();
+
+        //Bodypart
+        Button buttonHead = new Button();
+        Button buttonBody = new Button();
+        Button buttonLeg = new Button();
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -98,23 +111,28 @@ public class InputControllerDummy extends Application {
         buttonNothingRight.setTranslateX(450);
         buttonNothingRight.setTranslateY(600);
 
-        buttonRotateUp.setTranslateX(240);
-        buttonRotateUp.setTranslateY(500);
-        buttonRotateDown.setTranslateX(240);
-        buttonRotateDown.setTranslateY(575);
+        buttonRotateNW.setTranslateX(240);
+        buttonRotateNW.setTranslateY(500);
+        buttonRotateNE.setTranslateX(315);
+        buttonRotateNE.setTranslateY(500);
+        buttonRotateSW.setTranslateX(240);
+        buttonRotateSW.setTranslateY(575);
+        buttonRotateSE.setTranslateX(315);
+        buttonRotateSE.setTranslateY(575);
 
-        buttonNE.setTranslateX(260);
+        buttonNE.setTranslateX(315);
         buttonNE.setTranslateY(500);
-        buttonE.setTranslateX(260);
+        buttonE.setTranslateX(315);
         buttonE.setTranslateY(550);
-        buttonSE.setTranslateX(260);
+        buttonSE.setTranslateX(315);
         buttonSE.setTranslateY(600);
+
         buttonSW.setTranslateX(240);
-        buttonSW.setTranslateY(500);
+        buttonSW.setTranslateY(600);
         buttonW.setTranslateX(240);
         buttonW.setTranslateY(550);
         buttonNW.setTranslateX(240);
-        buttonNW.setTranslateY(600);
+        buttonNW.setTranslateY(500);
 //----------------------------------------------------------------------------------------------------------------------
 
         //Making the buttons Not visible
@@ -130,8 +148,10 @@ public class InputControllerDummy extends Application {
         buttonAttackRight.setVisible(false);
         buttonNothingRight.setVisible(false);
 
-        buttonRotateUp.setVisible(false);
-        buttonRotateDown.setVisible(false);
+        buttonRotateNW.setVisible(false);
+        buttonRotateNE.setVisible(false);
+        buttonRotateSW.setVisible(false);
+        buttonRotateSE.setVisible(false);
 
         buttonNE.setVisible(false);
         buttonE.setVisible(false);
@@ -159,10 +179,12 @@ public class InputControllerDummy extends Application {
         buttonDefendRight.setPrefSize(151,49);
         buttonNothingRight.setPrefSize(151,49);
 
-        buttonRotateUp.setPrefSize(151,75);
-        buttonRotateDown.setPrefSize(151,75);
+        buttonRotateNW.setPrefSize(75,75);
+        buttonRotateNE.setPrefSize(75,75);
+        buttonRotateSW.setPrefSize(75,75);
+        buttonRotateSE.setPrefSize(75,75);
 
-        buttonSE.setPrefSize(75,49);
+        buttonNE.setPrefSize(75,49);
         buttonE.setPrefSize(75,49);
         buttonSE.setPrefSize(75,49);
         buttonSW.setPrefSize(75,49);
@@ -175,6 +197,7 @@ public class InputControllerDummy extends Application {
         buttonRight.setGraphic(viewRightHand);
         buttonDir.setGraphic(viewDirections);
 
+        //Writing text in buttons
         buttonAttackLeft.setText("Attack!");
         buttonDefendLeft.setText("Defend!");
         buttonNothingLeft.setText("Do Nothing");
@@ -187,40 +210,27 @@ public class InputControllerDummy extends Application {
         buttonDefendRight.setText("Defend!");
         buttonNothingRight.setText("Do Nothing");
 
-        buttonRotateUp.setText("Rotate NortWest");
-        buttonRotateDown.setText("Rotate SouthEast");
+        buttonRotateNW.setText("Rotate NW");
+        buttonRotateNE.setText("Rotate NE");
+        buttonRotateSW.setText("Rotate SW");
+        buttonRotateSE.setText("Rotate SE");
 
-        buttonNE.setText("North East");
-        buttonE.setText("East");
-        buttonSE.setText("South East");
-        buttonSW.setText("South West");
-        buttonW.setText("West");
-        buttonNW.setText("North West");
-
-//----------------------------------------------------------------------------------------------------------------------
-
-        primaryStage.setTitle("Arena");
-
-        Image arena = new Image("sample/resources/hexagon.png");
-        Image testGlad = new Image( "sample/resources/testGlad.png");
-
-        ImageView viewArena = new ImageView(arena);
-        viewArena.setFitHeight(450);
-        viewArena.setPreserveRatio(true);
+        buttonNE.setText("NE");
+        buttonE.setText("E");
+        buttonSE.setText("SE");
+        buttonSW.setText("SW");
+        buttonW.setText("W");
+        buttonNW.setText("NW");
 
 //----------------------------------------------------------------------------------------------------------------------
+
+        //Making Action when pressing buttons (LEFT HAND)
 
         buttonLeft.setOnAction(new EventHandler<ActionEvent>() {
             @Override public void handle(ActionEvent e) {
-                if (buttonAttackLeft.isVisible()) {
-                    buttonAttackLeft.setVisible(false);
-                    buttonDefendLeft.setVisible(false);
-                    buttonNothingLeft.setVisible(false);
-                } else {
                     buttonAttackLeft.setVisible(true);
                     buttonDefendLeft.setVisible(true);
                     buttonNothingLeft.setVisible(true);
-                }
             }
         });
 
@@ -253,31 +263,37 @@ public class InputControllerDummy extends Application {
 
 //----------------------------------------------------------------------------------------------------------------------
 
+        //Making Action when pressing buttons (DIRECTION)
+
         buttonDir.setOnAction(new EventHandler<ActionEvent>() {
             @Override public void handle(ActionEvent e) {
-                if (buttonRotate.isVisible()) {
-                    buttonRotate.setVisible(false);
-                    buttonMove.setVisible(false);
-                    buttonNothingMove.setVisible(false);
-                } else {
-                    buttonRotate.setVisible(true);
-                    buttonMove.setVisible(true);
-                    buttonNothingMove.setVisible(true);
+                buttonRotate.setVisible(true);
+                buttonMove.setVisible(true);
+                buttonNothingMove.setVisible(true);
+                buttonMove.setPrefSize(151,49);
+                buttonNothingMove.setPrefSize(151,49);
+                buttonMove.setTranslateX(240);
+                buttonMove.setTranslateY(550);
+                buttonNothingMove.setTranslateX(240);
+                buttonNothingMove.setTranslateY(600);
+
                 }
-            }
         });
 
         buttonRotate.setOnAction(new EventHandler<ActionEvent>() {
             @Override public void handle(ActionEvent e) {
-                //Rotate method
-                buttonRotateUp.setVisible(true);
-                buttonRotateDown.setVisible(true);
+                //insert Rotate method
+                buttonRotateNW.setVisible(true);
+                buttonRotateNE.setVisible(true);
+                buttonRotateSW.setVisible(true);
+                buttonRotateSE.setVisible(true);
+
             }
         });
 
         buttonMove.setOnAction(new EventHandler<ActionEvent>() {
             @Override public void handle(ActionEvent e) {
-                //Move method
+                //insert Move method
                 buttonRotate.setVisible(false);
                 buttonMove.setVisible(false);
                 buttonNothingMove.setVisible(false);
@@ -286,7 +302,7 @@ public class InputControllerDummy extends Application {
 
         buttonNothingMove.setOnAction(new EventHandler<ActionEvent>() {
             @Override public void handle(ActionEvent e) {
-                //Nothing method
+                //insert Nothing method
                 buttonRotate.setVisible(false);
                 buttonMove.setVisible(false);
                 buttonNothingMove.setVisible(false);
@@ -295,23 +311,19 @@ public class InputControllerDummy extends Application {
 
 //----------------------------------------------------------------------------------------------------------------------
 
+        //Making Action when pressing buttons (RIGHT HAND)
+
         buttonRight.setOnAction(new EventHandler<ActionEvent>() {
             @Override public void handle(ActionEvent e) {
-                if (buttonAttackRight.isVisible()) {
-                    buttonAttackRight.setVisible(false);
-                    buttonDefendRight.setVisible(false);
-                    buttonNothingRight.setVisible(false);
-                } else {
                     buttonAttackRight.setVisible(true);
                     buttonDefendRight.setVisible(true);
                     buttonNothingRight.setVisible(true);
-                }
             }
         });
 
         buttonAttackRight.setOnAction(new EventHandler<ActionEvent>() {
             @Override public void handle(ActionEvent e) {
-                //Attack method
+                //insert Attack method
                 buttonAttackRight.setVisible(false);
                 buttonDefendRight.setVisible(false);
                 buttonNothingRight.setVisible(false);
@@ -320,7 +332,7 @@ public class InputControllerDummy extends Application {
 
         buttonDefendRight.setOnAction(new EventHandler<ActionEvent>() {
             @Override public void handle(ActionEvent e) {
-                //Defend method
+                //insert Defend method
                 buttonAttackRight.setVisible(false);
                 buttonDefendRight.setVisible(false);
                 buttonNothingRight.setVisible(false);
@@ -329,43 +341,232 @@ public class InputControllerDummy extends Application {
 
         buttonNothingRight.setOnAction(new EventHandler<ActionEvent>() {
             @Override public void handle(ActionEvent e) {
-                //Nothing method
+                //insert Nothing method
                 buttonAttackRight.setVisible(false);
                 buttonDefendRight.setVisible(false);
                 buttonNothingRight.setVisible(false);
             }
         });
 
+//----------------------------------------------------------------------------------------------------------------------
 
-        buttonRotateUp.setOnAction(new EventHandler<ActionEvent>() {
+        //Making Action when pressing buttons (ROTATE)
+
+        buttonRotateNW.setOnAction(new EventHandler<ActionEvent>() {
             @Override public void handle(ActionEvent e) {
-                //RotateUp method
-                buttonRotateUp.setVisible(false);
-                buttonRotateDown.setVisible(false);
+                //insert RotateNW method
+                //When pressing a rotation, then Move & Nothing button will show only
+                buttonRotateNW.setVisible(false);
+                buttonRotateNE.setVisible(false);
+                buttonRotateSW.setVisible(false);
+                buttonRotateSE.setVisible(false);
+
+                buttonRotate.setVisible(false);
+                buttonMove.setPrefSize(151,75);
+                buttonNothingMove.setPrefSize(151,75);
+                buttonMove.setTranslateX(240);
+                buttonMove.setTranslateY(500);
+                buttonNothingMove.setTranslateX(240);
+                buttonNothingMove.setTranslateY(575);
+            }
+        });
+
+        buttonRotateSE.setOnAction(new EventHandler<ActionEvent>() {
+            @Override public void handle(ActionEvent e) {
+                //insert RotateSE method
+                //When pressing a rotation, then Move & Nothing button will show only
+                buttonRotateNW.setVisible(false);
+                buttonRotateNE.setVisible(false);
+                buttonRotateSW.setVisible(false);
+                buttonRotateSE.setVisible(false);
+
+                buttonRotate.setVisible(false);
+                buttonMove.setPrefSize(151,75);
+                buttonNothingMove.setPrefSize(151,75);
+                buttonMove.setTranslateX(240);
+                buttonMove.setTranslateY(500);
+                buttonNothingMove.setTranslateX(240);
+                buttonNothingMove.setTranslateY(575);
+            }
+        });
+
+        buttonRotateNE.setOnAction(new EventHandler<ActionEvent>() {
+            @Override public void handle(ActionEvent e) {
+                //insert RotateNE method
+                //When pressing a rotation, then Move & Nothing button will show only
+                buttonRotateNW.setVisible(false);
+                buttonRotateNE.setVisible(false);
+                buttonRotateSW.setVisible(false);
+                buttonRotateSE.setVisible(false);
+
+                buttonRotate.setVisible(false);
+                buttonMove.setPrefSize(151,75);
+                buttonNothingMove.setPrefSize(151,75);
+                buttonMove.setTranslateX(240);
+                buttonMove.setTranslateY(500);
+                buttonNothingMove.setTranslateX(240);
+                buttonNothingMove.setTranslateY(575);
+            }
+        });
+
+        buttonRotateSW.setOnAction(new EventHandler<ActionEvent>() {
+            @Override public void handle(ActionEvent e) {
+                //insert RotateSW method
+                //When pressing a rotation, then Move & Nothing button will show only
+                buttonRotateNW.setVisible(false);
+                buttonRotateNE.setVisible(false);
+                buttonRotateSW.setVisible(false);
+                buttonRotateSE.setVisible(false);
+
+                buttonRotate.setVisible(false);
+                buttonMove.setPrefSize(151,75);
+                buttonNothingMove.setPrefSize(151,75);
+                buttonMove.setTranslateX(240);
+                buttonMove.setTranslateY(500);
+                buttonNothingMove.setTranslateX(240);
+                buttonNothingMove.setTranslateY(575);
+            }
+        });
+
+//----------------------------------------------------------------------------------------------------------------------
+
+        //Making Action when pressing buttons (MOVE)
+
+        buttonMove.setOnAction(new EventHandler<ActionEvent>() {
+            @Override public void handle(ActionEvent e) {
+                //When pressing button, all Movebuttons should turn visible
+                buttonNE.setVisible(true);
+                buttonE.setVisible(true);
+                buttonSE.setVisible(true);
+                buttonSW.setVisible(true);
+                buttonW.setVisible(true);
+                buttonNW.setVisible(true);
+
+            }
+        });
+
+        buttonNE.setOnAction(new EventHandler<ActionEvent>() {
+            @Override public void handle(ActionEvent e) {
+                //insert MoveNE Method
+                //Make all buttons not visible
+                buttonNE.setVisible(false);
+                buttonE.setVisible(false);
+                buttonSE.setVisible(false);
+                buttonSW.setVisible(false);
+                buttonW.setVisible(false);
+                buttonNW.setVisible(false);
+
                 buttonRotate.setVisible(false);
                 buttonMove.setVisible(false);
                 buttonNothingMove.setVisible(false);
             }
         });
 
-        buttonRotateDown.setOnAction(new EventHandler<ActionEvent>() {
+        buttonE.setOnAction(new EventHandler<ActionEvent>() {
             @Override public void handle(ActionEvent e) {
-                //RotateDown method
-                buttonRotateUp.setVisible(false);
-                buttonRotateDown.setVisible(false);
+                //insert MoveE Method
+                //Make all buttons not visible
+                buttonNE.setVisible(false);
+                buttonE.setVisible(false);
+                buttonSE.setVisible(false);
+                buttonSW.setVisible(false);
+                buttonW.setVisible(false);
+                buttonNW.setVisible(false);
                 buttonRotate.setVisible(false);
                 buttonMove.setVisible(false);
                 buttonNothingMove.setVisible(false);
             }
         });
 
+        buttonSE.setOnAction(new EventHandler<ActionEvent>() {
+            @Override public void handle(ActionEvent e) {
+                //insert MoveSE Method
+                //Make all buttons not visible
+                buttonNE.setVisible(false);
+                buttonE.setVisible(false);
+                buttonSE.setVisible(false);
+                buttonSW.setVisible(false);
+                buttonW.setVisible(false);
+                buttonNW.setVisible(false);
+                buttonRotate.setVisible(false);
+                buttonMove.setVisible(false);
+                buttonNothingMove.setVisible(false);
+            }
+        });
 
+        buttonSW.setOnAction(new EventHandler<ActionEvent>() {
+            @Override public void handle(ActionEvent e) {
+                //insert MoveSW Method
+                //Make all buttons not visible
+                buttonNE.setVisible(false);
+                buttonE.setVisible(false);
+                buttonSE.setVisible(false);
+                buttonSW.setVisible(false);
+                buttonW.setVisible(false);
+                buttonNW.setVisible(false);
+                buttonRotate.setVisible(false);
+                buttonMove.setVisible(false);
+                buttonNothingMove.setVisible(false);
+            }
+        });
+
+        buttonW.setOnAction(new EventHandler<ActionEvent>() {
+            @Override public void handle(ActionEvent e) {
+                //insert MoveW Method
+                //Make all buttons not visible
+                buttonNE.setVisible(false);
+                buttonE.setVisible(false);
+                buttonSE.setVisible(false);
+                buttonSW.setVisible(false);
+                buttonW.setVisible(false);
+                buttonNW.setVisible(false);
+                buttonRotate.setVisible(false);
+                buttonMove.setVisible(false);
+                buttonNothingMove.setVisible(false);
+            }
+        });
+
+        buttonNW.setOnAction(new EventHandler<ActionEvent>() {
+            @Override public void handle(ActionEvent e) {
+                //insert MoveNW Method
+                //Make all buttons not visible
+                buttonNE.setVisible(false);
+                buttonE.setVisible(false);
+                buttonSE.setVisible(false);
+                buttonSW.setVisible(false);
+                buttonW.setVisible(false);
+                buttonNW.setVisible(false);
+                buttonRotate.setVisible(false);
+                buttonMove.setVisible(false);
+                buttonNothingMove.setVisible(false);
+            }
+        });
+
+//----------------------------------------------------------------------------------------------------------------------
+
+        //Putting images in GUI
+
+        primaryStage.setTitle("Arena");
+
+        Image arena = new Image("sample/resources/hexagon.png");
+        Image testGlad = new Image( "sample/resources/testGlad.png");
+
+        ImageView viewArena = new ImageView(arena);
+        viewArena.setFitHeight(450);
+        viewArena.setPreserveRatio(true);
+
+//----------------------------------------------------------------------------------------------------------------------
+
+        //Visualize all the buttons
         Group root = new Group(
                 viewArena, buttonLeft,buttonRight,buttonDir,
                 buttonAttackLeft,buttonDefendLeft,buttonNothingLeft,
                 buttonRotate,buttonMove,buttonNothingMove,
                 buttonAttackRight,buttonDefendRight,buttonNothingRight,
-                buttonRotateUp,buttonRotateDown);
+                buttonRotateNW, buttonRotateSE, buttonRotateNE, buttonRotateSW,
+                buttonNE, buttonE, buttonSE, buttonSW, buttonW, buttonNW);
+
+        //Creating the GUI with the Root (All the buttons & pictues), & scaling the GUI window.
         Scene theScene = new Scene(root,650,700);
         primaryStage.setScene(theScene);
 
@@ -374,36 +575,11 @@ public class InputControllerDummy extends Application {
 
         GraphicsContext gc = canvas.getGraphicsContext2D();
 
+        //Putting in the gladiator
         gc.drawImage(testGlad, 330,325);
 
         primaryStage.show();
 
-        /*
-        primaryStage.getScene().setOnMouseClicked(
-                new EventHandler<MouseEvent>() {
-                    public void handle(MouseEvent e) {
-                        if (pressedOnMovement) {
-                            if (pressedMoveRight) {
-                                moveRight();
-                            } else if (pressedMoveLeft) {
-                                moveLeft()
-                            } else {
-                                characterStay();
-                            }
-                        } else if (pressedOnAttack) {
-                            if (enemyGetShield == true) {
-                                get.shieldHP - hitValue;
-                            } else if (enemyHasNoShield) {
-                                (get.health-(hitvalue/2) && get.ArmorHP-(hitvalue/2));
-                            } else if (enemyHasNoShieldAndNoArmor) {
-                                get.healthHp - hitValue;
-                            }
-                        }
-                    }
-                });
-
-
-         */
     }
 
 }
