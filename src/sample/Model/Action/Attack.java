@@ -1,5 +1,7 @@
 package sample.Model.Action;
 
+import sample.Arena.Arena;
+import sample.Arena.Point;
 import sample.Model.Dummy.Dummy;
 import sample.Model.Gladiator.Gladiator;
 
@@ -24,12 +26,17 @@ public class Attack extends Action{
     }
 
     public void hitAttack(Gladiator gladiator, Gladiator opponent){
-        int damage = (int) Math.ceil(gladiator.getMainHand().calculateHits(gladiator) * ((double)gladiator.getConditioning() / 100));
-        //if shield is used, the armor of the shield is reduced
-        //halvdelen af skaden er fordelt på gladiatoren og ens armor
-        int currentHP = opponent.getHP();
-        int newHP = currentHP -= damage;
-        opponent.setHP((short) newHP);
+        if(!opponent.isDead()) {
+            int damage = (int) Math.ceil(gladiator.getMainHand().calculateHits(gladiator) * ((double) gladiator.getConditioning() / 100));
+            //if shield is used, the armor of the shield is reduced
+            //halvdelen af skaden er fordelt på gladiatoren og ens armor
+            int currentHP = opponent.getHP();
+            int newHP = currentHP -= damage;
+            opponent.setHP((short) newHP);
+        }
+        if(opponent.getHP() <= 0){
+            opponent.setDead(true);
+        }
     }
 
     public void TreforkNetAttack(Gladiator gladiator, Gladiator opponent){
@@ -79,6 +86,21 @@ public class Attack extends Action{
     //calculate damage
     public int calculateDamage(Gladiator gladiator){
         return (int) Math.ceil(gladiator.getMainHand().calculateHits(gladiator) * ((double) gladiator.getConditioning() / 100));
+    }
+
+
+    public boolean isAttackPossible(Gladiator gladiator, Gladiator opponent){
+        if (new Point(gladiator.getPosition().getX() - 2, gladiator.getPosition().getY()).equals(opponent.getPosition())
+                || new Point(gladiator.getPosition().getX() + 2, gladiator.getPosition().getY()).equals(opponent.getPosition())
+                || new Point(gladiator.getPosition().getX() - 1, gladiator.getPosition().getY() - 1).equals(opponent.getPosition())
+                || new Point(gladiator.getPosition().getX() - 1, gladiator.getPosition().getY() + 1).equals(opponent.getPosition())
+                || new Point(gladiator.getPosition().getX() + 1, gladiator.getPosition().getY() - 1).equals(opponent.getPosition())
+                || new Point(gladiator.getPosition().getX() + 1, gladiator.getPosition().getY() + 1).equals(opponent.getPosition())){
+            return true;
+        } else
+            return false;
+
+
     }
 
 }

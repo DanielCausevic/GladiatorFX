@@ -18,7 +18,10 @@ import javafx.stage.Stage;
 import sample.Arena.Arena;
 import sample.Arena.Hex;
 import sample.Arena.Point;
+import sample.Model.Action.Attack;
 import sample.Model.Gladiator.Gladiator;
+import sample.Model.Gladiator.Weapon;
+import sample.Model.Gladiator.Weapons;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -966,15 +969,21 @@ public class GameController extends Application {
         d_gladiator.setX(dummyHex.getX());
         d_gladiator.setY(dummyHex.getY());
 
+        //Dead dummy gladiator
+        Image deadDummy = new Image("sample/resources/glad_down.png",55,55,false,false);
+        Gladiator deadD_gladiator = new Gladiator(deadDummy, deadDummy, deadDummy, deadDummy, 30, 64, new Point(0, 0));
+
         // Gladiator graphics and position
         Image northOrient = new Image("sample/resources/glad_n.gif");
         Image eastOrient = new Image("sample/resources/glad_e.gif");
         Image southOrient = new Image("sample/resources/glad_s.gif");
         Image westOrient = new Image("sample/resources/glad_w.gif");
-        Gladiator gladiator = new Gladiator(northOrient, westOrient, southOrient, eastOrient, 30, 48, new Point(0, 0));
+        Gladiator gladiator = new Gladiator(northOrient, westOrient, southOrient, eastOrient, 30, 64, new Point(0, 0));
 
         //gladiator start position
-        Hex gladHex = arena.getArena()[0][5]; // gladiator start pos
+
+        Hex gladHex = arena.getArena()[2][5]; // gladiator start pos
+
         arena.getArena()[0][2].setHolds(gladiator); //set start hex to hold gladiator
         System.out.println(arena.getArena()[0][2].isContainingObject()); //false, dont know why
         //gladHex.setHolds(gladiator);
@@ -997,18 +1006,53 @@ public class GameController extends Application {
                 // Renders everything
                 arena.render(gc);
                 gladiator.render(gc);
-                d_gladiator.render(gc);
+
+                // checks if dummy is dead, and renders accordingly
+                if (!d_gladiator.isDead()) {
+                    d_gladiator.render(gc);
+                    gc.fillText("Dummy", 500,20);
+                    gc.fillText("HP: " + String.valueOf(d_gladiator.getHP()), 500, 40);
+                } else {
+                    deadD_gladiator.setX(d_gladiator.getX()-12);
+                    deadD_gladiator.setY(d_gladiator.getY()-14);
+                    deadD_gladiator.render(gc);
+                    gc.fillText("Dummy", 500,20);
+                    gc.fillText("HP: 0" , 500, 40);
+                }
+
                 gc.setFont(Font.font("Tahoma", FontWeight.BOLD, 15));
                 gc.fillText("Player 1", 10,20);
                 gc.fillText("HP: " + String.valueOf(gladiator.getHP()), 10, 40);
                 gc.fillText("Condition: " + String.valueOf(gladiator.getConditioning()), 10, 60);
-                gc.fillText("Dummy", 500,20);
-                gc.fillText("HP: " + String.valueOf(d_gladiator.getHP()), 500, 40);
+
             }
         }.start();
 
         // Example of gladiator re-orientation and rendering
         //int movement = 2;
+        /*
+         Image testGlad = new Image( "sample/resources/testGlad.png");
+    Gladiator gladiator = new Gladiator(testGlad,100, 100, new Point(1,1));
+    Dummy dummy = new Dummy(testGlad,100, 100, new Point(1,2), 1000);
+    Weapons weapons = new Weapons();
+    Weapon Dagger = new Weapon("Dagger", 0, 0.5);
+    Weapon longSword2H = new Weapon("Long sword - 2H", 60, 15.0);
+    Attack attack = new Attack(2,2);
+    System.out.println(dummy.getHP());
+
+    gladiator.addWeaponToMain(longSword2H);
+    for (int i = 0; i < 200; i++) {
+        attack.attackDummy(dummy, gladiator);
+        System.out.println(dummy.getHP());
+        if(dummy.getHP() == 0){
+            System.out.println("Dummy dead!!");
+            break;
+        }
+         */
+
+        Weapon longSword2H = new Weapon("Long sword - 2H", 60, 15.0);
+        Attack attack = new Attack(2,2);
+
         scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent keyEvent) {
@@ -1044,8 +1088,8 @@ public class GameController extends Application {
                     currentHex.setHolds(gladiator);
                     //System.out.println(currentHex.isContainingObject());
                 }
-                if (keyEvent.getCode().toString().equals("W")) { //north west
-                    //gladiator.setY(currentY - movement );
+                if (keyEvent.getCode().toString().equals("W")) {
+                    //gladiator.setOrientation("N");
                     gladiator.setOrientation("N");
                     gladiator.move(6, arena.getAdjacent(gladiator.getPosition()));
                     //move gladiator sprite
@@ -1062,6 +1106,11 @@ public class GameController extends Application {
                 if (keyEvent.getCode().toString().equals("S")) {
                     //gladiator.setY(currentY + movement );
                     gladiator.setOrientation("S");
+                }
+                if (keyEvent.getCode().toString().equals("P")){
+                    gladiator.addWeaponToMain(longSword2H);
+                    attack.hitAttack(gladiator, d_gladiator);
+                    System.out.println(gladiator.getHP());
                 }
             }
         });

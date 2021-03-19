@@ -124,6 +124,7 @@ public class Arena {
         }
         return adjacentPoints;
     }
+
 /*
     public ArrayList<Point> getFieldOfView(Point gladiatorPosition, int direction) {
       ArrayList<Point> fieldOfView = new ArrayList<>();
