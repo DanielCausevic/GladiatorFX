@@ -11,7 +11,7 @@ import java.util.HashMap;
  * @Auhtor Daniel
  * @Auhtor Nicolai
  */
-public class Gladiator extends Sprite{
+public class Gladiator extends Sprite {
     short HP = 100;
     short conditioning = 100;
     Weapon mainHand; //if null, the gladiator has no attack weapon
@@ -20,6 +20,7 @@ public class Gladiator extends Sprite{
     Armor bodyArmor;
     Armor legArmor;
     String weightClass = "";
+    boolean dead = false;
 
     // Attributes for rotating
     private String orientation;
@@ -31,11 +32,11 @@ public class Gladiator extends Sprite{
         this.west = west;
         this.south = south;
         this.east = east;
-        this.mainHand = new Weapon("Fist",0,0.0);
-        this.offHand = new Weapon("Fist",0,0.0);;
-        this.headArmor = new Armor(0,0.0, "Naked", "Head");
-        this.bodyArmor = new Armor(0,0.0, "Naked", "Body");
-        this.legArmor = new Armor(0,0.0, "Naked", "Leg");
+        this.mainHand = new Weapon("Fist", 0, 0.0);
+        this.offHand = new Weapon("Fist", 0, 0.0);
+        this.headArmor = new Armor(0, 0.0, "Naked", "Head");
+        this.bodyArmor = new Armor(0, 0.0, "Naked", "Body");
+        this.legArmor = new Armor(0, 0.0, "Naked", "Leg");
         this.HP = 100;
         this.conditioning = 100;
         this.orientation = "S";
@@ -61,23 +62,23 @@ public class Gladiator extends Sprite{
         }
     }
 
-    public void dropMainHand(){
+    public void dropMainHand() {
         mainHand = null;
     }
 
-    public void dropOffHand(){
+    public void dropOffHand() {
         offHand = null;
     }
 
-    public void dropHeadArmor(){
+    public void dropHeadArmor() {
         headArmor = null;
     }
 
-    public void dropBodyArmor(){
+    public void dropBodyArmor() {
         bodyArmor = null;
     }
 
-    public void droplegArmor(){
+    public void droplegArmor() {
         legArmor = null;
     }
 
@@ -99,14 +100,14 @@ public class Gladiator extends Sprite{
         }
     }
 
-    public double calculateWeightClass(){
+    public double calculateWeightClass() {
         double totalWeight = mainHand.weight + offHand.weight + headArmor.weight +
                 bodyArmor.weight + legArmor.weight;
         return totalWeight;
     }
 
-    public void setWeightClass(){
-        if(calculateWeightClass()>25){
+    public void setWeightClass() {
+        if (calculateWeightClass() > 25) {
             weightClass = "Heavy";
         } else {
             weightClass = "Light";
@@ -246,4 +247,17 @@ public class Gladiator extends Sprite{
 
         }
     }
+
+    public boolean isDead() {
+        return dead;
+    }
+
+    public void setDead(boolean dead) {
+        this.dead = dead;
+    }
+
 }
+
+
+
+

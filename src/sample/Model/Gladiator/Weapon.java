@@ -73,7 +73,7 @@ public class Weapon extends Equipment {
             } else {
                 return 0;
             }
-        } else if (gladiator.getMainWeapon().getName().equals("Long sword - 2H")) {
+        } else if (gladiator.getMainWeapon().getName().equals("Battleaxe")) {
             if (diceRoll >= 2 && diceRoll <= 3) {
                 return 4;
             } else if (diceRoll >= 4 && diceRoll <= 10) {

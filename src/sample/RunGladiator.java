@@ -7,9 +7,14 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
-import sample.Controller.GUIController;
+import sample.Arena.Point;
 import sample.Controller.GameController;
 import sample.Controller.GuiTest;
+import sample.Model.Action.Attack;
+import sample.Model.Dummy.Dummy;
+import sample.Model.Gladiator.Gladiator;
+import sample.Model.Gladiator.Weapon;
+import sample.Model.Gladiator.Weapons;
 
 import java.io.File;
 
@@ -43,7 +48,7 @@ public class RunGladiator extends Application {
         root.getChildren().add(canvas);
     }
 
-//Først movement
+    //Først movement
     //Kalder vores ArenaController start metode.
     public static void main(String[] args) {
         Application.launch(GameController.class, args);

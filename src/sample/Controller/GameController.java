@@ -324,7 +324,8 @@ public class GameController extends Application {
         buttonAttackLeft.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-               /*if (gladiator.getWeapon == sword || axe || dagger) {
+                //Attack method
+               //(gladiator.getWeapon == sword || axe || dagger) {
                     buttonStab.setVisible(true);
                     buttonSlash.setVisible(true);
                     buttonThrow.setVisible(false);
@@ -332,7 +333,6 @@ public class GameController extends Application {
                     buttonAttackRight.setVisible(false);
                     buttonDefendRight.setVisible(false);
                     buttonNothingRight.setVisible(false);
-
                     buttonStab.setPrefSize(151, 75);
                     buttonSlash.setPrefSize(151, 75);
                     buttonStab.setTranslateX(30);
@@ -340,10 +340,8 @@ public class GameController extends Application {
                     buttonSlash.setTranslateX(30);
                     buttonSlash.setTranslateY(575);
 
+              /* } else if (gladiator.getWeapon == trident) {
 
-               } else if (gladiator.getWeapon == trident) {
-
-                */
                 buttonStab.setVisible(true);
                 buttonSlash.setVisible(true);
                 buttonThrow.setVisible(true);
@@ -351,7 +349,6 @@ public class GameController extends Application {
                 buttonAttackRight.setVisible(false);
                 buttonDefendRight.setVisible(false);
                 buttonNothingRight.setVisible(false);
-
 
                 buttonStab.setPrefSize(75, 75);
                 buttonSlash.setPrefSize(75, 75);
@@ -366,9 +363,10 @@ public class GameController extends Application {
                 buttonThrow.setTranslateY(575);
                 buttonPull.setTranslateX(105);
                 buttonPull.setTranslateY(575);
-                // }
+            }
 
-                //Attack method
+               */
+
             }
         });
 
@@ -474,9 +472,6 @@ public class GameController extends Application {
                 buttonSlash.setTranslateY(575);
 
                /* } else if (gladiator.getWeapon == trident) {
-
-
-
                     buttonStab.setVisible(true);
                     buttonSlash.setVisible(true);
                     buttonThrow.setVisible(true);
@@ -484,12 +479,10 @@ public class GameController extends Application {
                     buttonAttackLeft.setVisible(false);
                     buttonDefendLeft.setVisible(false);
                     buttonNothingLeft.setVisible(false);
-
                     buttonStab.setPrefSize(75, 75);
                     buttonSlash.setPrefSize(75, 75);
                     buttonThrow.setPrefSize(75, 75);
                     buttonPull.setPrefSize(75, 75);
-
                     buttonStab.setTranslateX(450);
                     buttonStab.setTranslateY(500);
                     buttonSlash.setTranslateX(525);
@@ -499,7 +492,6 @@ public class GameController extends Application {
                     buttonPull.setTranslateX(525);
                     buttonPull.setTranslateY(575);
                }
-
                  */
             }
         });
@@ -876,7 +868,7 @@ public class GameController extends Application {
         buttonSE.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                //insert MoveSE Method
+                //gladiator.move("SE"
                 //Make all buttons not visible
                 buttonNE.setVisible(false);
                 buttonE.setVisible(false);
@@ -967,6 +959,13 @@ public class GameController extends Application {
         // Arena graphics and position
         Arena arena = new Arena(8, 50, 100);
 
+        //Dummy gladiator graphics and position
+        Image dummy = new Image("sample/resources/glad_n.gif");
+        Gladiator d_gladiator = new Gladiator(dummy, dummy, dummy, dummy, 30, 48, new Point(0, 0));
+        Hex dummyHex = arena.getArena()[5][4]; // NOT actual Point position coordinates, but 2D array indexes
+        d_gladiator.setX(dummyHex.getX());
+        d_gladiator.setY(dummyHex.getY());
+
         // Gladiator graphics and position
         Image northOrient = new Image("sample/resources/glad_n.gif");
         Image eastOrient = new Image("sample/resources/glad_e.gif");
@@ -983,7 +982,6 @@ public class GameController extends Application {
         gladiator.setY(gladHex.getY()); //set x for
         gladiator.setPosition((int)gladHex.getX(),(int) gladHex.getY()); //set gladiator point
 
-
         // Main rendering loop, insert graphics here:
         // Renders constantly - so all data position updates to objects (weapons etc) should only be done once pr round
         final long startNanoTime = System.nanoTime();
@@ -999,9 +997,13 @@ public class GameController extends Application {
                 // Renders everything
                 arena.render(gc);
                 gladiator.render(gc);
+                d_gladiator.render(gc);
                 gc.setFont(Font.font("Tahoma", FontWeight.BOLD, 15));
-                gc.fillText("HP: " + String.valueOf(gladiator.getHP()), 10, 20);
-                gc.fillText("Condition: " + String.valueOf(gladiator.getConditioning()), 10, 40);
+                gc.fillText("Player 1", 10,20);
+                gc.fillText("HP: " + String.valueOf(gladiator.getHP()), 10, 40);
+                gc.fillText("Condition: " + String.valueOf(gladiator.getConditioning()), 10, 60);
+                gc.fillText("Dummy", 500,20);
+                gc.fillText("HP: " + String.valueOf(d_gladiator.getHP()), 500, 40);
             }
         }.start();
 

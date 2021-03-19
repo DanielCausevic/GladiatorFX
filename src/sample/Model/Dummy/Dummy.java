@@ -7,6 +7,7 @@ import sample.Model.Sources.Sprite;
 public class Dummy extends Sprite {
 
     int HP = 1000;
+    boolean dead = false;
 
     public Dummy(Image image, double width, double height, Point position, int HP) {
         super(image, width, height, position);
@@ -23,5 +24,13 @@ public class Dummy extends Sprite {
 
     public void setHP(int HP) {
         this.HP = HP;
+    }
+
+    public boolean isDead() {
+        return dead;
+    }
+
+    public void setDead(boolean dead) {
+        this.dead = dead;
     }
 }
