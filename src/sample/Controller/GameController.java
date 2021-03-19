@@ -948,11 +948,11 @@ public class GameController extends Application {
                 buttonHead, buttonBody, buttonLeg,
                 buttonRotateNW, buttonRotateSE, buttonRotateNE, buttonRotateSW, buttonRotateE, buttonRotateW,
                 buttonNE, buttonE, buttonSE, buttonSW, buttonW, buttonNW);
-        Scene scene = new Scene(root, 630,700);
+        Scene scene = new Scene(root, 900,700);
         stage.setScene(scene);
 
         // Canvas = Primary place in root group to paint on.
-        Canvas canvas = new Canvas(650, 500);
+        Canvas canvas = new Canvas(900, 700);
 
         root.getChildren().add(canvas);
 
@@ -1053,6 +1053,7 @@ public class GameController extends Application {
         Weapon longSword2H = new Weapon("Long sword - 2H", 60, 15.0);
         Attack attack = new Attack(2,2);
 
+
         scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent keyEvent) {
@@ -1107,10 +1108,12 @@ public class GameController extends Application {
                     //gladiator.setY(currentY + movement );
                     gladiator.setOrientation("S");
                 }
+
                 if (keyEvent.getCode().toString().equals("P")){
                     gladiator.addWeaponToMain(longSword2H);
-                    attack.hitAttack(gladiator, d_gladiator);
-                    System.out.println(gladiator.getHP());
+                    int damage = attack.hitAttack(gladiator, d_gladiator);
+                    gc.fillText("Player attacked dummy for " + damage , 600, 100+(gladiator.getCounter()*15));
+                    gladiator.setCounter(gladiator.getCounter()+1);
                 }
             }
         });
