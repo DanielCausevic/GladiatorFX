@@ -69,6 +69,8 @@ public class Arena {
     //Creates and returns a list with all the adjacent hexes to a position
     public HashMap<String, Point> getAdjacent(Point gladiatorPosition){
         HashMap<String, Point> adjacentPoints = new HashMap<>(); //HashMap(K,V)
+        int calculateCurrentHexCoordX = (gladiatorPosition.getX() - 50) / 64;
+        int calculateCurrentHexCoordY = (gladiatorPosition.getY() - 196) / 64;
         Point pos;
         try{/*
             if (arena[gladiatorPosition.getX() - 2][gladiatorPosition.getY()] != null)
@@ -84,17 +86,41 @@ public class Arena {
             if (arena[gladiatorPosition.getX() + 1][gladiatorPosition.getY() + 1] != null)
                 adjacentPoints.put("southEast", arena[gladiatorPosition.getX() + 1][gladiatorPosition.getY() + 1].getPosition());
                */
-
+            //TODO: lav metode til get max/min x and y
+            if(arena[calculateCurrentHexCoordX][calculateCurrentHexCoordY].getPosition() != null){
                 pos = new Point(gladiatorPosition.getX() + 64,gladiatorPosition.getY());
                 adjacentPoints.put("east", pos);
-                //print 2d array
+            }
+            if(arena[calculateCurrentHexCoordX][calculateCurrentHexCoordY].getPosition() != null){
+                pos = new Point(gladiatorPosition.getX() - 64,gladiatorPosition.getY());
+                adjacentPoints.put("west", pos);
+            }
+            if(arena[calculateCurrentHexCoordX][calculateCurrentHexCoordY].getPosition() != null){
+                pos = new Point(gladiatorPosition.getX() - 32,gladiatorPosition.getY()-48);
+                adjacentPoints.put("northWest", pos);
+            }
+            if(arena[calculateCurrentHexCoordX][calculateCurrentHexCoordY].getPosition() != null){
+                pos = new Point(gladiatorPosition.getX() - 64,gladiatorPosition.getY());
+                adjacentPoints.put("southWest", pos);
+            }
+            if(arena[calculateCurrentHexCoordX][calculateCurrentHexCoordY].getPosition() != null){
+                pos = new Point(gladiatorPosition.getX() - 64,gladiatorPosition.getY());
+                adjacentPoints.put("northEast", pos);
+            }
+            if(arena[calculateCurrentHexCoordX][calculateCurrentHexCoordY].getPosition() != null){
+                pos = new Point(gladiatorPosition.getX() - 64,gladiatorPosition.getY());
+                adjacentPoints.put("southEast", pos);
+            }
+            //print 2d array
             for (int i = 0; i < arena.length; i++)
                 // Loop through all elements of current row
                 for (int j = 0; j < arena[i].length; j++)
                     System.out.print(arena[i][j] + " ");
+
             System.out.println("hashmap key pos: x="+adjacentPoints.get("east").getX()+ " y=" +adjacentPoints.get("east").getY());
+
         } catch (ArrayIndexOutOfBoundsException ex){
-            ex.printStackTrace();
+            //ex.printStackTrace();
         }
         return adjacentPoints;
     }
@@ -158,5 +184,22 @@ public class Arena {
                 "hex=" + Arrays.toString(arena) +
                 ", size=" + size +
                 '}';
+    }
+
+    public int getMaxX(Hex[][] hexes){
+        int maxValue = hexes[0][0].getPosition().getX();
+        for (int i = 0; i < hexes.length; i++) {
+            for (int j = 0; j < hexes[i].length; j++) {
+                if((int)hexes[0][0].getX()>maxValue){
+                    maxValue = (int)hexes[i][j].getX();
+                }
+            }
+        }
+
+        return maxValue;
+    }
+
+    public int getMinX(){
+        return 0;
     }
 }

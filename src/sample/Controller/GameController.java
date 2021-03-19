@@ -974,7 +974,7 @@ public class GameController extends Application {
         Gladiator gladiator = new Gladiator(northOrient, westOrient, southOrient, eastOrient, 30, 48, new Point(0, 0));
 
         //gladiator start position
-        Hex gladHex = arena.getArena()[0][2]; // gladiator start pos
+        Hex gladHex = arena.getArena()[0][5]; // gladiator start pos
         arena.getArena()[0][2].setHolds(gladiator); //set start hex to hold gladiator
         System.out.println(arena.getArena()[0][2].isContainingObject()); //false, dont know why
         //gladHex.setHolds(gladiator);
@@ -1018,25 +1018,46 @@ public class GameController extends Application {
                 if (keyEvent.getCode().toString().equals("A")) {
                     //gladiator.setX(currentX - movement);
                     gladiator.setOrientation("W");
+                    gladiator.move(5, arena.getAdjacent(gladiator.getPosition()));
+                    //move gladiator sprite
+                    gladiator.setX(gladiator.getPosition().getX()); //set x for sprite pixel coordinate
+                    gladiator.setY(gladiator.getPosition().getY()); //set y for sprite pixel coordinate
+
+                    int calculateCurrentHexCoordX = (gladiator.getPosition().getX() - 146) / 64;
+                    int calculateCurrentHexCoordY = (gladiator.getPosition().getY() - 196) / 64;
+                    Hex currentHex = arena.getArena()[calculateCurrentHexCoordX][calculateCurrentHexCoordY];
+                    currentHex.setHolds(gladiator);
                 }
                 if (keyEvent.getCode().toString().equals("D")) {
                     //gladiator.setX(currentX + movement);
                     gladiator.setOrientation("E");
                     gladiator.move(2, arena.getAdjacent(gladiator.getPosition()));
-                    //move gladiator sprite //TODO: moves gladiator with x,y coodinates (pixels) not from hex to hex
+                    //move gladiator sprite
                     gladiator.setX(gladiator.getPosition().getX()); //set x for sprite pixel coordinate
                     gladiator.setY(gladiator.getPosition().getY()); //set y for sprite pixel coordinate
+                    //System.out.println("Get x max coordinate: "+arena.getMaxX(arena.getArena()));
 
                     //calculate the hex coordinates to check if hex is containing gladiator
                     int calculateCurrentHexCoordX = (gladiator.getPosition().getX() - 146) / 64;
                     int calculateCurrentHexCoordY = (gladiator.getPosition().getY() - 196) / 64;
                     Hex currentHex = arena.getArena()[calculateCurrentHexCoordX][calculateCurrentHexCoordY];
                     currentHex.setHolds(gladiator);
-                    System.out.println(currentHex.isContainingObject());
+                    //System.out.println(currentHex.isContainingObject());
                 }
-                if (keyEvent.getCode().toString().equals("W")) {
+                if (keyEvent.getCode().toString().equals("W")) { //north west
                     //gladiator.setY(currentY - movement );
                     gladiator.setOrientation("N");
+                    gladiator.move(6, arena.getAdjacent(gladiator.getPosition()));
+                    //move gladiator sprite
+                    gladiator.setX(gladiator.getPosition().getX()); //set x for sprite pixel coordinate
+                    gladiator.setY(gladiator.getPosition().getY()); //set y for sprite pixel coordinate
+                    //System.out.println("Get x max coordinate: "+arena.getMaxX(arena.getArena()));
+
+                    //calculate the hex coordinates to check if hex is containing gladiator
+                    int calculateCurrentHexCoordX = (gladiator.getPosition().getX() - 146) / 64;
+                    int calculateCurrentHexCoordY = (gladiator.getPosition().getY() - 196) / 64;
+                    Hex currentHex = arena.getArena()[calculateCurrentHexCoordX][calculateCurrentHexCoordY];
+                    currentHex.setHolds(gladiator);
                 }
                 if (keyEvent.getCode().toString().equals("S")) {
                     //gladiator.setY(currentY + movement );
