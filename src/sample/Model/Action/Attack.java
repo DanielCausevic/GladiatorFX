@@ -32,6 +32,9 @@ public class Attack extends Action{
         int currentHP = opponent.getHP();
         int newHP = currentHP -= damage;
         opponent.setHP((short) newHP);
+        if(opponent.getHP() <= 0){
+            opponent.setDead(true);
+        }
     }
 
     public void TreforkNetAttack(Gladiator gladiator, Gladiator opponent){
