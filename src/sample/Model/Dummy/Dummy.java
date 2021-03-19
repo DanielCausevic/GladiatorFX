@@ -6,7 +6,7 @@ import sample.Model.Sources.Sprite;
 
 public class Dummy extends Sprite {
 
-    int HP = 1000;
+    int HP = 100;
     boolean dead = false;
 
     public Dummy(Image image, double width, double height, Point position, int HP) {

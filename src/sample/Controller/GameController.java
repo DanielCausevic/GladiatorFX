@@ -966,6 +966,10 @@ public class GameController extends Application {
         d_gladiator.setX(dummyHex.getX());
         d_gladiator.setY(dummyHex.getY());
 
+        //Dead dummy gladiator
+        Image deadDummy = new Image("sample/resources/glad_down.gif");
+        Gladiator deadD_gladiator = new Gladiator(deadDummy, deadDummy, deadDummy, deadDummy, 30, 48, new Point(0, 0));
+
         // Gladiator graphics and position
         Image northOrient = new Image("sample/resources/glad_n.gif");
         Image eastOrient = new Image("sample/resources/glad_e.gif");
@@ -974,7 +978,7 @@ public class GameController extends Application {
         Gladiator gladiator = new Gladiator(northOrient, westOrient, southOrient, eastOrient, 30, 48, new Point(0, 0));
 
         //gladiator start position
-        Hex gladHex = arena.getArena()[0][2]; // gladiator start pos
+        Hex gladHex = arena.getArena()[1][2]; // gladiator start pos
         arena.getArena()[0][2].setHolds(gladiator); //set start hex to hold gladiator
         System.out.println(arena.getArena()[0][2].isContainingObject()); //false, dont know why
         //gladHex.setHolds(gladiator);
@@ -997,13 +1001,25 @@ public class GameController extends Application {
                 // Renders everything
                 arena.render(gc);
                 gladiator.render(gc);
-                d_gladiator.render(gc);
+
+                // checks if dummy is dead, and renders accordingly
+                if (!d_gladiator.isDead()) {
+                    d_gladiator.render(gc);
+                    gc.fillText("Dummy", 500,20);
+                    gc.fillText("HP: " + String.valueOf(d_gladiator.getHP()), 500, 40);
+                } else {
+                    deadD_gladiator.setX(d_gladiator.getX()-10);
+                    deadD_gladiator.setY(d_gladiator.getY()+10);
+                    deadD_gladiator.render(gc);
+                    gc.fillText("Dummy", 500,20);
+                    gc.fillText("HP: dead", 500, 40);
+                }
+
                 gc.setFont(Font.font("Tahoma", FontWeight.BOLD, 15));
                 gc.fillText("Player 1", 10,20);
                 gc.fillText("HP: " + String.valueOf(gladiator.getHP()), 10, 40);
                 gc.fillText("Condition: " + String.valueOf(gladiator.getConditioning()), 10, 60);
-                gc.fillText("Dummy", 500,20);
-                gc.fillText("HP: " + String.valueOf(d_gladiator.getHP()), 500, 40);
+
             }
         }.start();
 
@@ -1035,8 +1051,8 @@ public class GameController extends Application {
                     System.out.println(currentHex.isContainingObject());
                 }
                 if (keyEvent.getCode().toString().equals("W")) {
-                    //gladiator.setY(currentY - movement );
-                    gladiator.setOrientation("N");
+                    //gladiator.setOrientation("N");
+
                 }
                 if (keyEvent.getCode().toString().equals("S")) {
                     //gladiator.setY(currentY + movement );
