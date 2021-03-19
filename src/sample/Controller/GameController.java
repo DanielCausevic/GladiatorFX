@@ -943,6 +943,7 @@ public class GameController extends Application {
 //----------------------------------------------------------------------------------------------------------------------
 
 
+
         // Scene with root group = primary place to hold objects on.
         Group root = new Group(buttonLeft, buttonRight, buttonDir,
                 buttonAttackLeft, buttonDefendLeft, buttonNothingLeft,
@@ -1006,6 +1007,7 @@ public class GameController extends Application {
             }
         }.start();
 
+/*
         // Example of gladiator re-orientation and rendering
         int movement = 2;
         scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
@@ -1032,11 +1034,13 @@ public class GameController extends Application {
                     gladiator.setOrientation("S");
                 }
             }
-        });
 
+        });
+ */
 
 
         stage.show();
+
     }
 
     // Kører programmet
