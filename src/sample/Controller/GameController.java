@@ -970,7 +970,7 @@ public class GameController extends Application {
         d_gladiator.setY(dummyHex.getY());
 
         //Dead dummy gladiator
-        Image deadDummy = new Image("sample/resources/glad_down.gif");
+        Image deadDummy = new Image("sample/resources/glad_down.png",55,55,false,false);
         Gladiator deadD_gladiator = new Gladiator(deadDummy, deadDummy, deadDummy, deadDummy, 30, 48, new Point(0, 0));
 
         // Gladiator graphics and position
