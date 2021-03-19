@@ -1015,7 +1015,7 @@ public class GameController extends Application {
                     deadD_gladiator.setY(d_gladiator.getY()+10);
                     deadD_gladiator.render(gc);
                     gc.fillText("Dummy", 500,20);
-                    gc.fillText("HP: dead", 500, 40);
+                    gc.fillText("HP: 0" , 500, 40);
                 }
 
                 gc.setFont(Font.font("Tahoma", FontWeight.BOLD, 15));
@@ -1078,7 +1078,7 @@ public class GameController extends Application {
                 }
                 if (keyEvent.getCode().toString().equals("W")) {
                     //gladiator.setOrientation("N");
-
+                    gladiator.setOrientation("N");
                 }
                 if (keyEvent.getCode().toString().equals("S")) {
                     //gladiator.setY(currentY + movement );

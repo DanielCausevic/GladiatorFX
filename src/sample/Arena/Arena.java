@@ -98,6 +98,24 @@ public class Arena {
         }
         return adjacentPoints;
     }
+
+    public HashMap<String, Point> getAdjacentWest(Point gladiatorPosition){
+        HashMap<String, Point> adjacentPoints = new HashMap<>(); //HashMap(K,V)
+        Point pos;
+        try{
+            pos = new Point(gladiatorPosition.getX() - 64,gladiatorPosition.getY());
+            adjacentPoints.put("west", pos);
+            //print 2d array
+            for (int i = 0; i < arena.length; i++)
+                // Loop through all elements of current row
+                for (int j = 0; j < arena[i].length; j++)
+                    System.out.print(arena[i][j] + " ");
+            System.out.println("hashmap key pos: x="+adjacentPoints.get("west").getX()+ " y=" +adjacentPoints.get("west").getY());
+        } catch (ArrayIndexOutOfBoundsException ex){
+            ex.printStackTrace();
+        }
+        return adjacentPoints;
+    }
 /*
     public ArrayList<Point> getFieldOfView(Point gladiatorPosition, int direction) {
       ArrayList<Point> fieldOfView = new ArrayList<>();
