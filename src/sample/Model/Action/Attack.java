@@ -25,9 +25,10 @@ public class Attack extends Action{
         }
     }
 
-    public void hitAttack(Gladiator gladiator, Gladiator opponent){
+    public int hitAttack(Gladiator gladiator, Gladiator opponent){
+        int damage = 0;
         if(!opponent.isDead()) {
-            int damage = (int) Math.ceil(gladiator.getMainHand().calculateHits(gladiator) * ((double) gladiator.getConditioning() / 100));
+            damage = (int) Math.ceil(gladiator.getMainHand().calculateHits(gladiator) * ((double) gladiator.getConditioning() / 100));
             //if shield is used, the armor of the shield is reduced
             //halvdelen af skaden er fordelt på gladiatoren og ens armor
             int currentHP = opponent.getHP();
@@ -37,6 +38,7 @@ public class Attack extends Action{
         if(opponent.getHP() <= 0){
             opponent.setDead(true);
         }
+        return damage;
     }
 
     public void TreforkNetAttack(Gladiator gladiator, Gladiator opponent){

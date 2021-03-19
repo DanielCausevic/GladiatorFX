@@ -21,6 +21,15 @@ public class Gladiator extends Sprite {
     Armor legArmor;
     String weightClass = "";
     boolean dead = false;
+    int counter = 0;
+
+    public int getCounter() {
+        return counter;
+    }
+
+    public void setCounter(int counter) {
+        this.counter = counter;
+    }
 
     // Attributes for rotating
     private String orientation;

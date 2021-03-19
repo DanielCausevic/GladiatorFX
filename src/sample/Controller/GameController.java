@@ -948,11 +948,11 @@ public class GameController extends Application {
                 buttonHead, buttonBody, buttonLeg,
                 buttonRotateNW, buttonRotateSE, buttonRotateNE, buttonRotateSW, buttonRotateE, buttonRotateW,
                 buttonNE, buttonE, buttonSE, buttonSW, buttonW, buttonNW);
-        Scene scene = new Scene(root, 630,700);
+        Scene scene = new Scene(root, 900,700);
         stage.setScene(scene);
 
         // Canvas = Primary place in root group to paint on.
-        Canvas canvas = new Canvas(650, 500);
+        Canvas canvas = new Canvas(900, 700);
 
         root.getChildren().add(canvas);
 
@@ -967,7 +967,7 @@ public class GameController extends Application {
         Gladiator d_gladiator = new Gladiator(dummy, dummy, dummy, dummy, 30, 48, new Point(0, 0));
         Hex dummyHex = arena.getArena()[5][4]; // NOT actual Point position coordinates, but 2D array indexes
         d_gladiator.setX(dummyHex.getX());
-        d_gladiator.setY(dummyHex.getY());
+        d_gladiator.setY(dummyHex.getY()-8);
 
         //Dead dummy gladiator
         Image deadDummy = new Image("sample/resources/glad_down.png",55,55,false,false);
@@ -1014,7 +1014,7 @@ public class GameController extends Application {
                     gc.fillText("HP: " + String.valueOf(d_gladiator.getHP()), 500, 40);
                 } else {
                     deadD_gladiator.setX(d_gladiator.getX()-12);
-                    deadD_gladiator.setY(d_gladiator.getY()-14);
+                    deadD_gladiator.setY(d_gladiator.getY());
                     deadD_gladiator.render(gc);
                     gc.fillText("Dummy", 500,20);
                     gc.fillText("HP: 0" , 500, 40);
@@ -1052,6 +1052,7 @@ public class GameController extends Application {
 
         Weapon longSword2H = new Weapon("Long sword - 2H", 60, 15.0);
         Attack attack = new Attack(2,2);
+
 
         scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
@@ -1151,10 +1152,15 @@ public class GameController extends Application {
                     Hex currentHex = arena.getArena()[calculateCurrentHexCoordX][calculateCurrentHexCoordY];
                     currentHex.setHolds(gladiator);
                 }
+
                 if (keyEvent.getCode().toString().equals("P")){
                     gladiator.addWeaponToMain(longSword2H);
-                    attack.hitAttack(gladiator, d_gladiator);
-                    System.out.println(gladiator.getHP());
+                    int damage = attack.hitAttack(gladiator, d_gladiator);
+                    if (!d_gladiator.isDead()) {
+                        gc.fillText("Player attacked dummy for " + damage , 600, 100+(gladiator.getCounter()*15));
+                        gladiator.setCounter(gladiator.getCounter()+1);
+                    }
+
                 }
             }
         });
