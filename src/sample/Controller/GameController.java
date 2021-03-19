@@ -19,6 +19,8 @@ import sample.Arena.Arena;
 import sample.Arena.Hex;
 import sample.Arena.Point;
 import sample.Model.Gladiator.Gladiator;
+
+import java.util.Arrays;
 import java.util.HashMap;
 
 /**
@@ -331,7 +333,6 @@ public class GameController extends Application {
                     buttonAttackRight.setVisible(false);
                     buttonDefendRight.setVisible(false);
                     buttonNothingRight.setVisible(false);
-
                     buttonStab.setPrefSize(151, 75);
                     buttonSlash.setPrefSize(151, 75);
                     buttonStab.setTranslateX(30);
@@ -339,9 +340,7 @@ public class GameController extends Application {
                     buttonSlash.setTranslateX(30);
                     buttonSlash.setTranslateY(575);
 
-
               /* } else if (gladiator.getWeapon == trident) {
-
 
                 buttonStab.setVisible(true);
                 buttonSlash.setVisible(true);
@@ -473,9 +472,6 @@ public class GameController extends Application {
                 buttonSlash.setTranslateY(575);
 
                /* } else if (gladiator.getWeapon == trident) {
-
-
-
                     buttonStab.setVisible(true);
                     buttonSlash.setVisible(true);
                     buttonThrow.setVisible(true);
@@ -483,12 +479,10 @@ public class GameController extends Application {
                     buttonAttackLeft.setVisible(false);
                     buttonDefendLeft.setVisible(false);
                     buttonNothingLeft.setVisible(false);
-
                     buttonStab.setPrefSize(75, 75);
                     buttonSlash.setPrefSize(75, 75);
                     buttonThrow.setPrefSize(75, 75);
                     buttonPull.setPrefSize(75, 75);
-
                     buttonStab.setTranslateX(450);
                     buttonStab.setTranslateY(500);
                     buttonSlash.setTranslateX(525);
@@ -498,7 +492,6 @@ public class GameController extends Application {
                     buttonPull.setTranslateX(525);
                     buttonPull.setTranslateY(575);
                }
-
                  */
             }
         });
@@ -875,7 +868,7 @@ public class GameController extends Application {
         buttonSE.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                //insert MoveSE Method
+                //gladiator.move("SE"
                 //Make all buttons not visible
                 buttonNE.setVisible(false);
                 buttonE.setVisible(false);
@@ -943,7 +936,6 @@ public class GameController extends Application {
 //----------------------------------------------------------------------------------------------------------------------
 
 
-
         // Scene with root group = primary place to hold objects on.
         Group root = new Group(buttonLeft, buttonRight, buttonDir,
                 buttonAttackLeft, buttonDefendLeft, buttonNothingLeft,
@@ -969,8 +961,8 @@ public class GameController extends Application {
 
         //Dummy gladiator graphics and position
         Image dummy = new Image("sample/resources/glad_n.gif");
-        Gladiator d_gladiator = new Gladiator(dummy, 30, 48, new Point(0, 0));
-        Hex dummyHex = arena.getArena()[5][5]; // Top left most hex
+        Gladiator d_gladiator = new Gladiator(dummy, dummy, dummy, dummy, 30, 48, new Point(0, 0));
+        Hex dummyHex = arena.getArena()[5][4]; // NOT actual Point position coordinates, but 2D array indexes
         d_gladiator.setX(dummyHex.getX());
         d_gladiator.setY(dummyHex.getY());
 
@@ -981,9 +973,14 @@ public class GameController extends Application {
         Image westOrient = new Image("sample/resources/glad_w.gif");
         Gladiator gladiator = new Gladiator(northOrient, westOrient, southOrient, eastOrient, 30, 48, new Point(0, 0));
 
-        Hex gladHex = arena.getArena()[2][2]; // Top left most hex
-        gladiator.setX(gladHex.getX());
-        gladiator.setY(gladHex.getY());
+        //gladiator start position
+        Hex gladHex = arena.getArena()[0][2]; // gladiator start pos
+        arena.getArena()[0][2].setHolds(gladiator); //set start hex to hold gladiator
+        System.out.println(arena.getArena()[0][2].isContainingObject()); //false, dont know why
+        //gladHex.setHolds(gladiator);
+        gladiator.setX(gladHex.getX()); //set x for
+        gladiator.setY(gladHex.getY()); //set x for
+        gladiator.setPosition((int)gladHex.getX(),(int) gladHex.getY()); //set gladiator point
 
         // Main rendering loop, insert graphics here:
         // Renders constantly - so all data position updates to objects (weapons etc) should only be done once pr round
@@ -1002,45 +999,53 @@ public class GameController extends Application {
                 gladiator.render(gc);
                 d_gladiator.render(gc);
                 gc.setFont(Font.font("Tahoma", FontWeight.BOLD, 15));
-                gc.fillText("HP: " + String.valueOf(gladiator.getHP()), 10, 20);
-                gc.fillText("Condition: " + String.valueOf(gladiator.getConditioning()), 10, 40);
+                gc.fillText("Player 1", 10,20);
+                gc.fillText("HP: " + String.valueOf(gladiator.getHP()), 10, 40);
+                gc.fillText("Condition: " + String.valueOf(gladiator.getConditioning()), 10, 60);
+                gc.fillText("Dummy", 500,20);
+                gc.fillText("HP: " + String.valueOf(d_gladiator.getHP()), 500, 40);
             }
         }.start();
 
-/*
         // Example of gladiator re-orientation and rendering
-        int movement = 2;
+        //int movement = 2;
         scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent keyEvent) {
                 double currentX = gladiator.getX();
                 double currentY = gladiator.getY();
 
-                if (keyEvent.getCode().toString().equals("LEFT")) {
-                    gladiator.setX(currentX - movement);
+                if (keyEvent.getCode().toString().equals("A")) {
+                    //gladiator.setX(currentX - movement);
                     gladiator.setOrientation("W");
                 }
-                if (keyEvent.getCode().toString().equals("RIGHT")) {
-                    gladiator.setX(currentX + movement);
+                if (keyEvent.getCode().toString().equals("D")) {
+                    //gladiator.setX(currentX + movement);
                     gladiator.setOrientation("E");
+                    gladiator.move(2, arena.getAdjacent(gladiator.getPosition()));
+                    //move gladiator sprite //TODO: moves gladiator with x,y coodinates (pixels) not from hex to hex
+                    gladiator.setX(gladiator.getPosition().getX()); //set x for sprite pixel coordinate
+                    gladiator.setY(gladiator.getPosition().getY()); //set y for sprite pixel coordinate
 
+                    //calculate the hex coordinates to check if hex is containing gladiator
+                    int calculateCurrentHexCoordX = (gladiator.getPosition().getX() - 146) / 64;
+                    int calculateCurrentHexCoordY = (gladiator.getPosition().getY() - 196) / 64;
+                    Hex currentHex = arena.getArena()[calculateCurrentHexCoordX][calculateCurrentHexCoordY];
+                    currentHex.setHolds(gladiator);
+                    System.out.println(currentHex.isContainingObject());
                 }
-                if (keyEvent.getCode().toString().equals("UP")) {
-                    gladiator.setY(currentY - movement );
+                if (keyEvent.getCode().toString().equals("W")) {
+                    //gladiator.setY(currentY - movement );
                     gladiator.setOrientation("N");
                 }
-                if (keyEvent.getCode().toString().equals("DOWN")) {
-                    gladiator.setY(currentY + movement );
+                if (keyEvent.getCode().toString().equals("S")) {
+                    //gladiator.setY(currentY + movement );
                     gladiator.setOrientation("S");
                 }
             }
-
         });
- */
-
 
         stage.show();
-
     }
 
     // Kører programmet

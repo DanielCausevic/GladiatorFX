@@ -26,6 +26,7 @@ public class Arena {
     }
 
     //Creates double width hexagonal grid
+    //TODO: check om man kan sætte null hexes omkring arena'en, så man kan tjekke efter om et hex er null
     public void initArena(double startX, double startY){
         double hexSize = 64;
         double xCounter;
@@ -67,7 +68,9 @@ public class Arena {
 
     //Creates and returns a list with all the adjacent hexes to a position
     public HashMap<String, Point> getAdjacent(Point gladiatorPosition){
-        HashMap<String, Point> adjacentPoints = new HashMap<>();
+        HashMap<String, Point> adjacentPoints = new HashMap<>(); //HashMap(K,V)
+        Point pos;
+        try{/*
             if (arena[gladiatorPosition.getX() - 2][gladiatorPosition.getY()] != null)
                 adjacentPoints.put("west", arena[gladiatorPosition.getX() - 2][gladiatorPosition.getY()].getPosition());
             if (arena[gladiatorPosition.getX() + 2][gladiatorPosition.getY()] != null)
@@ -80,6 +83,19 @@ public class Arena {
                 adjacentPoints.put("northEast", arena[gladiatorPosition.getX() + 1][gladiatorPosition.getY() - 1].getPosition());
             if (arena[gladiatorPosition.getX() + 1][gladiatorPosition.getY() + 1] != null)
                 adjacentPoints.put("southEast", arena[gladiatorPosition.getX() + 1][gladiatorPosition.getY() + 1].getPosition());
+               */
+
+                pos = new Point(gladiatorPosition.getX() + 64,gladiatorPosition.getY());
+                adjacentPoints.put("east", pos);
+                //print 2d array
+            for (int i = 0; i < arena.length; i++)
+                // Loop through all elements of current row
+                for (int j = 0; j < arena[i].length; j++)
+                    System.out.print(arena[i][j] + " ");
+            System.out.println("hashmap key pos: x="+adjacentPoints.get("east").getX()+ " y=" +adjacentPoints.get("east").getY());
+        } catch (ArrayIndexOutOfBoundsException ex){
+            ex.printStackTrace();
+        }
         return adjacentPoints;
     }
 /*

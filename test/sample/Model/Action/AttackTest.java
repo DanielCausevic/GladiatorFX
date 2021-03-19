@@ -33,6 +33,7 @@ class AttackTest {
         opponent.addWeaponToMain(shortSword1H);
     }
 
+    /*
     @Test
     void hitAttack() {
         //act
@@ -46,6 +47,8 @@ class AttackTest {
 
     }
 
+     */
+  /*
     @Test
     void testCondition(){
         //act
