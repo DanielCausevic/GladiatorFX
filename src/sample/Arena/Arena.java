@@ -100,7 +100,7 @@ public class Arena {
                 adjacentPoints.put("northWest", pos);
             }
             if(arena[calculateCurrentHexCoordX][calculateCurrentHexCoordY].getPosition() != null){
-                pos = new Point(gladiatorPosition.getX() - 64,gladiatorPosition.getY());
+                pos = new Point(gladiatorPosition.getX() - 32,gladiatorPosition.getY() + 48);
                 adjacentPoints.put("southWest", pos);
             }
             if(arena[calculateCurrentHexCoordX][calculateCurrentHexCoordY].getPosition() != null){
@@ -108,17 +108,9 @@ public class Arena {
                 adjacentPoints.put("northEast", pos);
             }
             if(arena[calculateCurrentHexCoordX][calculateCurrentHexCoordY].getPosition() != null){
-                pos = new Point(gladiatorPosition.getX() - 64,gladiatorPosition.getY());
+                pos = new Point(gladiatorPosition.getX() + 32,gladiatorPosition.getY() + 48);
                 adjacentPoints.put("southEast", pos);
             }
-            //print 2d array
-            for (int i = 0; i < arena.length; i++)
-                // Loop through all elements of current row
-                for (int j = 0; j < arena[i].length; j++)
-                    System.out.print(arena[i][j] + " ");
-
-            System.out.println("hashmap key pos: x="+adjacentPoints.get("east").getX()+ " y=" +adjacentPoints.get("east").getY());
-
         } catch (ArrayIndexOutOfBoundsException ex){
             //ex.printStackTrace();
         }

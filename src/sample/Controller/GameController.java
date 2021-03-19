@@ -978,7 +978,7 @@ public class GameController extends Application {
         Image eastOrient = new Image("sample/resources/glad_e.gif");
         Image southOrient = new Image("sample/resources/glad_s.gif");
         Image westOrient = new Image("sample/resources/glad_w.gif");
-        Gladiator gladiator = new Gladiator(northOrient, westOrient, southOrient, eastOrient, 30, 64, new Point(0, 0));
+        Gladiator gladiator = new Gladiator(northOrient, westOrient, southOrient, eastOrient, 30, 48, new Point(0, 0));
 
         //gladiator start position
 
@@ -1058,6 +1058,8 @@ public class GameController extends Application {
             public void handle(KeyEvent keyEvent) {
                 double currentX = gladiator.getX();
                 double currentY = gladiator.getY();
+                int calculateCurrentHexCoordX;
+                int calculateCurrentHexCoordY;
 
                 if (keyEvent.getCode().toString().equals("A")) {
                     //gladiator.setX(currentX - movement);
@@ -1067,8 +1069,9 @@ public class GameController extends Application {
                     gladiator.setX(gladiator.getPosition().getX()); //set x for sprite pixel coordinate
                     gladiator.setY(gladiator.getPosition().getY()); //set y for sprite pixel coordinate
 
-                    int calculateCurrentHexCoordX = (gladiator.getPosition().getX() - 146) / 64;
-                    int calculateCurrentHexCoordY = (gladiator.getPosition().getY() - 196) / 64;
+                    //calculate the hex coordinates to check if hex is containing gladiator
+                    calculateCurrentHexCoordX = (gladiator.getPosition().getX() - 146) / 64;
+                    calculateCurrentHexCoordY = (gladiator.getPosition().getY() - 196) / 64;
                     Hex currentHex = arena.getArena()[calculateCurrentHexCoordX][calculateCurrentHexCoordY];
                     currentHex.setHolds(gladiator);
                 }
@@ -1079,18 +1082,16 @@ public class GameController extends Application {
                     //move gladiator sprite
                     gladiator.setX(gladiator.getPosition().getX()); //set x for sprite pixel coordinate
                     gladiator.setY(gladiator.getPosition().getY()); //set y for sprite pixel coordinate
-                    //System.out.println("Get x max coordinate: "+arena.getMaxX(arena.getArena()));
-
                     //calculate the hex coordinates to check if hex is containing gladiator
-                    int calculateCurrentHexCoordX = (gladiator.getPosition().getX() - 146) / 64;
-                    int calculateCurrentHexCoordY = (gladiator.getPosition().getY() - 196) / 64;
+                    calculateCurrentHexCoordX = (gladiator.getPosition().getX() - 146) / 64;
+                    calculateCurrentHexCoordY = (gladiator.getPosition().getY() - 196) / 64;
                     Hex currentHex = arena.getArena()[calculateCurrentHexCoordX][calculateCurrentHexCoordY];
                     currentHex.setHolds(gladiator);
-                    //System.out.println(currentHex.isContainingObject());
+
                 }
                 if (keyEvent.getCode().toString().equals("W")) {
                     //gladiator.setOrientation("N");
-                    gladiator.setOrientation("N");
+                    gladiator.setOrientation("NW");
                     gladiator.move(6, arena.getAdjacent(gladiator.getPosition()));
                     //move gladiator sprite
                     gladiator.setX(gladiator.getPosition().getX()); //set x for sprite pixel coordinate
@@ -1098,14 +1099,57 @@ public class GameController extends Application {
                     //System.out.println("Get x max coordinate: "+arena.getMaxX(arena.getArena()));
 
                     //calculate the hex coordinates to check if hex is containing gladiator
-                    int calculateCurrentHexCoordX = (gladiator.getPosition().getX() - 146) / 64;
-                    int calculateCurrentHexCoordY = (gladiator.getPosition().getY() - 196) / 64;
+                    calculateCurrentHexCoordX = (gladiator.getPosition().getX() - 146) / 64;
+                    calculateCurrentHexCoordY = (gladiator.getPosition().getY() - 196) / 64;
                     Hex currentHex = arena.getArena()[calculateCurrentHexCoordX][calculateCurrentHexCoordY];
                     currentHex.setHolds(gladiator);
                 }
                 if (keyEvent.getCode().toString().equals("S")) {
                     //gladiator.setY(currentY + movement );
+                    gladiator.setOrientation("NE");
+
+                    gladiator.move(1, arena.getAdjacent(gladiator.getPosition()));
+                    //move gladiator sprite
+                    gladiator.setX(gladiator.getPosition().getX()); //set x for sprite pixel coordinate
+                    gladiator.setY(gladiator.getPosition().getY()); //set y for sprite pixel coordinate
+                    //System.out.println("Get x max coordinate: "+arena.getMaxX(arena.getArena()));
+
+                    //calculate the hex coordinates to check if hex is containing gladiator
+                    calculateCurrentHexCoordX = (gladiator.getPosition().getX() - 146) / 64;
+                    calculateCurrentHexCoordY = (gladiator.getPosition().getY() - 196) / 64;
+                    Hex currentHex = arena.getArena()[calculateCurrentHexCoordX][calculateCurrentHexCoordY];
+                    currentHex.setHolds(gladiator);
+                }
+                if (keyEvent.getCode().toString().equals("X")) {
+                    //gladiator.setY(currentY + movement );
                     gladiator.setOrientation("S");
+
+                    gladiator.move(3, arena.getAdjacent(gladiator.getPosition()));
+                    //move gladiator sprite
+                    gladiator.setX(gladiator.getPosition().getX()); //set x for sprite pixel coordinate
+                    gladiator.setY(gladiator.getPosition().getY()); //set y for sprite pixel coordinate
+                    //System.out.println("Get x max coordinate: "+arena.getMaxX(arena.getArena()));
+
+                    //calculate the hex coordinates to check if hex is containing gladiator
+                    calculateCurrentHexCoordX = (gladiator.getPosition().getX() - 146) / 64;
+                    calculateCurrentHexCoordY = (gladiator.getPosition().getY() - 196) / 64;
+                    Hex currentHex = arena.getArena()[calculateCurrentHexCoordX][calculateCurrentHexCoordY];
+                    currentHex.setHolds(gladiator);
+                }
+                if (keyEvent.getCode().toString().equals("Z")) {
+                    //gladiator.setY(currentY + movement );
+
+                    gladiator.move(4, arena.getAdjacent(gladiator.getPosition()));
+                    //move gladiator sprite
+                    gladiator.setX(gladiator.getPosition().getX()); //set x for sprite pixel coordinate
+                    gladiator.setY(gladiator.getPosition().getY()); //set y for sprite pixel coordinate
+                    //System.out.println("Get x max coordinate: "+arena.getMaxX(arena.getArena()));
+
+                    //calculate the hex coordinates to check if hex is containing gladiator
+                    calculateCurrentHexCoordX = (gladiator.getPosition().getX() - 146) / 64;
+                    calculateCurrentHexCoordY = (gladiator.getPosition().getY() - 196) / 64;
+                    Hex currentHex = arena.getArena()[calculateCurrentHexCoordX][calculateCurrentHexCoordY];
+                    currentHex.setHolds(gladiator);
                 }
                 if (keyEvent.getCode().toString().equals("P")){
                     gladiator.addWeaponToMain(longSword2H);
