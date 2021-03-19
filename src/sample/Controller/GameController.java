@@ -967,7 +967,7 @@ public class GameController extends Application {
         Gladiator d_gladiator = new Gladiator(dummy, dummy, dummy, dummy, 30, 48, new Point(0, 0));
         Hex dummyHex = arena.getArena()[5][4]; // NOT actual Point position coordinates, but 2D array indexes
         d_gladiator.setX(dummyHex.getX());
-        d_gladiator.setY(dummyHex.getY()-8);
+        d_gladiator.setY(dummyHex.getY()+7);
 
         //Dead dummy gladiator
         Image deadDummy = new Image("sample/resources/glad_down.png",55,55,false,false);
@@ -1014,7 +1014,7 @@ public class GameController extends Application {
                     gc.fillText("HP: " + String.valueOf(d_gladiator.getHP()), 500, 40);
                 } else {
                     deadD_gladiator.setX(d_gladiator.getX()-12);
-                    deadD_gladiator.setY(d_gladiator.getY());
+                    deadD_gladiator.setY(d_gladiator.getY()+4);
                     deadD_gladiator.render(gc);
                     gc.fillText("Dummy", 500,20);
                     gc.fillText("HP: 0" , 500, 40);
@@ -1159,6 +1159,8 @@ public class GameController extends Application {
                     if (!d_gladiator.isDead()) {
                         gc.fillText("Player attacked dummy for " + damage , 600, 100+(gladiator.getCounter()*15));
                         gladiator.setCounter(gladiator.getCounter()+1);
+                    } else {
+                        gc.fillText("Dummy died", 600, 100+((gladiator.getCounter()+1)*15));
                     }
 
                 }
