@@ -19,6 +19,8 @@ import sample.Arena.Arena;
 import sample.Arena.Hex;
 import sample.Arena.Point;
 import sample.Model.Gladiator.Gladiator;
+
+import java.util.Arrays;
 import java.util.HashMap;
 
 /**
@@ -972,9 +974,15 @@ public class GameController extends Application {
         Image westOrient = new Image("sample/resources/glad_w.gif");
         Gladiator gladiator = new Gladiator(northOrient, westOrient, southOrient, eastOrient, 30, 48, new Point(0, 0));
 
-        Hex gladHex = arena.getArena()[0][0]; // Top left most hex
-        gladiator.setX(gladHex.getX());
-        gladiator.setY(gladHex.getY());
+        //gladiator start position
+        Hex gladHex = arena.getArena()[0][2]; // gladiator start pos
+        arena.getArena()[0][2].setHolds(gladiator); //set start hex to hold gladiator
+        System.out.println(arena.getArena()[0][2].isContainingObject()); //false, dont know why
+        //gladHex.setHolds(gladiator);
+        gladiator.setX(gladHex.getX()); //set x for
+        gladiator.setY(gladHex.getY()); //set x for
+        gladiator.setPosition((int)gladHex.getX(),(int) gladHex.getY()); //set gladiator point
+
 
         // Main rendering loop, insert graphics here:
         // Renders constantly - so all data position updates to objects (weapons etc) should only be done once pr round
@@ -998,7 +1006,7 @@ public class GameController extends Application {
         }.start();
 
         // Example of gladiator re-orientation and rendering
-        int movement = 2;
+        //int movement = 2;
         scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent keyEvent) {
@@ -1006,20 +1014,30 @@ public class GameController extends Application {
                 double currentY = gladiator.getY();
 
                 if (keyEvent.getCode().toString().equals("A")) {
-                    gladiator.setX(currentX - movement);
+                    //gladiator.setX(currentX - movement);
                     gladiator.setOrientation("W");
                 }
                 if (keyEvent.getCode().toString().equals("D")) {
-                    gladiator.setX(currentX + movement);
+                    //gladiator.setX(currentX + movement);
                     gladiator.setOrientation("E");
+                    gladiator.move(2, arena.getAdjacent(gladiator.getPosition()));
+                    //move gladiator sprite //TODO: moves gladiator with x,y coodinates (pixels) not from hex to hex
+                    gladiator.setX(gladiator.getPosition().getX()); //set x for sprite pixel coordinate
+                    gladiator.setY(gladiator.getPosition().getY()); //set y for sprite pixel coordinate
 
+                    //calculate the hex coordinates to check if hex is containing gladiator
+                    int calculateCurrentHexCoordX = (gladiator.getPosition().getX() - 146) / 64;
+                    int calculateCurrentHexCoordY = (gladiator.getPosition().getY() - 196) / 64;
+                    Hex currentHex = arena.getArena()[calculateCurrentHexCoordX][calculateCurrentHexCoordY];
+                    currentHex.setHolds(gladiator);
+                    System.out.println(currentHex.isContainingObject());
                 }
                 if (keyEvent.getCode().toString().equals("W")) {
-                    gladiator.setY(currentY - movement );
+                    //gladiator.setY(currentY - movement );
                     gladiator.setOrientation("N");
                 }
                 if (keyEvent.getCode().toString().equals("S")) {
-                    gladiator.setY(currentY + movement );
+                    //gladiator.setY(currentY + movement );
                     gladiator.setOrientation("S");
                 }
             }
