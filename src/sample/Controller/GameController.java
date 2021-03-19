@@ -1011,8 +1011,8 @@ public class GameController extends Application {
                     gc.fillText("Dummy", 500,20);
                     gc.fillText("HP: " + String.valueOf(d_gladiator.getHP()), 500, 40);
                 } else {
-                    deadD_gladiator.setX(d_gladiator.getX()-10);
-                    deadD_gladiator.setY(d_gladiator.getY()+10);
+                    deadD_gladiator.setX(d_gladiator.getX()-12);
+                    deadD_gladiator.setY(d_gladiator.getY()-14);
                     deadD_gladiator.render(gc);
                     gc.fillText("Dummy", 500,20);
                     gc.fillText("HP: 0" , 500, 40);
